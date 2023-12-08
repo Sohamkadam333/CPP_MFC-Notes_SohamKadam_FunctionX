@@ -1,0 +1,666 @@
+
+<!-- saved from url=(0056)https://www.functionx.com/visualc/controls/animation.htm -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+<meta name="Keywords" content="">
+<meta name="Description" content=".">
+
+<link rel="stylesheet" type="text/css" href="./Windows Controls_ The Animation Control_files/Lessons.css">
+
+<title>Windows Controls: The Animation Control</title>
+<style type="text/css">
+
+
+.redcode {
+	font-family: "Courier New", Courier, monospace;
+  	color:       red;
+  	font-size:   10pt
+}
+
+</style>
+</head>
+
+<body data-new-gr-c-s-check-loaded="14.1145.0" data-gr-ext-installed="">
+
+<div align="center">
+
+<table border="0" width="900" cellspacing="1" cellpadding="0">
+  <tbody><tr>
+    <td width="738" align="center">
+    
+
+    </td>
+  </tr>
+</tbody></table>
+</div>
+
+&nbsp;
+<div align="center">
+  <table border="0" width="900">
+    <tbody><tr>
+      <td width="680" valign="top" rowspan="2">
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tbody><tr>
+    <td width="10%" valign="middle" align="center"><a href="https://www.functionx.com/visualc/index.htm"><img border="0" src="./Windows Controls_ The Animation Control_files/logo1.gif" alt="Home" width="51" height="60"></a></td>
+    <td width="90%">
+      <p class="maintitle">Windows Controls: The Animation Control</p></td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2" height="2" bgcolor="#CC3300"></td>
+  </tr>
+</tbody></table>
+
+	  <p>&nbsp;</p>
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="paratitle">Introduction to the Animation Control</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #FF0000" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+	  &nbsp;
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="subtitle">Overview</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #0000FF" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+
+<span name="KonaBody">
+
+&nbsp;
+
+<table border="0" width="100%">
+  <tbody><tr>
+    <td>
+          
+<script type="text/javascript"><!--
+google_ad_client = "pub-3968514660870014";
+google_ad_width = 160;
+google_ad_height = 90;
+google_ad_format = "160x90_0ads_al";
+google_ad_type = "text_image";
+google_ad_channel ="";
+google_color_border = "800000";
+google_color_bg = "FFFFFF";
+google_color_link = "0000FF";
+google_color_url = "0000ff";
+google_color_text = "000000";
+//--></script>
+<script type="text/javascript" src="./Windows Controls_ The Animation Control_files/f.txt">
+</script>
+
+    </td>
+    <td>
+
+	<p class="parajust">An animation is a series of pictures put together to 
+	produce a video clip. It can be used to display the evolution of an ongoing 
+	task to the user. This makes such tasks less boring. For example, making a 
+	copy of a CD is usually a long process that can take minutes. To let the 
+	user know when such a task is being performed, you can display an animation.</p>
+
+    </td>
+  </tr>
+</tbody></table>
+
+<p class="parajust">Microsoft Windows provides a few small animations you 
+	  can use for your applications. If you need an animation other than those 
+	  supplied, you may have to create it. Microsoft Visual C++ is not the place 
+	  to create an animation. You may need a graphics software to do this.</p>
+	  <p class="parajust">To use a regular animation, the video must be a 
+	  standard Microsoft Windows audio/video format: Audio Video Interleaved or 
+	  AVI. Therefore, it must be a file with the avi extension. If the file has 
+	  both audio and video, only the video part would be considered. </p>
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="exotitle">
+			  <img alt="Practical Learning" border="0" height="20" src="./Windows Controls_ The Animation Control_files/practical1.gif" width="21">Practical 
+			  Learning: Introducing Animations</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #CC3300" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+	  <ol>
+		  <li>To create a new application, press Ctrl + N</li>
+		  <li>Select MFC Application</li>
+		  <li>Set the Name to <strong>Video1</strong></li>
+		  <li>Click OK</li>
+		  <li>In the first page of the wizard, click Next</li>
+		  <li>In the second page of the wizard, click Dialog Based and click 
+		  Next</li>
+		  <li>In the third page of the wizard, click set the Title to Video 
+		  Animation</li>
+		  <li>Click Finish</li>
+		  <li>Click TODO and press Delete</li>
+		  <li>Click the OK button and press Delete</li>
+		  <li>Change the caption of the Cancel button to <strong>&amp;Close</strong></li>
+	  </ol>
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="subtitle">Getting an Animation Control</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #0000FF" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+	  <p class="parajust">An animation first originates from an avi file created 
+	  by an external application. Therefore, you must already have the video you 
+	  want to play in your application. To provide an animation for your 
+	  application, at design time, from the Toolbox, click the Animation Control
+	  <img alt="Animation" height="27" src="./Windows Controls_ The Animation Control_files/animation1.gif" width="28"> 
+	  and click the desired area on the host.</p>
+	  <p class="parajust">The animator control is based on the <strong>
+	  CAnimatorCtrl</strong> class. Therefore, if you want to programmatically 
+	  create an animation, you must first declare a variable of type, or a 
+	  pointer to, <strong>CAnimationCtrl</strong>. You can do this in the source 
+	  code of the dialog class. After declaring the variable or pointer, to 
+	  initialize the object, call its <strong>Create()</strong> member function. 
+	  Here is an example:</p>
+<pre style="position: relative;">class CControlsDlg : public CDialog
+{
+// Construction
+public:
+    CControlsDlg(CWnd* pParent = NULL); // standard constructor
+    ~CControlsDlg();
+
+    . . .
+
+private:
+    <span class="codered">CAnimateCtrl *Player;</span>
+};
+
+CControlsDlg::CControlsDlg(CWnd* pParent /*=NULL*/)
+	: CDialog(CControlsDlg::IDD, pParent)
+{
+    //{{AFX_DATA_INIT(CControlsDlg)
+    // NOTE: the ClassWizard will add member initialization here
+    //}}AFX_DATA_INIT
+<span class="codered">
+    Player = new CAnimateCtrl;</span>
+}
+
+CControlsDlg::~CControlsDlg()
+{
+    delete Player;
+}
+
+. . .
+
+BOOL CControlsDlg::OnInitDialog() 
+{
+    CDialog::OnInitDialog();
+
+    // TODO: Add extra initialization here
+    RECT Recto = { 5, 5, 360, 360 };
+
+    <span class="codered">Player-&gt;Create(WS_CHILD | WS_VISIBLE,
+		  Recto, this, 0x1884);</span>
+
+    return TRUE; // return TRUE unless you set the focus to a control
+    // EXCEPTION: OCX Property Pages should return FALSE
+}<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="paratitle">Characteristics of the Animation Control</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #FF0000" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+	  &nbsp;
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="subtitle">Opening an Animation</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #0000FF" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+	  <p class="parajust">After creating the control, you must provide a video 
+	  to play. This is done by opening a video file using the <b>
+	  CAnimateCtrl::Open()</b> member function. It is overloaded with two 
+	  versions as follows:</p>
+<pre style="position: relative;">BOOL Open(LPCTSTR lpszFileName);
+BOOL Open(UINT nID);<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <p class="parajust">The first version expects the path of the video file. 
+	  Alternatively, you can first add the file as a resource to your project 
+	  and use its identifier as argument to the second version. Here is an 
+	  example:</p>
+<pre style="position: relative;">BOOL CControlsDlg::OnInitDialog() 
+{
+    CDialog::OnInitDialog();
+
+    // TODO: Add extra initialization here
+    RECT Recto = { 5, 5, 360, 360 };
+
+    Player-&gt;Create(WS_CHILD | WS_VISIBLE | ACS_TRANSPARENT,
+		   Recto, this, 0x1884);
+		   Player-&gt;Open("res\\clock.AVI");
+
+    return TRUE; // return TRUE unless you set the focus to a control
+    // EXCEPTION: OCX Property Pages should return FALSE
+}<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="subtitle">The Transparency of an Animation</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #0000FF" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+	  <p class="parajust">In this case, the center of the video would match the 
+	  center of your rectangle, even though the animation may still not exactly 
+	  match the dimensions of your rectangle.</p>
+	  <p class="parajust">When playing the video, you have the option of 
+	  displaying the original background color of the video or seeing through. 
+	  When creating a video, its author can do it with transparency to allow 
+	  seeing the color of the host. In this case, to display the color of the 
+	  host while the video is playing, set the Transparent property to True. If 
+	  you are creating the control programmatically, add the <strong>
+	  ACS_TRANSPARENT</strong> style:</p>
+<pre style="position: relative;">BOOL CControlsDlg::OnInitDialog() 
+{
+    CDialog::OnInitDialog();
+
+    // TODO: Add extra initialization here
+    RECT Recto = { 5, 5, 360, 360 };
+
+    <span class="codered">Player-&gt;Create(WS_CHILD | WS_VISIBLE |
+    		  ACS_TRANSPARENT | ACS_AUTOPLAY,
+		  Recto, this, 0x1884);</span>
+
+    return TRUE; // return TRUE unless you set the focus to a control
+    // EXCEPTION: OCX Property Pages should return FALSE
+}<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="exotitle">
+			  <img alt="Practical Learning" border="0" height="20" src="./Windows Controls_ The Animation Control_files/practical1.gif" width="21">Practical 
+			  Learning: Show an Animation</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #CC3300" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+	  <ol>
+		  <li>From the Toolbox, click Animation Control</li>
+		  <li>Draw a rectangle from the upper left section of the dialog box to 
+		  the right-middle</li>
+		  <li>In the Properties window, change the following characteristics:<br>
+		  Auto Play: True<br>Center: True<br>Client Edge: False<br>ID: <strong>
+		  IDC_ANIMATOR</strong><br>Transparent: True<br>&nbsp;<br>
+		  <img alt="Video Animation" height="218" src="./Windows Controls_ The Animation Control_files/video1.gif" width="498"></li>
+		  <li>On the dialog box, right-click the animator control and click Add 
+		  Variable</li>
+		  <li>In the Category combo box, make sure Control is selected.<br>In 
+		  the Variable Name, type <strong>m_Animator<br></strong><br>
+		  <img alt="Add Member Variable Wizard" src="./Windows Controls_ The Animation Control_files/amvw2.gif"></li>
+		  <li>Click Finish</li>
+	  </ol>
+
+      </span></td>
+      <td>
+   
+<table border="0" width="100%">
+  <tbody><tr>
+    <td width="100%">
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-3968514660870014";
+google_ad_width = 300;
+google_ad_height = 250;
+google_ad_format = "300x250_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//--></script>
+<script type="text/javascript" src="./Windows Controls_ The Animation Control_files/f.txt">
+</script>
+
+    </td>
+  </tr>
+</tbody></table>
+
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">
+   
+&nbsp;
+        <table border="0" width="100%">
+          <tbody><tr>
+            <td width="100%">
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-3968514660870014";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_type = "text_image";
+google_ad_channel ="";
+google_color_border = "FFFFFF";
+google_color_link = "0000FF";
+google_color_bg = "FFFFFF";
+google_color_text = "000000";
+google_color_url = "008000";
+//--></script>
+<script type="text/javascript" src="./Windows Controls_ The Animation Control_files/f.txt">
+</script>
+
+            </td>
+          </tr>
+        </tbody></table>
+        <table border="0" width="100%">
+          <tbody><tr>
+            <td width="100%"></td>
+          </tr>
+        </tbody></table>
+
+&nbsp;
+
+      </td>
+    </tr>
+  </tbody></table></div>
+
+&nbsp;
+
+<div align="center">
+<table border="0" width="900">
+  <tbody><tr>
+    <td width="680" rowspan="2">
+
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">Playing an Animation</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">If you want the video to start displaying immediately 
+	once its host (the dialog box or form) comes up, set its Auto Play property 
+	to True. If you are dynamically creating the control and you want its video 
+	to play as soon as its parent comes up, add the <strong>ACS_AUTOPLAY</strong> 
+	style:</p>
+	<pre style="position: relative;">BOOL CControlsDlg::OnInitDialog() 
+{
+    CDialog::OnInitDialog();
+
+    // TODO: Add extra initialization here
+    RECT Recto = { 5, 5, 360, 360 };
+
+    <span class="codered">Player-&gt;Create(WS_CHILD | WS_VISIBLE |
+    		  ACS_TRANSPARENT | ACS_AUTOPLAY,
+		  Recto, this, 0x1884);</span>
+
+    return TRUE; // return TRUE unless you set the focus to a control
+    // EXCEPTION: OCX Property Pages should return FALSE
+}<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">As mentioned already, an animation is made of various 
+	pictures. Each picture is called a frame. The number of frames that make up 
+	an animation can influence its length. A video to play as animation is a 
+	file that puts these pictures together. Once you have the video, you can 
+	play it in an animation. If you want the animation to start playing as soon 
+	as its parent window comes up, you can create it with the <b>ACS_AUTOPLAY</b> 
+	style. Otherwise, to play the animation, you can call the <b>
+	CAnimateCtrl::Play()</b> member function. Its syntax is: </p>
+	<pre style="position: relative;">BOOL Play(UINT <i>nFrom</i>, UINT <i>nTo</i>, UINT <i>nRep</i>);<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<ul>
+		<li>The <i>nFrom</i> argument specifies the index number of the first 
+		frame to play. The frames are stored as a zero-based array. The first 
+		frame is 0, the second is 1, etc</li>
+		<li>The <i>nTo</i> argument is the last frame to play from the list of 
+		frames. If you want to play the video to the end, pass this argument 
+		with a value of -1</li>
+		<li>The <i>nRep</i> is the number of times the video should be played 
+		before stopping. If you want the video to play until you explicitly 
+		decide to stop it, pass this argument as -1</li>
+	</ul>
+	<p class="parajust">Suppose you have a long video or one made of various 
+	special pictures, if you want to display just one particular frame of the 
+	video, you can call the <b>CAnimateCtrl::Seek()</b> member function whose 
+	syntax is: </p>
+	<pre style="position: relative;">BOOL Seek(UINT nTo);<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">This member function allows the animation to just 
+	straight to the nTo frame number. </p>
+	<p class="parajust">At any time, you can stop the video playing by calling 
+	the <b>CAnimateCtrl::Stop()</b> member function. Its syntax is: </p>
+	<pre style="position: relative;">BOOL Stop();<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">This member function simply stops the animation. </p>
+	<p class="parajust">If you had added your Animator control at design time to 
+	the dialog box or form or other parent window, when the parent goes out of 
+	scope, it takes the Animator control with it. If you dynamically created the 
+	control, you should make sure that the control is destroyed when its parent 
+	also is. This is usually taken care of with the delete operator as done 
+	above. Furthermore, when it comes to the Animator control, after using it, 
+	to free the memory space it space, you should call the <b>
+	CAnimateCtrl::Close()</b> member function. Its syntax is: </p>
+	<pre style="position: relative;">BOOL Close();<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="exotitle">
+			<img alt="Practical Learning" border="0" height="20" src="./Windows Controls_ The Animation Control_files/practical1.gif" width="21">Practical 
+			Learning: Playing a Video File</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #CC3300" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<ol>
+		<li>From the resources that accompany these lessons, copy the 
+		basketball.avi file and paste it in the video1 sub-folder of the current 
+		project<br>&nbsp;<br>
+		<img alt="Basket Ball" height="122" src="./Windows Controls_ The Animation Control_files/bball1.gif" width="454"></li>
+		<li>In the Solution Explorer, double-click Video1Dlg.cpp</li>
+		<li>In the OnInitDialog() event, load the video with the following line 
+		of code:
+<pre style="position: relative;">BOOL CVideo1Dlg::OnInitDialog()
+{
+    CDialogEx::OnInitDialog();
+
+    // Set the icon for this dialog.  The framework does this automatically
+    //  when the application's main window is not a dialog
+    SetIcon(m_hIcon, TRUE);			// Set big icon
+    SetIcon(m_hIcon, FALSE);		// Set small icon
+
+    // TODO: Add extra initialization here
+    <span class="codered">m_Animator.Open(L"basketball.avi");</span>
+
+    return TRUE;  // return TRUE  unless you set the focus to a control
+}<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+		</li>
+		<li>Display the dialog box</li>
+		<li>On the main menu, click Project -&gt; Class Wizard...</li>
+		<li>In the Class Name combo box, select CVideo1Dlg</li>
+		<li>Click the Messages tab and, in the Messages list, double-click <b>
+		WM_CLOSE</b></li>
+		<li>Click Edit Code</li>
+		<li>To close and destroy the animation when the user closes, implement 
+		the event as follows:
+<pre style="position: relative;">void CVideo1Dlg::OnClose()
+{
+	// TODO: Add your message handler code here and/or call default
+    m_Animator.Stop();
+    m_Animator.Close();
+
+	CDialogEx::OnClose();
+}<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+		</li>
+		<li>To test the application, press F5</li>
+		<li>Return to your programming environment</li>
+		<li>Change the design of the dialog box as follows:<br>&nbsp;
+		<table border="0" width="400">
+			<tbody><tr>
+				<td width="100%">
+				<img alt="Video Animation" border="0" height="218" src="./Windows Controls_ The Animation Control_files/video2.gif" width="498"></td>
+			</tr>
+			<tr>
+				<td width="100%">
+				<table border="1" bordercolor="#C0C0C0" width="100%">
+					<tbody><tr>
+						<td width="50%">Button: ID</td>
+						<td width="50%">Caption</td>
+					</tr>
+					<tr>
+						<td width="50%">IDC_START</td>
+						<td width="50%">Start</td>
+					</tr>
+					<tr>
+						<td width="50%">IDC_STOP</td>
+						<td width="50%">Stop</td>
+					</tr>
+				</tbody></table>
+				</td>
+			</tr>
+		</tbody></table>
+		</li>
+		<li>Double-click the Start button</li>
+		<li>To give the user the ability to start the animation, implement the 
+		event as follows:<br>
+<pre style="position: relative;">void CVideo1Dlg::OnBnClickedStart()
+{
+    m_Animator.Play(0, -1, -1);
+}<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+		</li>
+		<li>Return to the dialog box and double-click the Stop button</li>
+		<li>To allow the user to resume playing the video, implement the event 
+		as follows:
+<pre style="position: relative;">void CVideo1Dlg::OnBnClickedStop()
+{
+    m_Animator.Stop();
+}<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+		</li>
+		<li>To test the application, press F5<br>&nbsp;<br>
+		<img alt="Video Animation" height="219" src="./Windows Controls_ The Animation Control_files/video3.gif" width="499"></li>
+		<li>Close the dialog box and return to your programming environment</li>
+	</ol>
+
+    </td>
+    <td valign="top">
+      <table border="0" width="100%">
+        <tbody><tr>
+          <td width="100%">
+          
+
+
+          </td>
+        </tr>
+      </tbody></table>&nbsp;
+    </td>
+  </tr>
+  <tr>
+    <td style="text-align: center">
+      &nbsp;
+      <table border="0" width="100%">
+        <tbody><tr>
+          <td width="100%" align="center">          </td>
+        </tr>
+      </tbody></table>
+    </td>
+  </tr>
+</tbody></table></div>
+
+&nbsp;
+
+&nbsp;
+
+<div align="center">
+<table border="0" width="900">
+  <tbody><tr>
+    <td width="100%" align="center">
+    
+<script type="text/javascript"><!--
+google_ad_client = "pub-3968514660870014";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_type = "image";
+google_ad_channel ="";
+//--></script>
+<script type="text/javascript" src="./Windows Controls_ The Animation Control_files/f.txt">
+</script>
+
+    </td>
+  </tr>
+</tbody></table>
+</div>
+
+&nbsp;
+
+<div align="center">
+<table border="0" width="900">
+  <tbody><tr>
+    <td colspan="3">
+      <hr color="#FF0000">
+    </td>
+  </tr>
+  <tr>
+    <td style="text-align: center"><a href="https://www.functionx.com/visualc/index.htm">Home</a></td>
+    <td style="text-align: center"><a href="https://www.functionx.com/visualc/index.htm">Copyright © 2010-2016, FunctionX</a></td>
+    <td style="text-align: center">&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="3">
+      <hr color="#FF0000">
+    </td>
+  </tr>
+</tbody></table></div>
+
+<!-- DynamiContext AdLinks  -->
+<script language="JavaScript">
+var dc_UnitID = 14;
+var dc_PublisherID = 2409;
+var dc_AdLinkColor = 'blue';
+var  dc_adprod='ADL';
+</script>
+<script language="JavaScript" src="http://kona.kontera.com/javascript/lib/KonaLibInline.js"></script>
+<!-- DynamiContext AdLinks  -->
+
+
+
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>
