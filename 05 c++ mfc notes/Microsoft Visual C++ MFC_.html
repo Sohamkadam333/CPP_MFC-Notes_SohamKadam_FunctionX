@@ -1,0 +1,1414 @@
+
+<!-- saved from url=(0046)https://www.functionx.com/visualc/Lesson05.htm -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+<meta name="Keywords" content="">
+<meta name="Description" content=".">
+
+<link rel="stylesheet" type="text/css" href="./Microsoft Visual C++ MFC__files/Lessons.css">
+
+<title>Microsoft Visual C++ MFC: </title>
+<style type="text/css">
+
+.redcode {
+	font-family: "Courier New", Courier, monospace;
+  	color:       red;
+  	font-size:   10pt
+}
+
+</style>
+</head>
+
+<body data-new-gr-c-s-check-loaded="14.1145.0" data-gr-ext-installed="">
+
+<div align="center">
+
+<table border="0" width="900" cellspacing="1" cellpadding="0">
+  <tbody><tr>
+    <td width="738" align="center">
+    
+
+    </td>
+  </tr>
+</tbody></table>
+</div>
+
+&nbsp;
+<div align="center">
+  <table border="0" width="900">
+    <tbody><tr>
+      <td width="680" valign="top" rowspan="2">
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tbody><tr>
+    <td width="10%" valign="middle" align="center"><a href="https://www.functionx.com/visualc/index.htm"><img border="0" src="./Microsoft Visual C++ MFC__files/logo1.gif" alt="Home" width="51" height="60"></a></td>
+    <td width="90%">
+      <p class="maintitle">Managing Dialog Boxes</p></td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2" height="2" bgcolor="#CC3300"></td>
+  </tr>
+</tbody></table>
+
+<span name="KonaBody">
+
+&nbsp;
+
+&nbsp;&nbsp;<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="paratitle">Introduction to Messages</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #FF0000" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+	  &nbsp;
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="subtitle">Description</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #0000FF" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+&nbsp;<table border="0" width="100%">
+  <tbody><tr>
+    <td>
+          
+<script type="text/javascript"><!--
+google_ad_client = "pub-3968514660870014";
+google_ad_width = 160;
+google_ad_height = 90;
+google_ad_format = "160x90_0ads_al";
+google_ad_type = "text_image";
+google_ad_channel ="";
+google_color_border = "800000";
+google_color_bg = "FFFFFF";
+google_color_link = "0000FF";
+google_color_url = "0000ff";
+google_color_text = "000000";
+//--></script>
+<script type="text/javascript" src="./Microsoft Visual C++ MFC__files/f.txt">
+</script>
+
+    </td>
+    <td>
+
+	<p class="parajust">Some of your applications will be made of various 
+	objects. Most of the time, more than one application is running on the 
+	computer. These two scenarios mean that the operating system is constantly 
+	asked to perform some assignments. Because there can be so many requests 
+	presented unpredictably, the operating system leaves it up to the objects to 
+	specify what they want, when they want something, and what behavior or 
+	result they expect.</p>
+
+    </td>
+  </tr>
+</tbody></table>
+
+	  <p class="parajust">The Microsoft Windows operating system cannot predict 
+	  what kinds of requests one object&nbsp;would need to be taken care of and what 
+	  type of assignment another object would need. To manage all these 
+	  assignments and requests, the objects send messages, one message at a 
+	  time, to the operating system. For this reason, Microsoft Windows is said 
+	  to be a message-driven operating system.</p>
+	  <p class="parajust">The messages are divided in various categories but as 
+	  mentioned already, each object has the responsibility to decide what 
+	  message to send and when. Therefore, most of the messages we will review 
+	  here are part of a general window. Particular messages will be addressed 
+	  when necessary.</p>
+	  <p class="parajust">Once an object has composed a message, it must send it 
+	  to the right target, which could be the operating system. Composing and 
+	  sending a message is referred to as an event. The object is also said to 
+	  fire an event. To make a distinction between a message and an event, a 
+	  message's name usually starts with <strong>WM_</strong> which stands for
+	  <strong>W</strong>indow <strong>M</strong>essage. The name of an event 
+	  usually starts with <strong>On</strong> which indicates an action. 
+	  Remember, the message is what needs to be sent. The event is the action of 
+	  sending the message.</p>
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="exotitle">
+			  <img alt="Practical Learning" border="0" height="20" src="./Microsoft Visual C++ MFC__files/practical1.gif" width="21">Practical 
+			  Learning: Introducing Messages</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #CC3300" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+	  <ol>
+		  <li>Start Microsoft Visual Studio</li>
+		  <li>To create a new Application, on the Start Page, click New 
+		  Project...</li>
+		  <li>In the left list, click Visual C++ and, in the right list, click 
+		  Win32 Project</li>
+		  <li>Set the Name to <strong>CruisePreparation4</strong></li>
+		  <li>Click OK</li>
+		  <li>In the first page of the wizard, click Next</li>
+		  <li>In the second page, click Windows Application and click Empty 
+		  Project</li>
+		  <li>Click Finish</li>
+		  <li>On the main menu, click Project -&gt; Properties...</li>
+		  <li>In the left list, click Configuration Properties.<br>In the right 
+		  list, change Use of MFC to Use MFC in a Shared DLL</li>
+		  <li>Click OK</li>
+		  <li>To create a dialog box, in the Resource View, right-click 
+		  CruisePreparation4<strong> </strong>-&gt; Add -&gt; Resource...</li>
+		  <li>In the Add Resource dialog box, click Dialog</li>
+		  <li>Click New</li>
+		  <li>Right-click the middle of the dialog box and click Properties</li>
+		  <li>In the Properties window, click ID, type <b>IDD_PREPARATION_DLG</b> 
+		  and press Enter</li>
+		  <li>Click Caption and type <strong>Cruise Preparation</strong></li>
+		  <li>To create a class, on the main menu, click Project -&gt; Add Class...</li>
+		  <li>Make sure C++ Class is selected and click Add</li>
+		  <li>In the Class Name text box, type <strong>CPreparationDlg</strong></li>
+		  <li>In the Base Class, type <strong>CDialog</strong></li>
+		  <li>Click Finish</li>
+		  <li>Read the message and click Yes</li>
+		  <li>Complete the PreparationDlg.h header file as follows:
+	<pre style="position: relative;">#pragma once
+
+<span class="codered">#include "afxwin.h"
+#include "resource.h"</span>
+
+class CPreparationDlg :	public CDialog
+{
+public:
+	<span class="codered">enum { IDD = IDD_PREPARATION_DLG };</span>
+
+	CPreparationDlg(void);
+	~CPreparationDlg(void);
+};<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+		  </li>
+		  <li>Access the PreparationDlg.cpp source file and change it as 
+		  follows:
+	<pre style="position: relative;">#include "PreparationDlg.h"
+
+CPreparationDlg::CPreparationDlg(void)
+	<span class="codered">: CDialog(CPreparationDlg::IDD)</span>
+{
+}
+
+CPreparationDlg::~CPreparationDlg(void)
+{
+}<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+		  </li>
+		  <li>On the main menu, click Project<strong> </strong>-&gt; Add Class...</li>
+		  <li>Make sure C++ Class is selected and click Add</li>
+		  <li>In the Class Name text box, type <strong>CPreparationApp</strong></li>
+		  <li>In the Base Class, type <strong>CWinApp</strong> and click Finish</li>
+		  <li>Complete the header file as follows:
+	<pre style="position: relative;">#pragma once
+
+#include "afxwin.h"
+<span class="codered">#include &lt;afxdlgs.h&gt;</span>
+
+class CPreparationApp :	public CWinApp
+{
+public:
+	CPreparationApp(void);
+	<span class="codered">BOOL InitInstance();</span>
+	~CPreparationApp(void);
+};<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+		  </li>
+		  <li>Access the Preparation.cpp source file and change it as follows:<pre style="position: relative;">#include "PreparationApp.h"
+<span class="codered">#include "PreparationDlg.h"</span>
+
+CPreparationApp::CPreparationApp(void)
+{
+}
+
+<span class="codered">BOOL CPreparationApp::InitInstance()
+</span>{<span class="codered">
+</span>	<span class="codered">CPreparationDlg Dlg;
+
+</span>	<span class="codered">m_pMainWnd = &amp;Dlg;
+</span>	<span class="codered">Dlg.DoModal();
+
+	return TRUE;
+</span>}
+
+CPreparationApp::~CPreparationApp(void)
+{
+}
+
+<span class="codered">CPreparationApp theApp;</span><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+		  </li>
+		  <li>Execute the application</li>
+		  <li>Close the dialog box and return to your programming environment</li>
+	  </ol>
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="subtitle">A Map of Messages</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #0000FF" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+	  <p class="parajust">For the compiler to manage messages, they should be 
+	  included in the class definition. The list of messages starts on a section 
+	  driven by, but that ends with, the <b>DECLARE_MESSAGE_MAP</b> macro. The 
+	  section can be created as follows:</p>
+<pre style="position: relative;">#include &lt;afxwin.h&gt;
+#include &lt;afxdlgs.h&gt;
+#include "resource.h"
+
+class CExerciseApp : public CWinApp
+{
+public:
+	BOOL InitInstance();
+
+	<font color="#FF0000">DECLARE_MESSAGE_MAP()</font>
+};
+
+class CExerciseDlg : public CDialog
+{
+public:
+	enum { IDD = IDD_EXERCISE_DLG };
+
+	CExerciseDlg();
+	~CExerciseDlg();
+
+	<font color="#FF0000">DECLARE_MESSAGE_MAP()</font>
+};<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <p class="parajust">The <b>DECLARE_MESSAGE_MAP</b> macro should be 
+	  provided at the end of the class definition. The actual messages (as we 
+	  will review them shortly) should be listed just above the <b>
+	  DECLARE_MESSAGE_MAP</b> line. This is mostly a suggestion. In some 
+	  circumstances, and for any reason, you may want, or have, to provide one 
+	  message or a few messages under the <b>DECLARE_MESSAGE_MAP</b> line.</p>
+	  <p class="parajust">To implement the messages, you should/must create a 
+	  table of messages that your program is using. This table uses two 
+	  delimiting macros. It starts with a <b>BEGIN_MESSAGE_MAP</b> and ends with 
+	  an <b>END_MESSAGE_MAP</b> macros. The <b>BEGIN_MESSAGE_MAP</b> macro takes 
+	  two arguments, the name of your class and the MFC class you derived your 
+	  class from. An example would be:</p>
+<pre style="position: relative;">BEGIN_MESSAGE_MAP(CSimpleFrame, CFrameWnd)<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <p class="parajust">Like the <b>DECLARE_MESSAGE_MAP</b> macro, <b>
+	  END_MESSAGE_MAP</b> takes no argument. Its job is simply to specify the 
+	  end of the list of messages. The table of messages can be created as 
+	  follows:</p>
+<pre style="position: relative;">#include &lt;afxwin.h&gt;
+#include &lt;afxdlgs.h&gt;
+#include "resource.h"
+
+class CExerciseApp : public CWinApp
+{
+public:
+	BOOL InitInstance();
+
+	DECLARE_MESSAGE_MAP()
+};
+
+class CExerciseDlg : public CDialog
+{
+public:
+	enum { IDD = IDD_EXERCISE_DLG };
+
+	CExerciseDlg();
+	~CExerciseDlg();
+
+	DECLARE_MESSAGE_MAP()
+};
+
+CExerciseDlg::CExerciseDlg()
+	: CDialog(CExerciseDlg::IDD)
+{
+}
+
+<font color="#FF0000">BEGIN_MESSAGE_MAP(CExerciseDlg, CDialog)
+
+END_MESSAGE_MAP()</font>
+
+CExerciseDlg::~CExerciseDlg()
+{
+}
+
+<font color="#FF0000">BEGIN_MESSAGE_MAP(CExerciseApp, CWinApp)
+
+END_MESSAGE_MAP()</font>
+
+BOOL CExerciseApp::InitInstance()
+{
+	CExerciseDlg Dlg;
+
+	m_pMainWnd = &amp;Dlg;
+	Dlg.DoModal();
+
+	return TRUE;
+}
+
+CExerciseApp theApp;
+<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <p class="parajust">There various categories of messages the operating 
+	  system receives. Some of them come from the keyboard, some from the mouse, 
+	  and some others from various other origins. For example, some messages are 
+	  sent by the application itself while some other messages are controlled by 
+	  the operating.</p>
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="exotitle">
+			  <img border="0" height="18" src="./Microsoft Visual C++ MFC__files/practical1.gif" width="19">Practical 
+			  Learning:&nbsp;Creating a Map of Messages</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #CC3300" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+	  <ol>
+		  <li>Click the PreparationApp.h tab to access its file and change it as 
+		  follows:
+	<pre style="position: relative;">#pragma once
+
+#include "afxwin.h"
+#include &lt;afxdlgs.h&gt;
+
+class CPreparationApp :	public CWinApp
+{
+public:
+	CPreparationApp(void);
+	BOOL InitInstance();
+	~CPreparationApp(void);
+
+	<span class="codered">DECLARE_MESSAGE_MAP()</span>
+};<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+		  </li>
+		  <li>Click the PreparationApp.cpp tab to access its file and change it 
+		  as follows:
+	<pre style="position: relative;">#include "PreparationApp.h"
+#include "PreparationDlg.h"
+
+<span class="codered">BEGIN_MESSAGE_MAP(CPreparationApp, CWinApp)
+
+END_MESSAGE_MAP()</span>
+
+CPreparationApp::CPreparationApp(void)
+{
+}
+
+BOOL CPreparationApp::InitInstance()
+{
+	CPreparationDlg Dlg;
+
+	m_pMainWnd = &amp;Dlg;
+	Dlg.DoModal();
+
+	return TRUE;
+}
+
+CPreparationApp::~CPreparationApp(void)
+{
+}
+
+CPreparationApp theApp;<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+		  </li>
+		  <li>Click the PreparationDlg.h tab to access its file and change it as 
+		  follows:
+	<pre style="position: relative;">#pragma once
+
+#include "afxwin.h"
+#include "resource.h"
+
+class CPreparationDlg :	public CDialog
+{
+public:
+    enum { IDD = IDD_PREPARATION_DLG };
+
+    CPreparationDlg(void);
+    ~CPreparationDlg(void);
+
+    <span class="codered">DECLARE_MESSAGE_MAP()</span>
+};<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+		  </li>
+		  <li>Click the PreparationDlg.cpp tab to access its file and change it 
+		  as follows: <br>
+	<pre style="position: relative;">#include "PreparationDlg.h"
+
+CPreparationDlg::CPreparationDlg(void)
+	: CDialog(CPreparationDlg::IDD)
+{
+}
+
+<span class="codered">BEGIN_MESSAGE_MAP(CPreparationDlg, CDialog)
+</span>	<span class="codered">
+END_MESSAGE_MAP()</span>
+
+CPreparationDlg::~CPreparationDlg(void)
+{
+}<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+		  </li>
+		  <li>Test the application and return to your programming environment</li>
+	  </ol>
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="paratitle">Adding Messages to a Dialog Box</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #FF0000" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+	  &nbsp;
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="subtitle">Manually Adding Messages</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #0000FF" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+	  <p class="parajust">A message is primarily implemented like a normal 
+	  member function of the dialog box's class. This means that you should 
+	  declare a method in the header file. This could look as follows:</p>
+<pre style="position: relative;">#pragma once
+
+#include "afxwin.h"
+#include "resource.h"
+
+class CExerciseDlg :	public CDialog
+{
+public:
+	enum { IDD = IDD_EXERCISE_DLG };
+
+	CExerciseDlg();
+	~CExerciseDlg();
+
+	<span class="codered"><i>ReturnType</i></span> <span class="codered"><em>FunctionName</em></span>(<span class="codered"><em>Arguments</em>);</span>
+	
+	DECLARE_MESSAGE_MAP()
+};<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <p class="parajust">After declaring the method,&nbsp;you should implement it 
+	  the source file. This could look as follows:</p>
+<pre style="position: relative;">#include "ExerciseDlg.h"
+
+CExerciseDlg::CExerciseDlg(void)
+	: CDialog(CExerciseDlg::IDD)
+{
+}
+
+BEGIN_MESSAGE_MAP(CExerciseDlg, CDialog)
+	
+END_MESSAGE_MAP()
+
+CExerciseDlg::~CExerciseDlg()
+{
+}
+
+<span class="codered"><i>ReturnType</i> CExerciseDlg::<em>FunctionName</em>(<em>Arguments</em>)
+{
+
+}</span><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <p class="parajust">Because there are many messages intended for different 
+	  reasons, the formula of each method is different. That is, the return 
+	  type, the argument, and the number of arguments depend on the type of 
+	  message.</p>
+	  <p class="parajust">The messages in Microsoft Windows are part of what is 
+	  referred to as the application framework (afx). For this reason, they are 
+	  created with the <strong>afx_msg</strong> tag. This could look as follows:</p>
+<pre style="position: relative;">#pragma once
+
+#include "afxwin.h"
+#include "resource.h"
+
+class CExerciseDlg :	public CDialog
+{
+public:
+    enum { IDD = IDD_EXERCISE_DLG };
+
+    CExerciseDlg();
+    ~CExerciseDlg();
+
+    <span class="codered">afx_msg</span> <i>ReturnType</i> <em>FunctionName</em>(<em>Arguments</em>);
+	
+    DECLARE_MESSAGE_MAP()
+};<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <p class="parajust">After creating and implementing the method, you must 
+	  indicate what message it represents. To do this, </p>
+	  <p class="parajust">:</p>
+<pre style="position: relative;">#include "ExerciseDlg.h"
+
+CExerciseDlg::CExerciseDlg(void)
+	: CDialog(CExerciseDlg::IDD)
+{
+}
+
+BEGIN_MESSAGE_MAP(CExerciseDlg, CDialog)
+    <span class="codered">ON_WM_<em>MESSAGE</em>()</span>
+END_MESSAGE_MAP()
+
+CExerciseDlg::~CExerciseDlg()
+{
+}
+
+<i>ReturnType</i> CExerciseDlg::<em>FunctionName</em>(<em>Arguments</em>)
+{
+
+}<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="subtitle">Automatically Generating a Message</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #0000FF" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+	  <p class="parajust">There are two ways you can create an event for a 
+	  dialog box (or for any object). If the dialog box is being designed, in 
+	  the Properties window, click the Messages button
+	  <img alt="Messages" height="22" src="./Microsoft Visual C++ MFC__files/messages1.gif" width="23">. 
+	  This would display a list of messages:</p>
+	  <p class="pcenter">
+	  <img alt="Messages" height="338" src="./Microsoft Visual C++ MFC__files/messages1a.gif" width="354"></p>
+	  <p class="parajust">To generate an event, click the message's name to 
+	  reveal a combo box. Then, on its right side, click the arrow of the combo 
+	  box and select the &lt;Add&gt; option:</p>
+	  <p class="pcenter">
+	  <img alt="Messages" height="343" src="./Microsoft Visual C++ MFC__files/messages1b.gif" width="359"></p>
+	  <p class="parajust">You can also use the MFC Class Wizard to get an event 
+	  of your choice for a dialog box. To do this, in the MFC Class Wizard, 
+	  after selecting the class of the dialog box in the Class Name combo box, 
+	  click the Messages tab. In the Messages list, locate the message you want:</p>
+<pre class="sectover" style="position: relative;"><img alt="MFC Class Wizard" height="695" src="./Microsoft Visual C++ MFC__files/mcw1d.gif" width="826"><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <p class="parajust">Then, either double-click the message or click it once 
+	  and click the Add Handler button. Once you are ready, click OK.&nbsp;
+
+</p>
+
+</span>
+
+      </td>
+      <td>
+   
+<table border="0" width="100%">
+  <tbody><tr>
+    <td width="100%">
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-3968514660870014";
+google_ad_width = 300;
+google_ad_height = 250;
+google_ad_format = "300x250_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//--></script>
+<script type="text/javascript" src="./Microsoft Visual C++ MFC__files/f.txt">
+</script>
+
+    </td>
+  </tr>
+</tbody></table>
+
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">
+   
+&nbsp;
+        <table border="0" width="100%">
+          <tbody><tr>
+            <td width="100%">
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-3968514660870014";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_type = "text_image";
+google_ad_channel ="";
+google_color_border = "FFFFFF";
+google_color_link = "0000FF";
+google_color_bg = "FFFFFF";
+google_color_text = "000000";
+google_color_url = "008000";
+//--></script>
+<script type="text/javascript" src="./Microsoft Visual C++ MFC__files/f.txt">
+</script>
+
+            </td>
+          </tr>
+        </tbody></table>
+        <table border="0" width="100%">
+          <tbody><tr>
+            <td width="100%"></td>
+          </tr>
+        </tbody></table>
+
+&nbsp;
+
+      </td>
+    </tr>
+  </tbody></table></div>
+
+&nbsp;
+
+<div align="center">
+<table border="0" width="900">
+  <tbody><tr>
+    <td width="680" rowspan="2">
+
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="paratitle">Fundamental Dialog Box Messages</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #FF0000" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	&nbsp;
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">Creating a Dialog Box</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">When an object such as a dialog box is created, it sends 
+	a message named <b>ON_WM_CREATE</b>. Its syntax is:</p>
+	<pre style="position: relative;">afx_msg int OnCreate(LPCREATESTRUCT <i>lpCreateStruct</i>);<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">This message takes one argument, which is a pointer to a
+	<b>CREATESTRUCT</b> class. The <b>CREATESTRUCT</b> class provides all the 
+	information needed to create a window. It is defined as follows:</p>
+	<pre style="position: relative;">typedef struct tagCREATESTRUCT {
+   LPVOID    lpCreateParams;
+   HANDLE    hInstance;
+   HMENU     hMenu;
+   HWND      hwndParent;
+   int       cy;
+   int       cx;
+   int       y;
+   int       x;
+   LONG      style;
+   LPCSTR    lpszName;
+   LPCSTR    lpszClass;
+   DWORD     dwExStyle;
+} CREATESTRUCT;<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">When sending the <b>ON_WM_CREATE</b> message, the dialog 
+	box is usually created without your intervention but when calling it, you 
+	should check that the window has been created. This can be done by checking 
+	the result returned by the <b>OnCreate()</b> message from the parent class. 
+	If the message returns 0, the window was created. If it returns -1, the 
+	class was not created or it would simply be destroyed.</p>
+	<p class="parajust">Before processing your own implementation of the <strong>
+	ON_WM_CREATE</strong> message, you should call the implementation of the 
+	parent class and find out what value it returns. If the parent return 0, 
+	then you can proceed. Once you have done this, you can define your own 
+	version. This can be done as follows:</p>
+	<pre style="position: relative;">int CExerciseDlg::OnCreate(LPCREATESTRUCT lpCreateStruct)
+{
+	<span class="codered">if (CDialog::OnCreate(lpCreateStruct) == -1)
+		return -1;</span>
+
+	// TODO:  Add your specialized creation code here
+
+	return 0;
+}<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">To use this message, in the class definition, type its 
+	syntax. In the message table, type the name of the message <b>ON_WM_CREATE()</b>:</p>
+	<pre style="position: relative;">BEGIN_MESSAGE_MAP(CExerciseDlg, CDialog)
+	ON_WM_CREATE()
+END_MESSAGE_MAP()<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">Initializing a Dialog Box</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">As the most regular host of Windows Controls, a dialog 
+	box must be able to handle messages that not only pertain to its own 
+	existence but also to the availability, visibility, and behaviors of the 
+	controls it is holding. For example, if you create a control and position it 
+	on the dialog box, sometimes you will need to initialize it by giving it 
+	primary values.</p>
+	<p class="parajust">The <strong>WM_INITDIALOG</strong> message fires the <b>
+	OnInitDialog()</b> event after a dialog box has been created but before it 
+	displays. This event should be your favorite place to initialize a control 
+	that is hosted by the dialog box. Do not initialize controls in your 
+	dialog's constructor. Use the constructor only to allocate memory for a 
+	dynamically created control using the <strong>new</strong> operator. </p>
+	<p class="parajust">If you create a dialog-based application using the MFC 
+	Application option, the wizard automatically generates the <b>WM_INITDIALOG</b> 
+	message for you. If you add a dialog box to an existing application, this 
+	message may not be added automatically. You would have to fire it. In 
+	reality, the <b>WM_INITDIALOG</b> message is inherited from the <b>CDialog</b> 
+	class. Therefore, you would only be overriding it. </p>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">Painting a Dialog Box</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">After creating the dialog box, if you want to paint it 
+	or draw something on it, such as changing its background color, use the <b>
+	WM_PAINT</b> message. If you create a dialog-based application, this message 
+	is automatically generated by the wizard. If you add a dialog-based object 
+	to your application and need the <b>OnPaint()</b> event, you would have to 
+	add it yourself.</p>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">Scrolling a Dialog Box</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">If a dialog object is equipped with one or two scroll 
+	bars or one of its controls is based on scrolling operations, when the user 
+	clicks a scroll bar, the <b>OnHScroll()</b> or the <strong>OnVScroll()</strong> 
+	event is sent based on the <b>WM_HSCROLL</b> or the <b>WM_VSCROLL</b> 
+	messages respectively.</p>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">Closing a Dialog Box</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">As mentioned already, a regular dialog box is equipped 
+	with the system Close button on its title bar. This allows the user to close 
+	it any time. As a programmer, one of your jobs is to control your 
+	application, to be able to predict "bad moves" from the user. For example, 
+	imagine you create a dialog-based object without a Cancel button but with OK 
+	(like the most basic message box). If the user clicks the system Close 
+	button , you may not know what the user did. The <strong>WM_CLOSE</strong> 
+	message fires the <b>OnClose()</b> event when the user clicks the system 
+	Close button. It is important to understand that <b>WM_CLOSE</b> is a 
+	message and not a method, meaning it sends a message, it does not take an 
+	action. This implies that the <b>OnClose()</b> event fires when the user 
+	makes an attempt to close the dialog but before the dialog is actually 
+	closed.</p>
+	<p class="parajust">You can use the <b>OnClose()</b> event to find out what 
+	has been done on the dialog prior to the user's attempt to close it. You can 
+	also use it to deny closing the dialog box, to warn the user about 
+	something, or to do anything that you judge necessary.</p>
+	<p class="parajust">If you perform some processing, such as validating some 
+	values, when the user attempts to close the dialog box, if you still want to 
+	close the dialog box, call the parent event handler with <b>
+	CDialog::OnClose()</b>. In fact, this line of code is added to the event if 
+	you generate it using the wizard:</p>
+	<pre style="position: relative;">void CExerciseDlg::OnClose()
+{
+	// TODO: Add your message handler code here and/or call default
+
+	CDialog::OnClose();
+}<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">If you want to conditionally close the dialog box, you 
+	can write a conditional statement that can check whether something is 
+	necessary before closing it. If you don't want to close the dialog box, 
+	don't call <strong>CDialog::OnClose()</strong>.</p>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">Destroying a Dialog Box</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">Once a dialog box, in fact any (<b>CWnd</b>) window 
+	object, has been closed, it must be destroyed so the memory it was using can 
+	be reclaimed. If you want to do something before the object is destroyed, 
+	use the <b>WM_DESTROY</b> to fire the <b>OnDestroy()</b> event. Before doing 
+	anything on this event, first call the OnDestroy() event of the parent 
+	class. this can be done as follows:</p>
+	<pre style="position: relative;">void CExerciseDlg::OnDestroy()
+{
+	<span class="codered">CDialog::OnDestroy();</span>
+
+	// TODO: Add your message handler code here
+}<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="paratitle">Other Techniques of Creating a Dialog-Based 
+			Application</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #FF0000" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	&nbsp;
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">Introduction</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">As a very early implementer of the Win32 library, the 
+	MFC provides various ways of creating a dialog-based application. As we saw 
+	already, you can work from scratch. Otherwise, Microsoft Visual Studio 
+	provides all the tools and accessories you need. It allows you to combine 
+	your knowledge of C++, the MFC library, and other accessories. For example, 
+	in the above example, we put all of our code in one file. Most of the time, 
+	you will want to spread code in various files, in accordance with the C++ 
+	language.</p>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="exotitle">
+			<img alt="Practical Learning" border="0" height="20" src="./Microsoft Visual C++ MFC__files/practical1.gif" width="21">Practical 
+			Learning: Creating a Dialog-Based Application</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #CC3300" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<ol>
+		<li>To create a new Application, on the main menu, click File -&gt; New 
+		Project</li>
+		<li>In the left list, click Visual C++</li>
+		<li>In the right list, click Win32 Project</li>
+		<li>Set the Name to <strong>CruisePreparation2</strong></li>
+		<li>Click OK</li>
+		<li>In the first page of the wizard, click Next</li>
+		<li>In the second page, click Windows Application and click Empty 
+		Project</li>
+		<li>Click Finish</li>
+		<li>On the main menu, click Project -&gt; Properties...</li>
+		<li>In the left list, click Configuration Properties.<br>In the right 
+		list, change Use of MFC to Use MFC in a Shared DLL</li>
+		<li>Click OK</li>
+		<li>To create a dialog box, in the Resource View, right-click 
+		CruisePreparation2<strong> </strong>-&gt; Add -&gt; Resource...</li>
+		<li>In the Add Resource dialog box, click Dialog</li>
+		<li>Click New</li>
+		<li>Right-click the middle of the dialog box and click Properties</li>
+		<li>In the Properties window, click ID, type <b>IDD_PREPARATION_DLG</b> 
+		and press Enter</li>
+		<li>Click Caption and type <strong>Cruise Preparation</strong></li>
+		<li>To create a class, in the Class View, right-click CruisePreparation2<strong>
+		</strong>-&gt; Add -&gt; Class...</li>
+		<li>Make sure C++ Class is selected and click Add</li>
+		<li>In the Class Name text box, type <strong>CPreparationDlg</strong></li>
+		<li>In the Base Class, type <strong>CDialog</strong></li>
+		<li>Click Finish.<br>You will receive a message box stating that the 
+		base class was not found on the project:<br>&nbsp;<br>
+		<img alt="Dialog Box" height="520" src="./Microsoft Visual C++ MFC__files/classwiz1.gif" width="617"></li>
+		<li>Read the message and click Yes</li>
+		<li>Complete the PreparationDlg.h header file as follows:
+<pre style="position: relative;">#pragma once
+
+#include "afxwin.h"
+#include "resource.h"
+
+class CPreparationDlg :	public CDialog
+{
+public:
+	enum { IDD = IDD_PREPARATION_DLG };
+
+	CPreparationDlg(void);
+	~CPreparationDlg(void);
+};<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+		</li>
+		<li>Click the PreparationDlg.cpp tab and complete the source file as 
+		follows:
+<pre style="position: relative;">#include "PreparationDlg.h"
+
+CPreparationDlg::CPreparationDlg(void)
+	: CDialog(CPreparationDlg::IDD)
+{
+}
+
+CPreparationDlg::~CPreparationDlg(void)
+{
+}<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+		</li>
+		<li>In the Class View, right-click CruisePreparation2<strong> </strong>
+		-&gt; Add -&gt; Class...</li>
+		<li>Make sure C++ Class is selected and click Add</li>
+		<li>In the Class Name text box, type <strong>CPreparationApp</strong></li>
+		<li>In the Base Class, type <strong>CWinApp</strong> and click Finish</li>
+		<li>Read the message and click Yes</li>
+		<li>Complete the header file as follows:
+<pre style="position: relative;">#pragma once
+
+#include "afxwin.h"
+#include &lt;afxdlgs.h&gt;
+
+class CPreparationApp :	public CWinApp
+{
+public:
+	CPreparationApp(void);
+	BOOL InitInstance();
+	~CPreparationApp(void);
+};
+
+<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+		</li>
+		<li>Click the Preparation.cpp tab to get to the file and change it as 
+		follows:<pre style="position: relative;">#include "PreparationApp.h"
+#include "PreparationDlg.h"
+
+CPreparationApp::CPreparationApp(void)
+{
+}
+
+BOOL CPreparationApp::InitInstance()
+{
+	CPreparationDlg Dlg;
+
+	m_pMainWnd = &amp;Dlg;
+	Dlg.DoModal();
+
+	return TRUE;
+}
+
+CPreparationApp::~CPreparationApp(void)
+{
+}
+
+CPreparationApp theApp;<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+		</li>
+		<li>Execute the application&nbsp;<br></li>
+		<li>Close the dialog box and return to your programming environment</li>
+	</ol>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">The MFC Wizard for a Dialog-Based Application</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">Microsoft Visual C++ provides an easier way to create an 
+	application that is mainly based on a dialog box. To use this technique, 
+	start a new project and specify that you want to create an MFC Application. 
+	In the MFC Application Wizard, set the Application Type to Dialog Based.</p>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="exotitle">
+			<img alt="Practical Learning" border="0" height="20" src="./Microsoft Visual C++ MFC__files/practical1.gif" width="21">Practical 
+			Learning: Using the Wizard to create a Dialog-Based Application</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #CC3300" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<ol>
+		<li>On the main menu, click File -&gt; New Project...</li>
+		<li>In the New Project dialog box, in the Templates list, click MFC 
+		Application</li>
+		<li>Set the Project Name to <strong>CruisePreparation3</strong><br>
+<pre class="sectover" style="position: relative;"><img alt="New Project" height="660" src="./Microsoft Visual C++ MFC__files/newproject2.gif" width="955"><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+		</li>
+		<li>Click OK</li>
+		<li>In the first page of the MFC Application Wizard, click Next</li>
+		<li>In the second page of the wizard, on the right side, click the 
+		Dialog Based radio button</li>
+		<li>Click Next (or click User Interface Features)</li>
+		<li>In the third page of the wizard, click About Box to remove its check 
+		box</li>
+		<li>Under Dialog Title, edit the text to display <strong>Cruise 
+		Preparation</strong></li>
+		<li>Click Next (or click Advanced Features)</li>
+		<li>Click Next (or click Generated Classes)</li>
+		<li>In the Generated Classes list, click CCruisePreparation3App and, in 
+		the Class Name, replace the text with <strong>CPreparationApp</strong></li>
+		<li>In the Generated Classes list, click CCruisePreparation3Dlg<br>In 
+		the Class Name, replace the name with <strong>CPreparationDlg</strong><br>
+		In the .h file edit box, replace the name of the file with <strong>
+		PreparationDlg.h</strong><br>In the .cpp file edit box, replace the name 
+		of the file with <strong>PreparationDlg.cpp</strong><br>Make sure the 
+		Base Class is set to CDialog<br>&nbsp;<br>
+		<img alt="Dialog Box" height="530" src="./Microsoft Visual C++ MFC__files/creation2.gif" width="625"></li>
+		<li>Click Finish</li>
+		<li>Execute the application to see the result</li>
+		<li>Close the dialog box return to your programming environment</li>
+	</ol>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="paratitle">Managing the Class of a Dialog Box</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #FF0000" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	&nbsp;
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">Introduction</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">As you may have realized by now, a dialog box is created 
+	in various objects and files: the "physical" object that is being designed, 
+	the representation of the dialog box in the resource file that has the .rc 
+	extension, the header resource file that has a .h extension, and the class 
+	associated with the dialog box (a header file and/or a source file). 
+	Microsoft Visual C++ provides many tools used to create and manage all 
+	aspects of a dialog box.</p>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">Dealing With the Resource File</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">In the Win32 and MFC programming, the resource file is 
+	probably the most important aspect of a dialog box. It is used to hold the 
+	description of the object. The compiler refers to it when it comes time to 
+	display the dialog box (unless it is manipulated with code). Most of the 
+	time, you will visually design your dialog box and the objects positioned on 
+	it as we will see starting in the next lesson. Sometimes, there will be 
+	problems. You may make a change in the designed but for some reason, either 
+	the .rc file doesn't get updated, the resource.h doesn't receive the change, 
+	or both ignore the new modification. When any of these situations happens, 
+	either you will receive a bad message immediately or the compiler would 
+	display a bad message box when you compile the project, and the intended 
+	result would not appear. In such cases, you can continue making changes or 
+	the dialog box or, in some cases, you will have to open the resource file 
+	and manually make the necessary changes.</p>
+	<p class="parajust">As we saw in
+	<a href="https://www.functionx.com/vcmfc2010/Lesson02.htm#Resources">Lesson 2</a>, when you 
+	create an application, you should also create a resource file, a file with 
+	the .rc extension. If you start a project using a wizard, the resource file 
+	is automatically created for you. The resource file is text-based. This 
+	means that you can open it using any text editor.</p>
+	<p class="parajust">By default, in the Solution Explorer, if you 
+	double-click a a file with .rc extension, the Resource View would display. 
+	In the Resource View, to access any object, you can expand its parent folder 
+	and double-click the object such as a dialog box. The "physical" object 
+	would display, ready to be designed. An alternative is to open the resource 
+	file as text.</p>
+	<p class="parajust">Before opening a resource file as text, you should close 
+	any opened dialog box that is being designed. To open a resource file as 
+	text, in the Solution Explorer, right-click the file with .rc extension and 
+	click Open With... In the Open With dialog box, click Classic Editor (Text)</p>
+	<p class="pcenter">
+	<img alt="Open With" height="376" src="./Microsoft Visual C++ MFC__files/openwith1.gif" width="576"></p>
+	<p class="parajust">Click OK. You may receive a message box indicating that 
+	the resource file is already open and asking you whether you want to open 
+	it. If so, click Yes. In the file, locate the section you want. Here is an 
+	example of a section for the dialog box:</p>
+	<pre class="sectover" style="position: relative;">/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_EXAMPLE_DLG DIALOGEX 0, 0, 224, 126
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Example"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,113,105,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,167,105,50,14
+END<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">Once you get to the section, you can make the necessary 
+	changes.</p>
+	<p class="parajust">Don't change anything you are are sure of. In other 
+	words, change only something you know for sure needs to be changed. If you 
+	don't know or don't understand why something is there, don't touch it. 
+	Whenever in doubts or you are having a second tought, don't change anything. 
+	Make a change only if you know exactly what you are doing. Any change you 
+	make will have to be understood by the compiler and the studio. If the 
+	studio doesn't understand something, the dialog box or any object on it 
+	would either be lost or show weird behavior.</p>
+	<p class="parajust">After making changes to the resource file, save it.</p>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">Dealing With the Resource Header File</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">Besides the "physical" resource file, we already know 
+	that an application also has a resource header file named Resource.h (or 
+	resource.h). This too is a text-based file that you can open and manipulate. 
+	For example, you may change the identifier of a dialog box but for some 
+	reason the resource header file would not update itself. You can open and 
+	change it.</p>
+	<p class="parajust">To open a resource header file, in the Solution 
+	Explorer, double-click the Resource.h (or resource.h) file. Locate the 
+	identifier you want to modify and change it.</p>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">Creating and Managing Member Variables</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">A class associated with a dialog box is primarily a 
+	normal C++-based class. That is, it can have member variables. In many 
+	classes you use, the studio will automatically insert some member variables. 
+	In the next lessons, we see some ways of adding member variables associated 
+	with objects positioned on the dialog box. Still, because we are dealing 
+	with a normal class, you can add any members you judge necessary.</p>
+	<p class="parajust">There are various ways you can add a member variable to 
+	a class:</p>
+	<ul>
+		<li>In the Solution Explorer, double-click the header file (or the 
+		source file in some cases) to open it. In the file, manually declare the 
+		variable as you see fit. If you had declared the variable in the header 
+		file, you can access the class's constructor in the source file to 
+		initialize the variable</li>
+		<li>In the Class View, right-click the name of the class, position the 
+		mouse on Add, and click Add Variable... This would open the Add Member 
+		Variable Wizard. Fill it with the necessary options and click OK</li>
+		<li>In the Class View, click the name of the class to select it. On the 
+		main menu, click Project -&gt; Add Variable...</li>
+		<li>In the MFC Class Wizard, click the Member Variables tab. In the 
+		Class Name combo box, select the class for which you want to add a 
+		variable. On the right side, click the Add Custom button. This would 
+		open the Add Member Variable dialog box that you should complete as you 
+		see fit and click OK</li>
+	</ul>
+	<p class="parajust">Once a member variable exists, you can perform some 
+	operations on it. For example, to access a variable:</p>
+	<ul>
+		<li>In the Solution Explorer, double-click the header file (or the 
+		source file in some cases) to open it. In the file, locate the variable 
+		you want</li>
+		<li>In the upper-level of the Class View, click the name of the class. 
+		In the lower-level:<ul>
+			<li>Double-click the name of the variable</li>
+			<li>If the variable was declared in the header file and you want to 
+			see how it was declared, right-click the variable and click Go To 
+			Declaration</li>
+			<li>Right-click the name of the variable and click Go To Definition</li>
+		</ul>
+		</li>
+		<li>In the MFC Class Wizard, click the Member Variables tab. In the 
+		Member Variables list, either double-click the name of the variable or 
+		click the variable and click Edit Code</li>
+	</ul>
+	<p class="parajust">One of the operations you can perform on a variable 
+	consists of changing or renaming it. You can access the variable in the 
+	header file of the class and edit its name. The drawback is that you will 
+	have manually locate the variable wherever it is being used and edit its 
+	name. This can be cumbersome if the variable has been used in various parts 
+	of the project and there is a chance you will forget it in some parts. 
+	Fortunately, Microsoft Visual Studio can assist you with this operation. You 
+	can rename the variable in one place and its name would be changed 
+	everywhere.</p>
+	<p class="parajust">To rename a member variable, in the top section of the 
+	Class View, click the name of the class. In the lower section, right-click 
+	the name of the variable and click Properties. In the (Name) field, select 
+	the name, change it, and press Enter. In the same way, using the Properties 
+	window, you can change any option about the variable.</p>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">Creating and Managing Member Functions</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">Besides member variables, a class can have member 
+	functions. If you start a project from a wizard, the studio will create some 
+	classes and add some member functions to it. You too can (and will) add 
+	member functions that you need.</p>
+	<p class="parajust">There are many ways you can add a member function to a 
+	class:</p>
+	<ul>
+		<li>In the Solution Explorer, double-click the header file to access the 
+		foundation of the class. In the header file, manually declare the 
+		function. Then, access the source file and define the function as you 
+		see fit</li>
+		<li>In the Class View, right-click the name of the class, position the 
+		mouse on Add, and click Add Function... This would open the Add Member 
+		Function Wizard. Complete it with the appropriate options and click OK</li>
+		<li>In the Class View, click the name of the class to select it. On the 
+		main menu, click Project -&gt; Add Function... This would open the Add 
+		Member Function Wizard</li>
+		<li>In the MFC Class Wizard, if you want to add a virtual function, 
+		click the Virtual Functions tab. In the Virtual Functions list, click 
+		the name of the function you want and click Add Function. Then click OK</li>
+		<li>In the MFC Class Wizard, if you want to create a normal member 
+		function, click the Methods tab. Click the Add Method button. This would 
+		open the Add Method dialog box. Fill it with the necessary information 
+		and click OK</li>
+	</ul>
+	<p class="parajust">Just as mentioned for a member variable, you can manage 
+	a member function. To open a function:</p>
+	<ul>
+		<li>In the Solution Explorer, double-click the header file or the source 
+		file. While in either the header file or the source, in the right combo 
+		box of the Code Editor, select the function you want</li>
+		<li>In the upper-level of the Class View, click the name of the class. 
+		In the lower-level:<ul>
+			<li>Double-click the function</li>
+			<li>To see where the function was declared, right-click it and click 
+			Go To Declaration</li>
+			<li>To see how the function is implemented, right-click it and click 
+			Go To Definition</li>
+		</ul>
+		</li>
+		<li>In the MFC Class Wizard, click the Member Variables tab. In the 
+		Member Variables list, either double-click the name of the variable or 
+		click the variable and click Edit Code</li>
+	</ul>
+	<p class="parajust">As done for a variable, you can rename a function. The 
+	best way to rename a function is to get assistance from Microsoft Visual 
+	Studio. To do this, in the top section of the Class View, click the name of 
+	the class. In the lower section, click the name of the function. In the 
+	(Name) field of the Properties window, change or edit the name, and press 
+	Enter. From the the Properties window, you can change any other option you 
+	want about the member function.</p>
+
+    </td>
+    <td valign="top">
+      <table border="0" width="100%">
+        <tbody><tr>
+          <td width="100%">
+          
+
+
+          </td>
+        </tr>
+      </tbody></table>&nbsp;
+    </td>
+  </tr>
+  <tr>
+    <td style="text-align: center">
+      &nbsp;
+      <table border="0" width="100%">
+        <tbody><tr>
+          <td width="100%" align="center">          </td>
+        </tr>
+      </tbody></table>
+    </td>
+  </tr>
+</tbody></table></div>
+
+&nbsp;
+
+&nbsp;
+
+<div align="center">
+<table border="0" width="900">
+  <tbody><tr>
+    <td width="100%" align="center">
+    
+<script type="text/javascript"><!--
+google_ad_client = "pub-3968514660870014";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_type = "image";
+google_ad_channel ="";
+//--></script>
+<script type="text/javascript" src="./Microsoft Visual C++ MFC__files/f.txt">
+</script>
+
+    </td>
+  </tr>
+</tbody></table>
+</div>
+
+&nbsp;
+
+<div align="center">
+<table border="0" width="900">
+  <tbody><tr>
+    <td colspan="3">
+      <hr color="#FF0000">
+    </td>
+  </tr>
+  <tr>
+    <td style="text-align: center"><a href="https://www.functionx.com/visualc/Lesson04.htm">Previous</a></td>
+    <td style="text-align: center"><a href="https://www.functionx.com/visualc/index.htm">Copyright © 2010-2016, FunctionX</a></td>
+    <td style="text-align: center"><a href="https://www.functionx.com/visualc/index.htm">Home</a></td>
+  </tr>
+  <tr>
+    <td colspan="3">
+      <hr color="#FF0000">
+    </td>
+  </tr>
+</tbody></table></div>
+
+<!-- DynamiContext AdLinks  -->
+<script language="JavaScript">
+var dc_UnitID = 14;
+var dc_PublisherID = 2409;
+var dc_AdLinkColor = 'blue';
+var  dc_adprod='ADL';
+</script>
+<script language="JavaScript" src="http://kona.kontera.com/javascript/lib/KonaLibInline.js"></script>
+<!-- DynamiContext AdLinks  -->
+
+
+
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>

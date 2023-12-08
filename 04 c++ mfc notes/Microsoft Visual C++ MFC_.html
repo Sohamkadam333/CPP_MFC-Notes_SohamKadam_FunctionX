@@ -1,0 +1,1722 @@
+
+<!-- saved from url=(0046)https://www.functionx.com/visualc/Lesson04.htm -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+<meta name="Keywords" content="">
+<meta name="Description" content=".">
+
+<link rel="stylesheet" type="text/css" href="./Microsoft Visual C++ MFC__files/Lessons.css">
+
+<title>Microsoft Visual C++ MFC: </title>
+<style type="text/css">
+
+.redcode {
+	font-family: "Courier New", Courier, monospace;
+  	color:       red;
+  	font-size:   10pt
+}
+
+</style>
+</head>
+
+<body data-new-gr-c-s-check-loaded="14.1145.0" data-gr-ext-installed="">
+
+<div align="center">
+
+<table border="0" width="900" cellspacing="1" cellpadding="0">
+  <tbody><tr>
+    <td width="738" align="center">
+    
+
+    </td>
+  </tr>
+</tbody></table>
+</div>
+
+&nbsp;
+<div align="center">
+  <table border="0" width="900">
+    <tbody><tr>
+      <td width="680" valign="top" rowspan="2">
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tbody><tr>
+    <td width="10%" valign="middle" align="center"><a href="https://www.functionx.com/visualc/index.htm"><img border="0" src="./Microsoft Visual C++ MFC__files/logo1.gif" alt="Home" width="51" height="60"></a></td>
+    <td width="90%">
+      <p class="maintitle">Introduction to Dialog Boxes</p></td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2" height="2" bgcolor="#CC3300"></td>
+  </tr>
+</tbody></table>
+
+<span name="KonaBody">
+
+&nbsp;
+
+&nbsp;&nbsp;<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="paratitle">Fundamentals of Dialog Boxes</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #FF0000" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+	  &nbsp;
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="subtitle">Introduction</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #0000FF" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+&nbsp;<table border="0" width="100%">
+  <tbody><tr>
+    <td>
+          
+<script type="text/javascript"><!--
+google_ad_client = "pub-3968514660870014";
+google_ad_width = 160;
+google_ad_height = 90;
+google_ad_format = "160x90_0ads_al";
+google_ad_type = "text_image";
+google_ad_channel ="";
+google_color_border = "800000";
+google_color_bg = "FFFFFF";
+google_color_link = "0000FF";
+google_color_url = "0000ff";
+google_color_text = "000000";
+//--></script>
+<script type="text/javascript" src="./Microsoft Visual C++ MFC__files/f.txt">
+</script>
+
+    </td>
+    <td>
+
+	<p class="parajust">A dialog box is a rectangular window whose main role is 
+	to host or hold other Windows controls. For this reason, a dialog box is 
+	referred to as a container. It is the primary interface of user interaction 
+	with the computer. By itself, a dialog box means nothing. The controls it 
+	hosts accomplish the role of dialog between the user and the machine. Here 
+	is an example of a dialog box:</p>
+
+    </td>
+  </tr>
+</tbody></table>
+
+	  <p class="pcenter">
+	  <img alt="Add Resource" border="0" height="254" src="./Microsoft Visual C++ MFC__files/addres1.gif" width="366"></p>
+	  <p class="parajust">A dialog box has the following characteristics:</p>
+	  <ul>
+		  <li>It is equipped with the system Close button
+		  <img border="0" height="17" src="./Microsoft Visual C++ MFC__files/close1.gif" width="19">,
+		  <img border="0" height="24" src="./Microsoft Visual C++ MFC__files/close2.gif" width="24">, 
+		  or
+		  <img border="0" height="15" src="./Microsoft Visual C++ MFC__files/close4.gif" width="28">. 
+		  As the only system button, this button allows the user to dismiss the 
+		  dialog and ignore whatever the user would have done on the dialog box</li>
+		  <li>It cannot be minimized, maximized, or restored. A dialog box does 
+		  not have any other system button but Close</li>
+		  <li>It is usually modal, in which case the user is not allowed to 
+		  continue any other operation until the dialog box is dismissed</li>
+		  <li>It provides a way for the user to close or dismiss the dialog. 
+		  Most dialog boxes have the OK and the Cancel buttons, although this 
+		  depends on the application developer. When the dialog has the OK and 
+		  the Cancel buttons, the OK button is configured to behave as if the 
+		  user had pressed Enter. In that case, whatever the user had done would 
+		  be acknowledged and transferred to the hosting dialog box, window, or 
+		  application. Pressing Esc applies the same behavior as if the user had 
+		  clicked Cancel.</li>
+	  </ul>
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="exotitle">
+			  <img alt="Practical Learning" border="0" height="20" src="./Microsoft Visual C++ MFC__files/practical1.gif" width="21">Practical 
+			  Learning: Introducing&nbsp;Dialog Boxes</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #CC3300" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+	  <ol>
+		  <li>Start Microsoft Visual Studio</li>
+		  <li>To create a new Application, on the main menu, click File -&gt; New 
+		  Project...</li>
+		  <li>In the left list, click Visual C++</li>
+		  <li>In the right list, click Win32 Project</li>
+		  <li>Set the Name to <strong>CruisePreparation1</strong></li>
+		  <li>Click OK</li>
+		  <li>In the first page of the wizard, click Next</li>
+		  <li>In the second page, click Windows Application and click Empty 
+		  Project</li>
+		  <li>Click Finish</li>
+		  <li>In the Solution Explorer, right-click CruisePreparation1 and click 
+		  Properties...</li>
+		  <li>In the left list, click Configuration Properties.<br>In the right 
+		  list, change Use of MFC to Use MFC in a Shared DLL</li>
+		  <li>Click OK</li>
+		  <li>To create the application class of the project, on the main menu, 
+		  click Project -&gt; Add New Item...</li>
+		  <li>In the Files property page or in the Templates section, click C++ 
+		  (Source) File</li>
+		  <li>Set the File Name to <strong>Preparation</strong></li>
+		  <li>Click Add</li>
+		  <li>To create the application, change the file as follows:
+	<pre style="position: relative;">#include &lt;afxwin.h&gt;
+
+class CPreparationApp : public CWinApp
+{
+public:
+        BOOL InitInstance();
+};
+
+BOOL CPreparationApp::InitInstance()
+{
+        return TRUE;
+}
+
+CPreparationApp theApp;<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+		  </li>
+		  <li>Save All</li>
+	  </ol>
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="subtitle">Dialog Box Creation</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #0000FF" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+	  <p class="parajust">A dialog box is created from a class named <strong>
+	  CDialog</strong>. The <strong>CDialog</strong> class implements a class 
+	  named <strong>CWnd</strong>. The <strong>CWnd</strong> class is derived 
+	  from <strong>CCmdTarget</strong>:</p>
+	  <p class="pcenter">
+	  <img alt="CDialog" height="220" src="./Microsoft Visual C++ MFC__files/dialog.gif" width="216"></p>
+	  <p class="parajust">To visually create a dialog box in Microsoft Visual 
+	  C++, from the Add Resources dialog box, click Dialog and click New. Then 
+	  you can manipulate its characteristics using the Properties window. </p>
+	  <p class="parajust">In reality, unlike most or all other controls, a 
+	  dialog box requires some preparation before actually programmatically 
+	  creating it. While most other controls can be easily added to a host, a 
+	  dialog box must already â€œexistâ€ before it is asked to display. Based 
+	  on this, a dialog box can first be manually created as a text file (in a 
+	  resource file). In the file, you create a section for the dialog box. This 
+	  section itself is divided in lines each serving a specific purpose. /p&gt;
+	  </p>
+	  <p class="parajust">Like most other controls, a dialog box must be 
+	  identified. The identifier of a dialog box usually starts with IDD_ (the 
+	  second D stands for dialog). An example of a dialog identifier would be <b>
+	  IDD_SCHOOL_SURVEY</b>. Therefore, the section of the dialog box in the 
+	  file can start with: </p>
+<pre style="position: relative;">IDD_SCHOOL_SURVEY<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <p class="parajust">At design time, the identifier of the dialog box is 
+	  specified using the ID combo box: </p>
+	  <p class="pcenter">
+	  <img alt="Properties Window" border="0" height="227" src="./Microsoft Visual C++ MFC__files/id1.gif" width="405"></p>
+	  <p class="parajust">The Win32 library provides a series of ready-made 
+	  names for classes to create controls. In the same way, a dialog box has 
+	  two types of classes used to create a dialog box. The <b>DIALOG</b> 
+	  statement was primarily used to create a dialog box. It has been updated 
+	  and replaced by the <b>DIALOGEX</b> name. Therefore, to indicate in the 
+	  file that the section you are creating is for a dialog box, type <b>
+	  DIALOGEX</b>. Here is an example: </p>
+<pre style="position: relative;">IDD_SCHOOL_SURVEY DIALOGEX<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="exotitle">
+			  <img alt="Practical Learning" border="0" height="20" src="./Microsoft Visual C++ MFC__files/practical1.gif" width="21">Practical 
+			  Learning: Creating a Dialog Box</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #CC3300" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+	  <ol>
+		  <li>To create a dialog box, in the Solution Explorer, right-click 
+		  Resource Files -&gt; Add -&gt; Resource...</li>
+		  <li>In the Add Resource dialog box, click Dialog<br></li>
+		  <li>Click New</li>
+		  <li>Click the middle of the dialog box to make sure it has focus.<br>
+		  In the Properties window, click ID (the property name)</li>
+		  <li>Type <b>IDD_PREPARATION_DLG</b> and press Enter</li>
+	  </ol>
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="subtitle">Dialog Box Location</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #0000FF" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+	  <p class="parajust">A dialog box must be â€œphysicallyâ€ located on an 
+	  application. Because a dialog box is usually created as a parent to other 
+	  controls, its location depends on its relationship to its parent window or 
+	  to the desktop. The location of a dialog box is defined by <i>x</i> for 
+	  the distance from the left border of the monitor to the left border of the 
+	  dialog box and by <i>y</i> for the distance from the top border of the 
+	  monitor to the top border of the dialog box: </p>
+<pre style="position: relative;">IDD_SCHOOL_SURVEY DIALOGEX x, y,<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <p class="parajust">At design time, the <i>x</i> value is set using the X 
+	  Pos field of the Properties window: </p>
+	  <p class="pcenter">
+	  <img alt="X Pos" border="0" height="227" src="./Microsoft Visual C++ MFC__files/xpos1.gif" width="311">
+	  </p>
+	  <p class="parajust">The <i>y</i> value is set using the Y Pos value in the 
+	  Properties window. </p>
+	  <p class="parajust">If you specify these two dimensions as 0, the left and 
+	  top borders of the dialog box would be set so the object appears in the 
+	  center-middle of the screen: </p>
+<pre style="position: relative;">IDD_SCHOOL_SURVEY DIALOGEX 0, 0,<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <p class="parajust">If you set the value of x or X Pos property to a 
+	  number less than or equal to 0, the left border of the dialog box would be 
+	  aligned with the left border of the monitor. If you set the value of x or 
+	  of the X Pos property higher than 0, the value would be used as the 
+	  distance, in Dialog Box Unit (DLU), from the left border of the screen to 
+	  the left border of the dialog box. This scenario also applies for the y 
+	  value or the Y Pos property. </p>
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="subtitle">Dialog Box Dimensions</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #0000FF" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+	  <p class="parajust">The dimensions of a dialog box are its width and its 
+	  height. At design time, to set the desired width, position the mouse to 
+	  its right border until the mouse pointer appears as a horizontal double 
+	  arrow Then click and drag left or right. </p>
+	  <p class="parajust">To set the desired height, position the mouse to the 
+	  bottom border until the mouse cursor appears as a vertical double arrow . 
+	  Then click and drag up or down. </p>
+	  <p class="parajust">To set both the width and the height in one operation, 
+	  position the mouse in the bottom-right corner until the mouse pointer 
+	  becomes a North-West &lt;=&gt; South-East diagonal double arrow. Then click and 
+	  drag up, down, left, or right as necessary. </p>
+	  <p class="parajust">While dragging in any of these operations, you can 
+	  refer to the right section of the status bar to get the current width and 
+	  height. In the resource file, the width and the height of the dialog box 
+	  follow the location values. Here is an example: </p>
+<pre style="position: relative;">IDD_SCHOOL_SURVEY DIALOGEX 0, 0, 340, 268<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <p class="parajust">There are other items that can be entered on this 
+	  first line but the identifier, the <b>DIALOGEX</b> statement, the 
+	  location, and the dimensions are required. </p>
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="exotitle">
+			  <img alt="Practical Learning" border="0" height="20" src="./Microsoft Visual C++ MFC__files/practical1.gif" width="21">Practical 
+			  Learning: Setting Dialog Box Dimensions</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #CC3300" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+	  <ol>
+		  <li>Position the mouse to the right border of the dialog box with a 
+		  horizontal mouse cursor<br>&nbsp;<br>
+		  <img alt="Resizing a Dialog Box" height="341" src="./Microsoft Visual C++ MFC__files/resize1.gif" width="502"></li>
+		  <li>Click and hold the mouse. Then drag in the right direction. 
+		  Meanwhile, observe the change of the width on the Status Bar<br></li>
+		  <li>When the width value gets to <strong>340</strong>, release the 
+		  mouse</li>
+		  <li>Position the mouse to the right border of the dialog box with a 
+		  vertical mouse cursor</li>
+		  <li>Click and hold the mouse. Then drag up. Meanwhile, observe the 
+		  change of the height on the Status Bar<br></li>
+		  <li>When the height values gets to <strong>202</strong>, release the 
+		  mouse</li>
+	  </ol>
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="paratitle">Windows Styles for a Dialog Box</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #FF0000" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+	  &nbsp;
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="subtitle">Introduction</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #0000FF" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+	  <p class="parajust">As the most regular used parent of Windows controls, a 
+	  dialog box must have some characteristics that would allow it to be as 
+	  efficient as possible. The characteristics of a dialog box, as done with 
+	  the controls, are referred to as its styles. In the resource file, to 
+	  specify these aspects, start a line with the <b>STYLE</b> keyword: </p>
+<pre style="position: relative;">IDD_SCHOOL_SURVEY DIALOGEX 0, 0, 340, 268
+<span class="codered">STYLE</span><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <p class="parajust">To programmatically change the style of a dialog box, 
+	  you can call the <strong>SetWindowLongPtr()</strong> function. Its syntax 
+	  is:</p>
+<pre style="position: relative;">LONG_PTR SetWindowLongPtr(HWND <em>hWnd</em>, int <em>nIndex</em>, LONG_PTR <em>dwNewLong</em>);<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <p class="parajust">The first argument is a handle to the dialog box. For 
+	  a normal application, you can use <b>m_hWnd</b> that we will study in
+	  <a href="https://www.functionx.com/vcmfc2010/Lesson07.htm#m_hWnd">Lesson 7</a>.</p>
+	  <p class="parajust">The <em>nIndex</em> argument represents the type of 
+	  change you want to make. In Lesson 8, we will come back to the possible 
+	  values of this argument; but for now, if you want to change the style of a 
+	  dialog box, this argument should have the <strong>GWL_STYLE</strong> 
+	  value.</p>
+	  <p class="parajust">The <em>dwNewLong</em> argument represents the new 
+	  value you want to apply for the second argument. In this case, it would be 
+	  the style you want to apply.</p>
+	  <p class="parajust">To get the styles that a dialog box has, you can call 
+	  the <strong>GetWindowLongPtr()</strong> function. Its syntax is:</p>
+<pre style="position: relative;">LONG_PTR GetWindowLongPtr(HWND <em>hWnd</em>, int <em>nIndex</em>);<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <p class="parajust">Both arguments follow the same rules as the first two 
+	  parameters of the <strong>SetWindowLongPtr()</strong> function.</p>
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="subtitle">The Caption of a Dialog Box</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #0000FF" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+	  <p class="parajust">Because a dialog box serves only to hold other 
+	  objects, it should indicate what it is used for. The top side of a dialog 
+	  box is made of a horizontal section that we call the title bar. To have a 
+	  title bar on a dialog box, it must be created with the <b>WS_CAPTION</b> 
+	  style: </p>
+<pre style="position: relative;">IDD_SCHOOL_SURVEY DIALOGEX 0, 0, 340, 268
+STYLE <span class="codered">WS_CAPTION</span><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <p class="parajust">The main area of this bar contains a word or a group 
+	  of words forming a sentence called a caption. There are various ways you 
+	  can change it. At design time, in the Properties window, change the value 
+	  of the Caption field. If you are creating a resource file, start a new 
+	  line with the <b>CAPTION</b> keyword and provide the word or group of 
+	  words as a null-terminated string. Here is an example: </p>
+<pre style="position: relative;">IDD_SCHOOL_SURVEY DIALOGEX 0, 0, 340, 268
+STYLE WS_CAPTION
+<span class="codered">CAPTION "Exercise"</span><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <p class="parajust">To programmatically specify the caption of a dialog 
+	  box, call the <strong>SetWindowText()</strong> function (the following 
+	  code, given as a reference, contains the <strong>OnCreate()</strong> and 
+	  the <strong>SetWindowText()</strong> and the <strong>OnCreate()</strong> 
+	  functions that we haven't studied yet; we will find out about them in the 
+	  next lessons):</p>
+<pre style="position: relative;">int CExerciseDlg::OnCreate(LPCREATESTRUCT lpCreateStruct)
+{
+    if (CDialog::OnCreate(lpCreateStruct) == -1)
+	return -1;
+
+  <span class="codered">  SetWindowText(_T("Yugo National Bank - Employees Records"));</span>
+
+    return 0;
+}<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="exotitle">
+			  <img alt="Practical Learning" border="0" height="20" src="./Microsoft Visual C++ MFC__files/practical1.gif" width="21">Practical 
+			  Learning: Changing a Dialog Style</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #CC3300" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+	  <ol>
+		  <li>Click the middle of the dialog box to give it focus.<br>In the 
+		  properties window, delete the value in the Caption field</li>
+		  <li>Replace it with <strong>Cruise Preparation</strong> and press 
+		  Enter</li>
+	  </ol>
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="subtitle">Scroll Bars</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #0000FF" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+	  <p class="parajust">When creating a dialog box, you can equip it with 
+	  either or both a vertical scroll bar and/or a horizontal scroll bar. To do 
+	  this, in the Properties window, set the Horizontal Scrollbar and/or the 
+	  Vertical Scrollbar fields to the desired value.</p>
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="subtitle">The System Icon of a Dialog Box</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #0000FF" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+	  <p class="parajust">Depending on how it is designed, a dialog box may 
+	  display a system icon on the left side of the title bar:</p>
+	  <p class="pcenter">
+	  <img alt="System Icon" height="238" src="./Microsoft Visual C++ MFC__files/icon1.gif" width="393"></p>
+	  <p class="parajust">To make a dialog box display a system icon, at design 
+	  time, access its Properties window and set its System Menu option to True. 
+	  Otherwise, in its resource file, add the <b>WS_SYSMENU</b> style. Here is 
+	  an example:</p>
+<pre style="position: relative;">IDD_SCHOOL_SURVEY DIALOGEX 0, 0, 340, 268
+STYLE WS_CAPTION <span class="codered">| WS_SYSMENU</span>
+CAPTION "Exercise"<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <p class="parajust">By default, Microsoft Visual Studio or the operating 
+	  system provides a default icon for the dialog box. If you want, you can 
+	  change it. Probably the easier way is to access the IDR_MAINFRAME item 
+	  from the Resource View and change its design. You can also use create 
+	  another icon or use any icon you want. At run-time, you can change the 
+	  icon by calling&nbsp; the LoadIcon() function. This function comes in two 
+	  versions whose syntaxes are:</p>
+<pre style="position: relative;">HICON LoadIcon(LPCTSTR lpszResourceName) const;
+HICON LoadIcon(UINT nIDResource) const;<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <p class="parajust">If you&nbsp;had designed a new icon and added its resource, 
+	  you can call the second version. Here is an example (the following code, 
+	  given as a reference, contains the <strong>OnInitDialog()</strong>, the
+	  <strong>LoadIcon()</strong>, and the <strong>SendMessage()</strong> 
+	  functions that we haven't studied yet; we will find out about them in 
+	  other lessons):</p>
+<pre style="position: relative;">BOOL CDialogExample1Dlg::OnInitDialog()
+{
+    CDialog::OnInitDialog();
+
+    // Set the icon for this dialog.  The framework does this automatically
+    //  when the application's main window is not a dialog
+    SetIcon(m_hIcon, TRUE);			// Set big icon
+    SetIcon(m_hIcon, FALSE);		// Set small icon
+
+    // TODO: Add extra initialization here
+    <span class="codered">HICON hCustomIcon = LoadIcon(AfxGetApp()-&gt;m_hInstance,
+	                         MAKEINTRESOURCE(IDI_SOME_ICON));
+	 
+    if(hCustomIcon)
+	  SendMessage(WM_SETICON, ICON_SMALL, (LPARAM)hCustomIcon);</span>
+	 
+    return TRUE;  // return TRUE  unless you set the focus to a control
+}<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="subtitle">The System Menu of a Dialog Box</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #0000FF" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+	  <p class="parajust">If a dialog box is equipped with a system icon, the 
+	  user can click the icon and this would display a system menu:</p>
+	  <p class="pcenter">
+	  <img alt="System Menu" height="259" src="./Microsoft Visual C++ MFC__files/sysmenu7.gif" width="412"></p>
+	  <p class="parajust">The presence of the system menu comes with a system 
+	  Close button on the right side of the title bar. As mentioned already, 
+	  this is made possible by adding the <b>WS_SYSMENU</b> style as seen 
+	  earlier. As mentioned already, if you want to programmatically change the 
+	  style of a dialog box, call the <strong>SetWindowLongPtr()</strong> 
+	  function. To hide the system icon and its menu from the title bar, first 
+	  call the function to remove the system menu, then call it again to add the
+	  <strong>WS_CAPTION</strong> style. here is an example&nbsp; (the following 
+	  code, given as a reference, contains the <strong>OnInitDialog()</strong> 
+	  function that we haven't studied yet): </p>
+<pre style="position: relative;">BOOL CDialogExample1Dlg::OnInitDialog()
+{
+	CDialog::OnInitDialog();
+
+	// Set the icon for this dialog.  The framework does this automatically
+	//  when the application's main window is not a dialog
+	SetIcon(m_hIcon, TRUE);			// Set big icon
+	SetIcon(m_hIcon, FALSE);		// Set small icon
+
+	// TODO: Add extra initialization here
+	<span class="codered">SetWindowLongPtr(m_hWnd, GWL_STYLE, ~WS_SYSMENU);
+	SetWindowLongPtr(m_hWnd, GWL_STYLE, WS_CAPTION);</span>
+	 
+	return TRUE;  // return TRUE  unless you set the focus to a control
+}<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <p class="parajust">This would produce:</p>
+	  <p class="pcenter">
+	  <img alt="Style" height="238" src="./Microsoft Visual C++ MFC__files/style1.gif" width="393"></p>
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="subtitle">The Minimize Button of a Dialog Box</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #0000FF" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+	  <p class="parajust">Normally, the standard characteristics of a dialog box 
+	  state that it does not need to be minimize. Still, if you want, you can 
+	  add a minimize and a maximize buttons to it. If you want to add the 
+	  minimize button, at design time, set the Minimize Box property to True. 
+	  This is equivalent to adding the <b>WS_MINIMIZEBOX</b> style to the class.</p>
+	  <p class="parajust">To programmatically do this, call the <strong>
+	  SetWindowLongPtr()</strong> function and add the <strong>WS_MINIMIZEBOX</strong> 
+	  style to the third argument. Here is an example:</p>
+<pre style="position: relative;">SetWindowLongPtr(m_hWnd, GWL_STYLE, WS_MINIMIZEBOX | WS_CAPTION | WS_SYSMENU);<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <p class="parajust">If you create a dialog box and equip it with the 
+	  minimize button so the user can shrink it to the task bar, if you want the 
+	  dialog box to be minimized when it comes up, if you are making the changes 
+	  from the resource file, add the <strong>WS_MINIMIZE</strong> style. This 
+	  would be done as follows: </p>
+<pre style="position: relative;">IDD_SCHOOL_SURVEY DIALOGEX 0, 0, 340, 268
+STYLE WS_CAPTION | WS_SYSMENU <span class="codered">| WS_MINIMIZEBOX | WS_MINIMIZE</span>
+CAPTION "Exercise"<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <p class="parajust">Remember that a dialog box can be minimized only if 
+	  its system menu indicates so.</p>
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="subtitle">The Maximize Button of a Dialog Box</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #0000FF" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+	  <p class="parajust"><b>WS_MAXIMIZEBOX</b>: If you want the Maximize button 
+	  , set the Maximize Box property to True or checked. This is equivalent to 
+	  adding the <b>WS_MAXIMIZEBOX</b> style. </p>
+	  <p class="parajust"><b>WS_MAXIMIZE</b>: If you create a dialog box 
+	  equipped with the Maximize button, if you want the dialog box to be 
+	  automatically maximized when it displays, you can add the <b>WS_MAXIMIZE</b> 
+	  style to the resource file. This would be done as follows: </p>
+<pre style="position: relative;">IDD_SCHOOL_SURVEY DIALOGEX 0, 0, 340, 268
+STYLE WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX | WS_MINIMIZE |
+<span class="codered">WS_MAXIMIZEBOX | WS_MAXIMIZE</span>
+CAPTION "Exercise"<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <p class="parajust">Remember that a window box can be maximized only if it 
+	  includes the <b>WS_MAXIMIZEBOX</b> style. </p>
+	  <p class="parajust">Setting one of these two system button properties to 
+	  True or checked or adding either <b>WS_MAXIMIZEBOX</b> or <b>
+	  WS_MINIMIZEBOX</b> and not the other would disable the other system 
+	  button. Therefore, here are the combinations you can get:</p>
+	  <p class="pcenter">
+	  <img alt="System Menu" height="216" src="./Microsoft Visual C++ MFC__files/sysmenu1.gif" width="590"></p>
+	  <p class="pcenter">System Menu = False</p>
+	  <p class="parajust">This is equivalent to:</p>
+<pre style="position: relative;">BOOL CDialogExample1Dlg::OnInitDialog()
+{
+	CDialog::OnInitDialog();
+
+	// Set the icon for this dialog.  The framework does this automatically
+	//  when the application's main window is not a dialog
+	SetIcon(m_hIcon, TRUE);			// Set big icon
+	SetIcon(m_hIcon, FALSE);		// Set small icon
+
+	// TODO: Add extra initialization here
+	<span class="codered">SetWindowLongPtr(m_hWnd, GWL_STYLE, ~WS_CAPTION);
+</span>	<span class="codered">SetWindowLongPtr(m_hWnd, GWL_STYLE, WS_SYSMENU);</span>
+
+	return TRUE;  // return TRUE  unless you set the focus to a control
+}<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <p class="pcenter">
+	  <img alt="System Menu" height="204" src="./Microsoft Visual C++ MFC__files/sysmenu1(1).gif" width="269"></p>
+	  <p class="pcenter">There is no system button</p>
+	  <table align="center" style="width: 400pt">
+		  <tbody><tr>
+			  <td>System Menu = True<br>Minimize Box = False<br>Maximize Box = 
+			  True</td>
+			  <td class="pcenter">
+			  <img alt="System Menu" height="204" src="./Microsoft Visual C++ MFC__files/sysmenu2.gif" width="269"></td>
+		  </tr>
+		  <tr>
+			  <td>&nbsp;</td>
+			  <td class="pcenter">The Minimize button is disabled </td>
+		  </tr>
+	  </tbody></table>
+	  &nbsp;
+	  <table align="center" style="width: 400pt">
+		  <tbody><tr>
+			  <td>System Menu = True<br>Minimize Box = True<br>Maximize Box = 
+			  False</td>
+			  <td class="pcenter">
+			  <img alt="System Menu" height="204" src="./Microsoft Visual C++ MFC__files/sysmenu3.gif" width="269"></td>
+		  </tr>
+		  <tr>
+			  <td>&nbsp;</td>
+			  <td class="pcenter">The Maximize button is disabled</td>
+		  </tr>
+	  </tbody></table>
+	  &nbsp;
+	  <table align="center" style="width: 400pt">
+		  <tbody><tr>
+			  <td>System Menu = True<br>Minimize Box = True <br>Maximize Box = 
+			  True</td>
+			  <td class="pcenter">
+			  <img alt="System Menu" height="204" src="./Microsoft Visual C++ MFC__files/sysmenu4.gif" width="269"></td>
+		  </tr>
+		  <tr>
+			  <td>&nbsp;</td>
+			  <td class="pcenter">Both the Minimize and Maximize buttons are 
+			  enabled</td>
+		  </tr>
+	  </tbody></table>
+	  &nbsp;
+	  <table align="center" style="width: 400pt">
+		  <tbody><tr>
+			  <td>System Menu = True<br>Minimize Box = False<br>Maximize Box = 
+			  False</td>
+			  <td class="pcenter">
+			  <img alt="System Menu" height="204" src="./Microsoft Visual C++ MFC__files/sysmenu4.gif" width="269"></td>
+		  </tr>
+		  <tr>
+			  <td>&nbsp;</td>
+			  <td class="pcenter">Only the Close button is available</td>
+		  </tr>
+	  </tbody></table>
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="subtitle">The Borders of a Dialog Box</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #0000FF" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+	  <p class="parajust">The borders of an object allow the user to 
+	  "physically" locate it on the screen. Obviously a dialog box should have 
+	  borders. Win32 allows you to customize the borders of a dialog box. At 
+	  design time, the type of border used on a dialog box is controlled by the 
+	  Border combo box in the Properties window. If you are working from the 
+	  resource file, the dialog box provides a set of properties you can use.</p>
+	  <p class="parajust">The options used to control the borders of a dialog 
+	  box are:</p>
+	  <ul>
+		  <li>Property Window: Border: None<br>Resource File: Style: No DS_ 
+		  style, no <strong>WS_CAPTION</strong>, no <strong>WS_SYSMENU</strong></li>
+	  </ul>
+	  <p class="pcenter">
+	  <img alt="None" height="233" src="./Microsoft Visual C++ MFC__files/none1.gif" width="420"></p>
+	  <ul>
+		  <li>Property Window: Border:&nbsp;Thin</li>
+	  </ul>
+	  <p class="pcenter">
+	  <img alt="None" height="233" src="./Microsoft Visual C++ MFC__files/thin1.gif" width="420"></p>
+	  <ul>
+		  <li>Resizing: The user will be able to enlarge, shrink, heighten, or 
+		  shorten the dialog box by dragging its borders</li>
+		  <li>Property Window: Border = Dialog Frame<br>Resource File: Style: 
+		  DS_MODALFRAME<br>The dialog box will have thick borders</li>
+	  </ul>
+
+</span>
+
+      </td>
+      <td>
+   
+<table border="0" width="100%">
+  <tbody><tr>
+    <td width="100%">
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-3968514660870014";
+google_ad_width = 300;
+google_ad_height = 250;
+google_ad_format = "300x250_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//--></script>
+<script type="text/javascript" src="./Microsoft Visual C++ MFC__files/f.txt">
+</script>
+
+    </td>
+  </tr>
+</tbody></table>
+
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">
+   
+&nbsp;
+        <table border="0" width="100%">
+          <tbody><tr>
+            <td width="100%">
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-3968514660870014";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_type = "text_image";
+google_ad_channel ="";
+google_color_border = "FFFFFF";
+google_color_link = "0000FF";
+google_color_bg = "FFFFFF";
+google_color_text = "000000";
+google_color_url = "008000";
+//--></script>
+<script type="text/javascript" src="./Microsoft Visual C++ MFC__files/f.txt">
+</script>
+
+            </td>
+          </tr>
+        </tbody></table>
+        <table border="0" width="100%">
+          <tbody><tr>
+            <td width="100%"></td>
+          </tr>
+        </tbody></table>
+
+&nbsp;
+
+      </td>
+    </tr>
+  </tbody></table></div>
+
+&nbsp;
+
+<div align="center">
+<table border="0" width="900">
+  <tbody><tr>
+    <td width="680" rowspan="2">
+
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">The Frame Thickness</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">Based on the Microsoft Windows standards and 
+	suggestions, a dialog box usually uses constant dimensions. This means that 
+	the user should not change its width and/or height. If you want to give the 
+	user the ability to resize a dialog box, change its Border value to 
+	Resizing. With this type of object, the user can position the mouse on of 
+	its borders or corners, click, hold down the mouse and drag in the desired 
+	direction to change its dimensions. In the resource file, this can also be 
+	done by creating the dialog box with the <b>WS_THICKFRAME</b> style: </p>
+	<pre style="position: relative;">IDD_SCHOOL_SURVEY DIALOGEX 0, 0, 340, 268
+STYLE WS_CAPTION | WS_SYSMENU | WS_POPUP <span class="codered">| WS_THICKFRAME</span>
+CAPTION "Exercise"<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">A Thin value gives a thin border to the dialog box.</p>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">A Popup Dialog Box</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">A window is referred to as popup if it can be displayed 
+	on the screen. That is, if it can be "physically" located. To create a popup 
+	dialog box, at design time, select Popup from the Style combo box. In the 
+	resource file, this can be done by adding the <b>WS_POPUP</b> style: </p>
+	<pre style="position: relative;">IDD_SCHOOL_SURVEY DIALOGEX 0, 0, 340, 268
+STYLE WS_CAPTION | WS_SYSMENU <span class="codered">| WS_POPUP</span>
+CAPTION "Exercise"<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">If you do not want borders at all on the dialog box, set 
+	its Border value to None. This also removes the title bar and thus the 
+	system buttons: </p>
+	<p class="pcenter">
+	<img alt="System Menu" height="204" src="./Microsoft Visual C++ MFC__files/sysmenu6.gif" width="269"></p>
+	<p class="parajust">This is equivalent to using only the <strong>WS_POPUP</strong> 
+	style: </p>
+	<pre style="position: relative;">IDD_SCHOOL_SURVEY DIALOGEX 0, 0, 340, 268
+STYLE <span class="codered">WS_POPUP</span>
+CAPTION "Exercise"<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">The Child of a Dialog Box</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">A window is referred to as child if its appearance is 
+	dependent of the appearance of another window. All of the objects we will 
+	place on our dialog boxes are child window. As we will see when studying 
+	property sheets and wizards, a dialog box that is designed to be "embedded" 
+	in a property sheet or a wizard must be created as a child. To specify that 
+	a dialog box is a child of another window, at design time, select the Child 
+	value on the Style combo box. This characteristic can be applied by adding 
+	the <b>WS_CHILD</b> style.</p>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">A Overlapped Dialog Box</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">A window is called overlapped if it has the following 
+	characteristics: </p>
+	<ul>
+		<li>It has a title bar equipped with a caption and at least one of the 
+		system buttons (usually at least the system Close button)</li>
+		<li>It has borders</li>
+	</ul>
+	<p class="parajust">To get an overlapped dialog box, at design time, access 
+	the Properties window for the dialog box. Set the Style combo box to the 
+	Overlapped value. This is equivalent to the <b>WS_OVERLAPPED</b> style. </p>
+	<p class="parajust">To create a dialog box equipped with a title bar, a 
+	system menu, the ability to pop up, and a border, instead of combining the
+	<b>WS_CAPTION</b>, the <b>WS_SYSMENU</b>, the <b>WS_POPUP</b>, and the <b>
+	WS_BORDER</b> styles, use the <b>WS_OVERLAPPEDWINDOW</b> value, which 
+	combines them all.</p>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="paratitle">The Regular Styles of a Dialog Box</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #FF0000" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	&nbsp;
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">The Context Help</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">We saw already how to manage the title bar and its 
+	system buttons. If you are creating a strict dialog box, one that is 
+	equipped with only the system close button, if you intend to provide help on 
+	the dialog box, you can add a context-sensitive help button to the left of 
+	the close button. To do this at design time, in the Properties window, set 
+	its Context Help property to True or create it with the <b>DS_CONTEXTHELP</b> 
+	style.&nbsp; </p>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">A Modal Frame</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">By design, a dialog box has thick borders and cannot be 
+	resized from its borders or corners, even if the system buttons are 
+	available. This characteristic of dialog boxes is controlled by the Border 
+	property. The default border of a dialog box is Dialog Frame. This is the 
+	same as applying the <b>DS_MODALFRAME</b> dialog style: </p>
+	<pre style="position: relative;">IDD_SCHOOL_SURVEY DIALOGEX 0, 0, 340, 268
+STYLE WS_CAPTION | WS_SYSMENU | WS_POPUP <span class="codered">| DS_MODALFRAME</span>
+CAPTION "Exercise"<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">A 3-D Look</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">In previous versions of MS Windows, namely Windows NT 
+	3.51, to get a 3-dimensional appearance, you needed to apply the <strong>
+	DS_3DLOOK</strong> style. At this time, this style is added by default.<br>
+	</p>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">The Coordinates of a Dialog Box</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">Earlier, when reviewing the techniques of setting the 
+	location of a dialog box, we mentioned that, if the x and the y values, or 
+	the X Pos and the Y Pos properties, are set to 0, the dialog box is 
+	positioned in the middle of the screen. This is because, like all other 
+	objects that can act as children of a parent window, the location of a 
+	dialog box is set according to its parent. That is, the location of a dialog 
+	box is based on its ability to be a client (also called child) of another 
+	window (called a parent). This system is referred to as client coordinate. 
+	If you are creating an application based on a dialog box, that is, an 
+	application whose main or even only container is the dialog box, such a 
+	dialog box does not have a parent. In this case, it does not have a 
+	referential window to base its location on. Consequently, it gets positioned 
+	to the middle of the screen. If you want the location of the dialog box to 
+	be based on the monitor screen, at design time, set its Absolute Align 
+	property to True in the Properties window. In a resource file, this would be 
+	done by adding the <b>DS_ABSALIGN</b> style. This system is referred as the 
+	screen coordinate.<br></p>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">Centering a Dialog Box</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">Based on the coordinate system you decide to use, screen 
+	or client, when the dialog box of a dialog-based application comes up, if 
+	you want the dialog to be centered on the monitor screen, even if you are 
+	using the screen coordinate system with the <b>DS_ABSALIGN</b> style, set 
+	its Center property to True in the Properties window. This is also done by 
+	adding the <b>DS_CENTER</b> style. If the dialog box is participating in an 
+	application that is view-based, if you set its Center property to True, it 
+	would be centered with regards to the window that called it.<br><br>We have 
+	described how to control the location of the dialog box when it comes up, 
+	depending on the coordinate system you are using, and the <b>DS_CENTER</b> 
+	style. Alternatively, if you want the dialog box to be displayed based on 
+	the location of the user's mouse cursor, at design time, set its Center 
+	Mouse property to True in the Properties window. In this case, when the 
+	dialog box comes up, it would find the mouse pointer and position itself so 
+	the mouse cursor would be in the middle-center of the dialog box. This 
+	ability is also applied by adding the <b>DS_CENTERMOUSE</b> style.</p>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="exotitle">
+			<img alt="Practical Learning" border="0" height="20" src="./Microsoft Visual C++ MFC__files/practical1.gif" width="21">Practical 
+			Learning: Centering a Dialog Box</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #CC3300" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<ol>
+		<li>In the Properties window, double-click the Center field to set it to 
+		True</li>
+		<li>On the Standard toolbar, click the Save All button</li>
+	</ol>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">The Font of a Dialog Box</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">To display its controls, the dialog box uses a 
+	predefined font known as MS Shell Dlg. To change it at design time, in the 
+	Properties window, click Font (Size) to reveal its combo box. Then click its 
+	ellipsis button. This would open the Font dialog box where you can select 
+	the font and its options.</p>
+	<p class="parajust">The font characteristics are managed through the <b>
+	DS_SHELLFONT</b>, the <b>DS_SETFONT</b>, and the <b>DS_FIXEDSYS</b> styles. 
+	The section of the resource file that specifies the general font starts with 
+	the <strong>FONT</strong> keyword: </p>
+	<pre style="position: relative;">IDD_SCHOOL_SURVEY DIALOGEX 0, 0, 340, 268
+STYLE <span class="codered">DS_SETFONT | DS_FIXEDSYS</span> | WS_CAPTION | WS_SYSMENU | WS_POPUP | DS_MODALFRAME
+CAPTION "Exercise"
+<span class="codered">FONT</span><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">The <strong>FONT</strong> keyword is followed by the 
+	characteristics of the font using the following syntax: </p>
+	<pre style="position: relative;">FONT size, name, weight, italic, charset<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">Here is an example: </p>
+	<pre style="position: relative;">IDD_SCHOOL_SURVEY DIALOGEX 0, 0, 340, 268
+STYLE WS_CAPTION | WS_SYSMENU | WS_POPUP | DS_MODALFRAME
+CAPTION "Exercise"
+<span class="codered">FONT 8, â€œMS Shell Dlgâ€, 400, 0, 0x1</span><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">If you want to manage the fonts, weights, and colors of 
+	the controls on the dialog box of an MFC application, you must do this 
+	programmatically.</p>
+	<p class="parajust"></p>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">The Background Color of a Dialog Box</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">The primary technique used to create a dialog is to 
+	derive a class from <strong>CDialog</strong>. To enhance it, Microsoft 
+	created a new class named <strong>CDialogEx</strong>. This class is derived 
+	from CDialog and it added only two characteristics: a color background and a 
+	picture background.</p>
+	<p class="parajust">To give you the ability to paint a dialog box with a 
+	color of your choice, the <strong>CDialogEx</strong> class is equipped with 
+	the <strong>SetBackgroundColor()</strong> member function. Its syntax is:</p>
+	<pre style="position: relative;">void SetBackgroundColor(COLORREF <i>color</i>, BOOL <i>bRepaint</i> = TRUE);<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">The fist argument, which is required, specifies the 
+	color to apply to the body of the dialog box. The second argument is 
+	optional and it indicates whether the dialog box should be repainted with 
+	this member function is called. Here is an example:</p>
+	<pre style="position: relative;">BOOL CExampleDlg::OnInitDialog()
+{
+	CDialogEx::OnInitDialog();
+
+	// Set the icon for this dialog.  The framework does this automatically
+	//  when the application's main window is not a dialog
+	SetIcon(m_hIcon, TRUE);			// Set big icon
+	SetIcon(m_hIcon, FALSE);		// Set small icon
+
+	// TODO: Add extra initialization here
+
+	<span class="codered">SetBackgroundColor(278394);</span>
+
+	return TRUE;  // return TRUE  unless you set the focus to a control
+}<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="pcenter">
+	<img alt="Background Color" height="258" src="./Microsoft Visual C++ MFC__files/color1.gif" width="391"></p>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">The Background Picture of a Dialog Box</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">Instead of a color, you may want to paint a dialog box 
+	with a picture. To support this, the CDialogEx class provides the <b>
+	SetBackgroundImage()</b> member function. It comes in two versions whose 
+	syntaxes are:</p>
+	<pre style="position: relative;">void SetBackgroundImage(
+   HBITMAP hBitmap,
+   BackgroundLocation location=BACKGR_TILE,
+   BOOL bAutoDestroy=TRUE,
+   BOOL bRepaint=TRUE 
+);
+BOOL SetBackgroundImage(
+   UINT uiBmpResId,
+   BackgroundLocation location=BACKGR_TILE,
+   BOOL bRepaint=TRUE 
+);<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">In both cases, the first argument is required and it 
+	holds the bitmap to use. The other arguments are optional.</p>
+	<p class="parajust">The first version expects a handle to a <strong>BITMAP</strong> 
+	object. To use it, you must programmatically create a BITMAP or a <strong>
+	CBitmap</strong> object and pass it to the function. The second version of 
+	this member function is probably the easier. Before using it, you can first 
+	import a bitmap (a picture with the .bmp extension), and give it an ID. Once 
+	the bitmap is ready, pass its ID to the member function. Here is an example:</p>
+	<pre style="position: relative;">BOOL CExample1Dlg::OnInitDialog()
+{
+	CDialogEx::OnInitDialog();
+
+	// Set the icon for this dialog.  The framework does this automatically
+	//  when the application's main window is not a dialog
+	SetIcon(m_hIcon, TRUE);			// Set big icon
+	SetIcon(m_hIcon, FALSE);		// Set small icon
+
+	// TODO: Add extra initialization here
+
+	<span class="codered">SetBackgroundImage(IDB_CITY);</span>
+
+	return TRUE;  // return TRUE  unless you set the focus to a control
+}<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="pcenter">
+	<img alt="Background Picture" height="354" src="./Microsoft Visual C++ MFC__files/picture1.gif" width="508"></p>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="paratitle">The Extended Styles of a Dialog Box</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #FF0000" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	&nbsp;
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">Introduction</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">Besides the regular Windows styles and the styles 
+	specific to a dialog box, Microsoft Windows provides some extended styles 
+	used to improve the appearance or the role of a dialog box on an 
+	application. To use these styles in the resource file, start a new line with 
+	the <b>EXSTYLE</b> keyword: </p>
+	<pre style="position: relative;">IDD_SCHOOL_SURVEY DIALOGEX 0, 0, 340, 268
+STYLE WS_CAPTION | WS_SYSMENU | WS_POPUP | DS_MODALFRAME
+<span class="codered">EXSTYLE</span>
+CAPTION "Exercise"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">A Dialog Box as a Tool Window</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">A tool window is a parent object mostly used to float, 
+	like a toolbar, on a frame of another window. It has a short title bar that 
+	displays its caption. It can neither be minimized nor maximized but it can 
+	be equipped with a circumstantial system menu: </p>
+	<p class="parajust">To create a tool window, when designing the dialog box, 
+	set the Tool Window field to True in the Properties window. This can also be 
+	applied by adding the <strong>WS_EX_TOOLWINDOW</strong> extended style: </p>
+	<pre style="position: relative;">IDD_SCHOOL_SURVEY DIALOGEX 0, 0, 340, 268
+STYLE WS_CAPTION | WS_SYSMENU | WS_POPUP | DS_MODALFRAME
+EXSTYLE <span class="codered">WS_EX_TOOLWINDOW</span>
+CAPTION "Exercise"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">If you want the user to be able to resize the tool 
+	window by dragging its borders or corners, at design time, set its Border 
+	value to Resizing or create it with the <strong>WS_THICKFRAME</strong> 
+	style. If you do not want the user to be able to resize the tool window, at 
+	design time, set its Border to either Thin or Dialog Frame. In the resource 
+	file, you can also do this by creating it with the <strong>WS_CAPTION</strong> 
+	and <strong>WS_SYSMENU</strong> style.</p>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">A Dialog Box as an Application Window</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">As mentioned already, a window without the system 
+	Minimize button cannot be minimized. This, of course, is the same for a tool 
+	window. Also, by default, a tool window does not display a button on the 
+	task bar. If you are creating a window that will depend on a main window 
+	such as a frame, you should keep that default. If for any reason you want to 
+	display a button on the task bar for the tool window, add the <b>
+	WS_EX_APPWINDOW</b> extended style. </p>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">Staying on Top</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">If you want your window to stay on top of another or 
+	other windows, at design time, set the Topmost field to True in the 
+	Properties window. If you are working from a resource file, add the <b>
+	WS_EX_TOPMOST</b> extended style to it (if the window you are creating, such 
+	as a dialog box, is being added to a frame-based or a form-based application 
+	and you want that window to always be on top of its parent window, add the
+	<b>WS_VISIBLE</b> style to it and display it using <b>ShowWindow(SW_SHOW)</b>).</p>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">A Client Edge for a Dialog Box</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">A window appears sunken when its body is sunk with 
+	regards to its borders. To create a dialog box with a sunken body, at design 
+	time, set its Client Edge field to True in the Properties window. If you are 
+	working from a resource file, add the <b>WS_EX_CLIENTEDGE</b> extended 
+	style.</p>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">A Window Edge for a Dialog Box</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">A window can have an inside body that appears to be 
+	raised with regards to its borders. To get such an edge, at design time, set 
+	the Window Edge field to True in the Properties window. If you are working 
+	from a resource file, add the <b>WS_EX_WINDOWEDGE</b> extended style. </p>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">A Static Edge for a Dialog Box</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">To create a window with a 3-dimensional thin border, at 
+	design time, set its Static Edge to True in the Properties window. This is 
+	the same as adding the <strong>WS_EX_STATICEDGE</strong> extended style. </p>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">A Palette Window</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">To create a dialog box that has a raised border and 
+	stays on top of others, which is equivalent to combining the <b>
+	WS_EX_WINDOWEDGE</b> and the <b>WS_EX_TOPMOST</b> styles, in the resource 
+	file, add the <b>WS_EX_PALETTEWINDOW</b> value in the <b>EXSTYLE</b> line
+	</p>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">An Extended Overlapped Window</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">A window is referred to as overlapped when it presents a 
+	combination of a sunk and a raised edge. Such a window can be created by 
+	either combining the <b>WS_EX_CLIENTEDGE</b> and the <b>WS_EX_WINDOWEDGE</b> 
+	styles or by using the <b>WS_EX_OVERLAPPEDWINDOW</b>. </p>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">A Window that Accepts Files</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">If you are creating a dialog box that will be accepting 
+	files dragged from other windows, at design time, set the Accept Files field 
+	to True in the Properties window. You can also do this in the resource file 
+	by adding the <b>WS_EX_ACCEPTFILES</b> extended style.</p>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="paratitle">Finalizing a Dialog Box</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #FF0000" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	&nbsp;
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">Creating the Dialog Resource File</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">As mentioned already, a dialog box means nothing except 
+	for the objects it hosts. The objects are listed in a section that starts 
+	with the <strong>BEGIN</strong> and ends with the <strong>END</strong> 
+	keywords. Here is an example: </p>
+	<pre style="position: relative;">IDD_SCHOOL_SURVEY DIALOGEX 0, 0, 340, 268
+STYLE WS_CAPTION | WS_SYSMENU | WS_POPUP | DS_MODALFRAME
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Exercise"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+<span class="codered">BEGIN
+END</span><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">If you design a dialog box and it is the first object of 
+	your application, you must save it before using it. Even if you had decided 
+	to manually create the dialog box as a text file, you must save it before 
+	using it. In both cases, whether saving the dialog box designed or the text 
+	file, saving it results in creating a resource file. This file should have 
+	the .rc extension. </p>
+	<p class="parajust">If your resource file is using some identifiers, which 
+	is the case for most or all objects you will use in your application, you 
+	must list them in a header file. This file is traditionally called 
+	Resource.h or resource.h. Each identifier must be listed using the following 
+	syntax: </p>
+	<pre style="position: relative;">#define <i>Identifier</i> <i>Constant</i><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">When you save the resource file, Microsoft Visual C++ 
+	automatically creates the resource header file and names it resource.h </p>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">Creating a Class for the Dialog</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">After creating the resource for the dialog box, you must 
+	create a class that will be used to handle its assignment(s). To do this, 
+	you must derive a class from <b>CDialog</b>. You have various options. You 
+	can create a header file and a source file for the dialog box. In the header 
+	file of the dialog's class, define an enumeration whose only member is 
+	called IDD and initialize it with the identifier of the dialog box. Because 
+	the identifier is listed in the resource header file, you must include this 
+	resource header in the file in which you are using the dialog's identifier.</p>
+	<p class="parajust">Instead of explicitly creating the header and source 
+	files, you can create a class for the dialog box. There are two ways you can 
+	do this:</p>
+	<ul>
+		<li>While the dialog box has focus, on the main menu, you can click 
+		Project -&gt; Add Class...</li>
+		<li>You can right-click the body of the dialog box and click Add 
+		Class...</li>
+	</ul>
+	<p class="parajust">This would open the MFC Add Class Wizard. In the Class 
+	Name text box, enter the intended name of the class. In the Base Class combo 
+	box, select either <b>CDialog</b> (the default) or another:</p>
+	<p class="pcenter">
+	<img alt="MFC Add Class Wizard" height="530" src="./Microsoft Visual C++ MFC__files/macw1.gif" width="625"></p>
+	<p class="parajust">When you are ready, click Finish. A header file and a 
+	source file would be created for you. All the necessary ingredients of a 
+	dialog box class will be added in the code for you, including issues we will 
+	study in other lessons.</p>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="exotitle">
+			<img alt="Practical Learning" border="0" height="20" src="./Microsoft Visual C++ MFC__files/practical1.gif" width="21">Practical 
+			Learning: Creating the Dialog's Class</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #CC3300" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<ol>
+		<li>Click the Preparation.cpp tab to get to the file</li>
+		<li>To create a class for the dialog box, open the Preparation.cpp file 
+		created earlier and add the following:<pre style="position: relative;">#include &lt;afxwin.h&gt;
+<span class="codered">#include &lt;afxdlgs.h&gt;
+#include "resource.h"</span>
+
+class CPreparationApp : public CWinApp
+{
+public:
+	BOOL InitInstance();
+};
+
+<span class="codered">class CPreparationDlg : public CDialog
+{
+public:
+	enum { IDD = IDD_PREPARATION_DLG };
+};</span>
+
+BOOL CPreparationApp::InitInstance()
+{
+	return TRUE;
+}
+
+CPreparationApp theApp;<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+		</li>
+		<li>Save All</li>
+	</ol>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">Dialog Box Methods</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">A dialog box is based on the <strong>CDialog</strong> 
+	class. As seen above, when creating your dialog box, you can derive a class 
+	from <b>CDialog</b>. The <b>CDialog</b> class itself provides three 
+	constructors as follows: </p>
+	<pre style="position: relative;">CDialog();
+CDialog(UINT <i>nIDTemplate</i>, CWnd* <i>pParentWnd</i> = NULL);
+CDialog(LPCTSTR <i>lpszTemplateName</i>, CWnd* <i>pParentWnd</i> = NULL);<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">The default constructor, <b>CDialog()</b>, can be used 
+	to declare a variable whose behavior is not yet known or, for one reason or 
+	another, cannot yet be defined. When creating your class, you should also 
+	declare at least a default constructor. </p>
+	<p class="parajust">The identifier of the dialog box, such as IDD_DIALOG1, 
+	can be used as the first argument, <i>nIDTemplate</i>, of a <b>CDialog()</b> 
+	constructor to create a dialog box from an existing resource. </p>
+	<p class="parajust">If you are using a Win32 template to create your dialog 
+	box, pass the name of this template as a string to a <b>CDialog()</b> 
+	constructor, <i>lpszTemplateName</i>. </p>
+	<p class="parajust">When implementing your default constructor, initialize 
+	the parent <b>CDialog</b> constructor with the IDD enumerator declared in 
+	your class. If your dialog box has an owner, specify it as the <i>pParentWnd</i> 
+	argument. If you set it to NULL, the application will be used as the 
+	dialog's parent. </p>
+	<p class="parajust">If you dynamically create objects for your application 
+	using your dialog class, it is a good idea to also declare and define a 
+	destructor. This would be used to destroy such dynamic objects. </p>
+	<p class="parajust">Most other methods of a dialog box depend on 
+	circumstances we have not yet reviewed </p>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="exotitle">
+			<img alt="Practical Learning" border="0" height="20" src="./Microsoft Visual C++ MFC__files/practical1.gif" width="21">Practical 
+			Learning: Creating a Dialog Box</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #CC3300" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<ol>
+		<li>Declare a default constructor and a destructor for your dialog class 
+		and implement them as follows (in the same file):<pre style="position: relative;">class CPreparationDlg : public CDialog
+{
+public:
+    enum { IDD = IDD_PREPARATION_DLG };
+
+    <span class="codered">CPreparationDlg();
+    ~CPreparationDlg();</span>
+};
+
+<span class="codered">CPreparationDlg::CPreparationDlg()
+   : CDialog(CPreparationDlg::IDD)
+{
+}
+
+CPreparationDlg::~CPreparationDlg()
+{
+}</span><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+		</li>
+		<li>Before using the new class, declare a variable of it as follows:<pre style="position: relative;">BOOL CPreparationApp::InitInstance()
+{
+  <span class="codered">  CPreparationDlg Dlg;
+
+    m_pMainWnd = &amp;Dlg;</span>
+
+    return TRUE;
+}<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+		</li>
+		<li>Save All</li>
+	</ol>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">Modal Dialog Boxes</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">There are two types of dialog boxes: modal and modeless. 
+	A Modal dialog box is one that the user must first close in order to have 
+	access to any other framed window or dialog box of the same application. </p>
+	<p class="parajust">One of the scenarios in which you use a dialog box is to 
+	create an application that is centered around a dialog box. In this case, if 
+	either there is no other window in your application or all the other windows 
+	depend on this central dialog box, it must be created as modal. Such an 
+	application is referred to as dialog-based </p>
+	<p class="parajust">There are two main techniques you can use to create a 
+	dialog-based application: from scratch or using one of Visual C++ wizards. 
+	After creating a dialog resource and deriving a class from <strong>CDialog</strong>, 
+	you can declare a variable of your dialog class. To display your dialog box 
+	as modal, you can call the <strong>CDialog::DoModal()</strong> method in 
+	your <strong>CWinApp::InitInstance()</strong> method. Its syntax is: </p>
+	<pre style="position: relative;">virtual int DoModal();<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">This method by itself does nothing more than displaying 
+	a dialog box as modal. We will learn that you can use this method to find 
+	out how the user had closed such a dialog box. </p>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="exotitle">
+			<img alt="Practical Learning" border="0" height="20" src="./Microsoft Visual C++ MFC__files/practical1.gif" width="21">Practical 
+			Learning: Displaying a Modal Dialog Box</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #CC3300" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<ol>
+		<li>To display the dialog box as modal, in the <strong>InitInstance()</strong> 
+		event of your <strong>CWinApp</strong> derived class, call the <strong>
+		DoModal()</strong> method using your dialog variable:<pre style="position: relative;">#include &lt;afxwin.h&gt;
+#include &lt;afxdlgs.h&gt;
+#include "resource.h"
+
+class CPreparationApp : public CWinApp
+{
+public:
+    BOOL InitInstance();
+};
+
+class CPreparationDlg : public CDialog
+{
+public:
+    enum { IDD = IDD_PREPARATION_DLG };
+
+    CPreparationDlg();
+    ~CPreparationDlg();
+};
+
+CPreparationDlg::CPreparationDlg()
+	: CDialog(CPreparationDlg::IDD)
+{
+}
+
+CPreparationDlg::~CPreparationDlg()
+{
+}
+
+BOOL CPreparationApp::InitInstance()
+{
+    CPreparationDlg Dlg;
+
+    m_pMainWnd = &amp;Dlg;
+    <span class="codered">Dlg.DoModal();</span>
+
+    return TRUE;
+}
+
+CPreparationApp theApp;<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+		</li>
+		<li>Execute the application<br>&nbsp;<br>
+		<img alt="Dialog Box" height="353" src="./Microsoft Visual C++ MFC__files/creation1.gif" width="516"></li>
+		<li>Close the dialog box and return to your programming environment</li>
+	</ol>
+
+    </td>
+    <td valign="top">
+      <table border="0" width="100%">
+        <tbody><tr>
+          <td width="100%">
+          
+
+
+          </td>
+        </tr>
+      </tbody></table>&nbsp;
+    </td>
+  </tr>
+  <tr>
+    <td style="text-align: center">
+      &nbsp;
+      <table border="0" width="100%">
+        <tbody><tr>
+          <td width="100%" align="center">          </td>
+        </tr>
+      </tbody></table>
+    </td>
+  </tr>
+</tbody></table></div>
+
+&nbsp;
+
+&nbsp;
+
+<div align="center">
+<table border="0" width="900">
+  <tbody><tr>
+    <td width="100%" align="center">
+    
+<script type="text/javascript"><!--
+google_ad_client = "pub-3968514660870014";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_type = "image";
+google_ad_channel ="";
+//--></script>
+<script type="text/javascript" src="./Microsoft Visual C++ MFC__files/f.txt">
+</script>
+
+    </td>
+  </tr>
+</tbody></table>
+</div>
+
+&nbsp;
+
+<div align="center">
+<table border="0" width="900">
+  <tbody><tr>
+    <td colspan="3">
+      <hr color="#FF0000">
+    </td>
+  </tr>
+  <tr>
+    <td style="text-align: center"><a href="https://www.functionx.com/visualc/Lesson03.htm">Previous</a></td>
+    <td style="text-align: center"><a href="https://www.functionx.com/visualc/index.htm">Copyright � 2010-2016, FunctionX</a></td>
+    <td style="text-align: center"><a href="https://www.functionx.com/visualc/Lesson05.htm">Next</a></td>
+  </tr>
+  <tr>
+    <td colspan="3">
+      <hr color="#FF0000">
+    </td>
+  </tr>
+</tbody></table></div>
+
+<!-- DynamiContext AdLinks  -->
+<script language="JavaScript">
+var dc_UnitID = 14;
+var dc_PublisherID = 2409;
+var dc_AdLinkColor = 'blue';
+var  dc_adprod='ADL';
+</script>
+<script language="JavaScript" src="http://kona.kontera.com/javascript/lib/KonaLibInline.js"></script>
+<!-- DynamiContext AdLinks  -->
+
+
+
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>

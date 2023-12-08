@@ -1,0 +1,1437 @@
+
+<!-- saved from url=(0055)https://www.functionx.com/visualc/controls/managing.htm -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+<meta name="Keywords" content="">
+<meta name="Description" content=".">
+
+<link rel="stylesheet" type="text/css" href="./Microsoft Visual C++ MFC_ Managing Windows Controls_files/Lessons.css">
+
+<title>Microsoft Visual C++ MFC: Managing Windows Controls</title>
+</head>
+
+<body data-new-gr-c-s-check-loaded="14.1145.0" data-gr-ext-installed="">
+
+<div align="center">
+
+<table border="0" width="900" cellspacing="1" cellpadding="0">
+  <tbody><tr>
+    <td width="738" align="center">
+    
+
+    </td>
+  </tr>
+</tbody></table>
+</div>
+
+&nbsp;
+<div align="center">
+  <table border="0" width="900">
+    <tbody><tr>
+      <td width="680" valign="top" rowspan="2">
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tbody><tr>
+    <td width="10%" valign="middle" align="center"><a href="https://www.functionx.com/visualc/index.htm"><img border="0" src="./Microsoft Visual C++ MFC_ Managing Windows Controls_files/logo1.gif" alt="Home" width="51" height="60"></a></td>
+    <td width="90%">
+      <p class="maintitle">Managing Windows Controls</p></td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2" height="2" bgcolor="#CC3300"></td>
+  </tr>
+</tbody></table>
+
+<span name="KonaBody">
+
+&nbsp;
+
+&nbsp;&nbsp;<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="paratitle">The Values of a Windows Control</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #FF0000" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+	  &nbsp;
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="subtitle">Introduction</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #0000FF" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+&nbsp;<table border="0" width="100%">
+  <tbody><tr>
+    <td>
+          
+<script type="text/javascript"><!--
+google_ad_client = "pub-3968514660870014";
+google_ad_width = 160;
+google_ad_height = 90;
+google_ad_format = "160x90_0ads_al";
+google_ad_type = "text_image";
+google_ad_channel ="";
+google_color_border = "800000";
+google_color_bg = "FFFFFF";
+google_color_link = "0000FF";
+google_color_url = "0000ff";
+google_color_text = "000000";
+//--></script>
+<script type="text/javascript" src="./Microsoft Visual C++ MFC_ Managing Windows Controls_files/f.txt">
+</script>
+
+    </td>
+    <td>
+
+	<p class="parajust">As we reviewed when we introduced messages, an event is 
+	an action resulting from a generated message. As there are various types of 
+	controls, there are also different types of messages available on controls 
+	and even the type of window considered. After adding a control to your 
+	application, whether you visually added it or created it dynamically, you 
+	will also decide how the handle the possible actions that the user can 
+	perform on the control.</p>
+
+    </td>
+  </tr>
+</tbody></table>
+
+	  <p class="parajust">There are various ways you can write an event for a 
+	  message. If the message is sent from a class, first select the class in 
+	  Class View. Then, in the Properties window, click either the Events
+	  <img alt="Events" height="22" src="./Microsoft Visual C++ MFC_ Managing Windows Controls_files/events1.gif" width="23">, 
+	  the Messages
+	  <img alt="Messages" height="22" src="./Microsoft Visual C++ MFC_ Managing Windows Controls_files/messages1.gif" width="23">, 
+	  or the Overrides button
+	  <img alt="Overrides" height="22" src="./Microsoft Visual C++ MFC_ Managing Windows Controls_files/over1.gif" width="23">, 
+	  depending on the type of member function you want to write.</p>
+	  <p class="parajust">Some of the most regular actions the user can perform 
+	  on a control consist of clicking. Objects that receive click messages 
+	  range from static controls to command buttons, as we will see eventually.</p>
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="exotitle">
+			  <img alt="Practical Learning" border="0" height="20" src="./Microsoft Visual C++ MFC_ Managing Windows Controls_files/practical1.gif" width="21">Practical 
+			  Learning: Introducing Windows Controls</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #CC3300" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+	  <ol>
+		  <li>Start Microsoft Visual Studio</li>
+		  <li>To create a new application, on the main menu, click File -&gt; New 
+		  Project...</li>
+		  <li>In the middle list, click MFC Application</li>
+		  <li>Set the Name to <strong>Geometry2</strong></li>
+		  <li>Click OK</li>
+		  <li>In the first page of the MFC Application Wizard, click Next</li>
+		  <li>In the second page of the wizard, click Dialog Box</li>
+		  <li>Click Next</li>
+		  <li>In the third page of the wizard, click About Box to remove the 
+		  check mark on it</li>
+		  <li>Change the Dialog Title to <b>Geometry - Square</b></li>
+		  <li>Click Next twice</li>
+		  <li>Click Finish</li>
+		  <li>On the dialog box, click TODO: and press Delete</li>
+		  <li>Test the application to make sure it is working fine</li>
+		  <li>Close the dialog box and return to your programming environment
+		  </li>
+		  <li>On the Toolbox, click the Static Text control and click the dialog 
+		  box </li>
+		  <li>While the control is still selected, in the Properties window, 
+		  click Caption and type <b>Side:</b> </li>
+		  <li>Complete the design of the dialog box as follows:<br>&nbsp;<img alt="Square" border="0" height="152" src="./Microsoft Visual C++ MFC_ Managing Windows Controls_files/square1.gif" width="285">
+		  <table border="1" bordercolor="#C0C0C0" width="390">
+			  <tbody><tr>
+				  <td width="112">Control</td>
+				  <td width="171">ID</td>
+				  <td width="91">Caption</td>
+			  </tr>
+			  <tr>
+				  <td width="112">Static Text</td>
+				  <td width="171">&nbsp;</td>
+				  <td width="91">Side:</td>
+			  </tr>
+			  <tr>
+				  <td width="112">Edit&nbsp;Control</td>
+				  <td width="171">IDC_SIDE_EDT</td>
+				  <td width="91">&nbsp;</td>
+			  </tr>
+			  <tr>
+				  <td width="112">Button</td>
+				  <td width="171">IDC_BTN_SCALC</td>
+				  <td width="91">Calculate</td>
+			  </tr>
+			  <tr>
+				  <td width="112">Static Text</td>
+				  <td width="171">&nbsp;</td>
+				  <td width="91">Perimeter:</td>
+			  </tr>
+			  <tr>
+				  <td width="112">Edit Control</td>
+				  <td width="171">IDC_PERIMETER_EDT</td>
+				  <td width="91">&nbsp;</td>
+			  </tr>
+			  <tr>
+				  <td width="112">Static Text</td>
+				  <td width="171">&nbsp;</td>
+				  <td width="91">Area:</td>
+			  </tr>
+			  <tr>
+				  <td width="112">Edit Control</td>
+				  <td width="171">IDC_AREA_EDT&nbsp;</td>
+				  <td width="91">Edit</td>
+			  </tr>
+			  <tr>
+				  <td width="112">Button</td>
+				  <td width="171">IDOK</td>
+				  <td width="91">OK</td>
+			  </tr>
+		  </tbody></table>
+		  </li>
+		  <li>Save All </li>
+	  </ol>
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="subtitle">Control's Control Variables</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #0000FF" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+	  <p class="parajust">After visually adding a control to your application, 
+	  if you want to refer to it in your code, you can declare a variable based 
+	  on, or associated with, that control. The MFC library allows you to 
+	  declare two types of variables for some of the controls used in an 
+	  application: a value or a control variables. </p>
+	  <p class="parajust">A control variable is a variable based on the class 
+	  that manages the control. For example, a static control is based on the
+	  <strong>CStatic</strong> class. Therefore, if you add a static control to 
+	  your application and you want to refer to it later on, you can declare a
+	  <strong>CStatic</strong> variable in the header of its parent window. Here 
+	  is an example: </p>
+<pre style="position: relative;">class CExchangeDlg : public CDialog
+{
+    . . .
+public:
+    CStatic stcAdvanced;
+};<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <p class="parajust">The control variable is available for all controls.
+	  </p>
+	  <table style="width: 100%">
+		  <tbody><tr>
+			  <td align="center" valign="top">
+			  <img alt="Author Note" height="15" src="./Microsoft Visual C++ MFC_ Managing Windows Controls_files/authornote1.gif" width="23"></td>
+			  <td style="background-color: #D4D4D4">It is a habit for Visual C++ programmers to 
+			  start the name of a control variable with m_ </td>
+		  </tr>
+	  </tbody></table>
+	  <p class="parajust">To visually create a control variable for an object:
+	  </p>
+	  <ul>
+		  <li>On the dialog box, right-click the control and click Add 
+		  Variable... This would display the Add Member Variable Wizard. The 
+		  Access box allows you to specify the access level where the variable 
+		  will be declared. You can select public, protected, or private. Click 
+		  the Control Variable option or make sure it is checked. In the 
+		  Variable Type, select the class of the control. For most control, 
+		  there is only one option in the list. In the Control ID, you can 
+		  accept the selected option. If you want to create a variable for 
+		  another control, select its ID. In the Category, select Control. In 
+		  the Variable Name, enter the desired name for the variable. You must 
+		  follow the rules of C++ names. As mentioned already, it is a habit, 
+		  not a rule, to start the name of a variable with m_. In the Control 
+		  Type, accept the name of the class or change it. In the Comment text 
+		  box, you can enter normal text that serve as guide. When you are 
+		  ready, click Finish</li>
+		  <li>Display the MFC Class Wizard. Click the Member Variables tab. In 
+		  the Member Variables list, either click the ID of the control and 
+		  click Add Variable, or double-click the ID of the control. In the Add 
+		  Member Variable that displays, enter the name of the variable. In the 
+		  Category, select Control. In the Variable Type, select the name of the 
+		  class of the control. Once you are ready, click OK</li>
+	  </ul>
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="exotitle">
+			  <img alt="Practical Learning" border="0" height="20" src="./Microsoft Visual C++ MFC_ Managing Windows Controls_files/practical1.gif" width="21">Practical 
+			  Learning: Creating a Control's Variable</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #CC3300" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+	  <ol>
+		  <li>On the dialog box, right-click the top edit control and click Add 
+		  Variable...</li>
+		  <li>In the Category box, make sure Control is selected.<br>In the 
+		  Variable Name, type <b>m_Side</b><br>&nbsp;<br>
+		  <img alt="Add Member Variable" border="0" height="517" src="./Microsoft Visual C++ MFC_ Managing Windows Controls_files/addmbrvar1.gif" width="615"></li>
+		  <li>Click Finish</li>
+		  <li>On the main menu, click Project -&gt; Class Wizard...</li>
+		  <li>Click the Member Variables tab</li>
+		  <li>In the Member Variables list, click IDC_PERIMETER_EDT</li>
+		  <li>Click the Add Variable button</li>
+		  <li>In the Member Variable Name, type <b>m_Perimeter</b> and make sure 
+		  Control is selected as the Category<br>&nbsp;<br>
+
+<pre class="sectover" style="position: relative;"><img alt="MFC Class Wizard" border="0" height="600" src="./Microsoft Visual C++ MFC_ Managing Windows Controls_files/mcw3a.gif" width="705"><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre></li>
+		  <li>Click OK</li>
+		  <li>Click Finish</li>
+		  <li>In the Member Variables list, double-click IDC_AREA_EDT</li>
+		  <li>In the Member Variable Name, type <b>m_Area</b></li>
+		  <li>Make sure Control is selected in the Category and press Enter<br>&nbsp;<br>
+
+<pre class="sectover" style="position: relative;"><img alt="MFC Class Wizard" border="0" height="600" src="./Microsoft Visual C++ MFC_ Managing Windows Controls_files/mcw3b.gif" width="705"><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre></li>
+		  <li>In the MFC Class Wizard, click OK</li>
+		  <li>In the Solution Explorer, double-click Geometry2Dlg.h to open the 
+		  header file to see the variables that were declared:
+	<pre style="position: relative;">public:
+	CEdit m_Side;
+	CEdit m_Perimeter;
+	CEdit m_Area;
+};<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+		  </li>
+		  <li>Save all</li>
+	  </ol>
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="subtitle">The Control's Data Exchange</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #0000FF" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+	  <p class="parajust">After declaring the variable, you must "map" it to the 
+	  control it is referring to, otherwise the variable would behave just like 
+	  any other and it cannot directly access the control you wanted it to refer 
+	  to. To specify what control your variable refers to, you must call the
+	  <strong>DDX_Control()</strong> framework function. The syntax of this 
+	  function is:</p>
+<pre style="position: relative;">void AFXAPI DDX_Control(CDataExchange* <em>pDX</em>, int <em>nIDC</em>, CWnd&amp; <em>rControl</em>);<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <p class="parajust">The first argument, <em>pDX</em>, is a pointer to
+	  <strong>CDataExchange</strong>. The <em>nIDC</em> argument is the 
+	  identifier of the control your variable will refer to. The <em>rControl</em> 
+	  argument is the name you gave to your variable. An example of calling this 
+	  function would be:</p>
+<pre style="position: relative;">DDX_Control(pDX, IDC_STATIC_ADV, stcAdvanced);<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <p class="parajust">The <em>pDX</em> argument in reality handles the 
+	  mapping. It creates the relationship between your <em>rControl</em> 
+	  variable and the <em>nIDC</em> control that <em>rControl</em> must refer 
+	  to. Besides that, <em>pDX</em> insures that information can flow easily 
+	  between both entities. The <strong>CDataExchange</strong> class, to which 
+	  the <em>pDX</em> argument points, is a parent-less class, meaning it is 
+	  based neither on <strong>CObject</strong> nor on <strong>CWnd</strong>.</p>
+	  <p class="parajust">The <strong>DDX_Control()</strong> function can be 
+	  called for each variable you intend to map to a control. When calling any 
+	  of these functions, the mappings must be performed in the <strong>
+	  CWnd::DoDataExchange()</strong> event. Its syntax is:</p>
+<pre style="position: relative;">virtual void DoDataExchange(CDataExchange* pDX);<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <p class="parajust">As you can see, this event is passed a <strong>
+	  CDataExchange</strong> pointer. This pointer in turn will become the first 
+	  argument to the <strong>DDX_Control()</strong> function. Behind the 
+	  scenes, this allows the dialog box, the parent of the controls to better 
+	  manage the exchange of information between the application and the 
+	  controls.</p>
+	  <p class="parajust">This review helps to have an idea of how variables 
+	  would be declared and associated with the intended controls. In reality, 
+	  this job is usually, and should always be, handled by Microsoft Visual C++ 
+	  for you. When you create a dialog-based object, such as a dialog box, a 
+	  form, a property sheet, or a property page, the <strong>
+	  CDialog::DoDataExchange()</strong> event is created and made ready for 
+	  you. To declare a variable you want to associate to a control, unless you 
+	  have a good reason to proceed manually, use either the MFC Class Wizard or 
+	  the Add Member Variable Wizard. When you do this, the wizard will take 
+	  care of all the mapping for you.</p>
+	  <table style="width: 100%">
+		  <tbody><tr>
+			  <td align="center" valign="top" width="60">
+			  <img alt="Author Note" height="15" src="./Microsoft Visual C++ MFC_ Managing Windows Controls_files/authornote1.gif" width="23"></td>
+			  <td style="background-color: #F2F2F2">After adding a variable using a wizard and 
+			  once the variable mapping has been performed, if you change the 
+			  name of the variable in the header file, you must manually change 
+			  its name in the <strong>DoDataExchange()</strong> event. </td>
+		  </tr>
+	  </tbody></table>
+	  &nbsp;
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="exotitle">
+			  <img alt="Practical Learning" border="0" height="20" src="./Microsoft Visual C++ MFC_ Managing Windows Controls_files/practical1.gif" width="21">Practical 
+			  Learning: Checking Control Variables</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #CC3300" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+	  <ul>
+		  <li>Click the Geometry2Dlg.cpp tab to access the source file and 
+		  verify that the DDX_Control() functions were created:
+	<pre style="position: relative;">void CGeometry2Dlg::DoDataExchange(CDataExchange* pDX)
+{
+	CDialog::DoDataExchange(pDX);
+	DDX_Control(pDX, IDC_SIDE_EDT, m_Side);
+	DDX_Control(pDX, IDC_PERIMETER_EDT, m_Perimeter);
+	DDX_Control(pDX, IDC_AREA_EDT, m_Area);
+}<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+		  </li>
+	  </ul>
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="subtitle">Adding an Event Handler</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #0000FF" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+	  <p class="parajust">To generate code for a control that is positioned on a 
+	  dialog-based object, display its parent window. Then, right-click the 
+	  control and, on the context menu, click Add Event Handler. This would 
+	  display the Event Handler Wizard with as much information as you need to 
+	  set or select to configure the event. Once you have finish specifying the 
+	  necessary information for the event, click Add and Edit. This would take 
+	  you to the new event in the Code Editor where you can write the rest of 
+	  the code for the event.</p>
+	  <p class="parajust">If you use the wizard to generate the event, the 
+	  necessary arguments and part of the code for the event would be supplied 
+	  to you. If you decide to write the event from scratch, you will need to 
+	  especially remember the arguments of the event, otherwise the code may not 
+	  work at all.</p>
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="exotitle">
+			  <img alt="Practical Learning" border="0" height="20" src="./Microsoft Visual C++ MFC_ Managing Windows Controls_files/practical1.gif" width="21">Practical 
+			  Learning: Adding an Event Handler</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #CC3300" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+	  <ol>
+		  <li>On the dialog box, right-click the Calculate button and click Add 
+		  Event Handler<br>&nbsp;<br>
+		  <img alt="Event Handler Wizard" border="0" height="517" src="./Microsoft Visual C++ MFC_ Managing Windows Controls_files/ehw1.gif" width="615"></li>
+		  <li>In the Message Type, make sure BN_CLICKED is selected.<br>In the 
+		  Class List, make sure CGeometry2Dlg is selected.<br>Click Add And Edit</li>
+	  </ol>
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="subtitle">Control's Value Variables</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #0000FF" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+	  <p class="parajust">Another type of variable you can declare for a control 
+	  is the value variable. Not all controls provide a value variable. The 
+	  value variable must be able to handle the type of value stored in the 
+	  control it is intended to refer to. For example, because a text-based 
+	  control is used to handle text, you can declare a text-based data type for 
+	  it. This would usually be a <strong>CString</strong> variable. Here is an 
+	  example:</p>
+<pre style="position: relative;">class CExchangeDlg : public CDialog
+{
+    . . .
+public:
+    CStatic stcAdvanced;
+    CString strFullName;
+};<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <p class="parajust">On the other hand, as we will learn that some controls 
+	  handle a value that can be true or false at one time, namely the check 
+	  box, you can declare a Boolean variable for such controls. Some other 
+	  controls are used to hold a numeric value such as a natural or a 
+	  floating-point number. You can declare an integer-based or a float-based 
+	  value variable for such controls. Some other controls are not meant to 
+	  hold an explicit or recognizable type of data, an example would be the tab 
+	  control. For such controls, there is no value variable available. For such 
+	  controls, you can only declare a control variable.</p>
+	  <p class="parajust">After declaring the value variable, as done with the 
+	  control variable, you must “map” it to the intended control. To do 
+	  this, you must call an appropriate framework function. The functions are 
+	  categorized based on the type of data held by the variable. For example, 
+	  if the control holds text and you had declared a <strong>CString</strong> 
+	  value variable for it, you can call the <b>DDX_Text()</b> function to map 
+	  it. The <strong>DDX_Text()</strong> function is provided in various 
+	  versions as follows:</p>
+<pre style="position: relative;">void AFXAPI DDX_Text( CDataExchange* pDX, int nIDC, BYTE&amp; value );
+void AFXAPI DDX_Text( CDataExchange* pDX, int nIDC, short&amp; value );
+void AFXAPI DDX_Text( CDataExchange* pDX, int nIDC, int&amp; value );
+void AFXAPI DDX_Text( CDataExchange* pDX, int nIDC, UINT&amp; value );
+void AFXAPI DDX_Text( CDataExchange* pDX, int nIDC, long&amp; value );
+void AFXAPI DDX_Text( CDataExchange* pDX, int nIDC, DWORD&amp; value );
+void AFXAPI DDX_Text( CDataExchange* pDX, int nIDC, CString&amp; value );
+void AFXAPI DDX_Text( CDataExchange* pDX, int nIDC, float&amp; value );
+void AFXAPI DDX_Text( CDataExchange* pDX, int nIDC, double&amp; value );
+void AFXAPI DDX_Text( CDataExchange* pDX, int nIDC, COleCurrency&amp; value );
+void AFXAPI DDX_Text( CDataExchange* pDX, int nIDC, COleDateTime&amp; value );<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <p class="parajust">The first argument, <em>pDX</em>, is a pointer to
+	  <strong>CDataExchange</strong>. The second argument, <em>nIDC</em>, is the 
+	  identifier the of the control you want to refer to. The third argument, 
+	  value, if the name of the value variable you had previously declared.</p>
+	  <p class="parajust">If a control holds a valid value, you can declare both 
+	  a control variable and a value variable if you need them. Here is an 
+	  example:</p>
+<pre style="position: relative;">class CExchangeDlg : public CDialog
+{
+    . . .
+public:
+    CStatic stcAdvanced;
+    CString valAdvanced;
+    CString strFullName;
+};<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <p class="parajust">When mapping such variable, make a call to <strong>
+	  DDX_Control()</strong> for the control variable and a separate call to <b>
+	  DDX_X()</b> for the value variable. Because there are various types of 
+	  DDX_ functions for the controls, X stands for the type of control referred 
+	  to.</p>
+	  <p class="parajust">Like the <b>DDX_Control()</b>, the <b>DDX_X()</b> 
+	  function can be called for each variable you intend to map to a control 
+	  and this is performed in the <strong>CWnd::DoDataExchange()</strong> 
+	  event. This <b>CDataExchange</b> pointer is passed as the first argument 
+	  to the <em>DDX_ X()</em> functions. This argument allows the dialog box to 
+	  update the values held by the controls.</p>
+	  <p class="parajust">Once again, avoid declaring and mapping value 
+	  variables manually. Instead, use either the Class Wizard or the Add Member 
+	  Variable Wizard to add a variable that you want to associate with a 
+	  control on a dialog-based object.</p>
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="subtitle">Control's Value Variables</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #0000FF" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+	  <p class="parajust">Besides the control variable, a control van use a 
+	  value variable. While a control variable is based on the class of the 
+	  control, a value variable represents the value of the variable. It can be 
+	  based on a <b>CString</b> or a primitive data type (int, float, double, 
+	  etc). </p>
+	  <p class="parajust">As mentioned for a control variable, you can manually 
+	  create a value variable or you can benefit from Microsoft Visual C++. </p>
+	  <p class="parajust">To visually create a value variable: </p>
+	  <ul>
+		  <li>On the dialog box, right-click the control and click Add 
+		  Variable...<br>In the Add Member Variable Wizard, specify the level of 
+		  access in the Access box.<br>Uncheck the Control Variable option.<br>
+		  In the Variable Type, select the data type you intend to use for the 
+		  values of the control:<br><br>
+		  <img alt="Add Member Variable" border="0" height="520" src="./Microsoft Visual C++ MFC_ Managing Windows Controls_files/mcw3c.gif" width="617"><br>
+		  <br>In the Variable Name, enter the desired name for the variable. 
+		  When you are ready, click Finish</li>
+		  <li>Display the MFC Class Wizard. Click the Member Variables tab. In 
+		  the Member Variables list, either click the ID of the control and 
+		  click Add Variable, or double-click the ID of the control. In the Add 
+		  Member Variable that displays, enter the name of the variable. In the 
+		  Category, select Value. In the Variable Type, select the desired data 
+		  type:<br><br>
+		  <img border="0" height="319" src="./Microsoft Visual C++ MFC_ Managing Windows Controls_files/amv1.gif" width="279"><br>
+		  <br>Depending on the data type you will have selected, the dialog box 
+		  may show one or two text boxes that allow you either to specify the 
+		  maximum number of characters for a string or the minimum and maximum 
+		  values for a number. After specifying the values, click OK</li>
+	  </ul>
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="subtitle">Controls Values Update</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #0000FF" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+	  <p class="parajust">The controls used in your application are designed to 
+	  work as a group, exchanging data with one another and with the window that 
+	  hosts them. For their various operations to work, the dialog-based object 
+	  that is hosting the controls needs to be able to update their values. If 
+	  you are using control variables, because these controls are based on <b>
+	  CWnd</b>, they can perform their own validations. </p>
+	  <p class="parajust">If you are using value controls, and if the user must 
+	  be able to change the values held by a dialog's controls, you can decide 
+	  how and when the values should be updated by the parent window. This can 
+	  be done by calling the <b>CWnd::UpdateData()</b> method. Its syntax is:
+	  </p>
+<pre style="position: relative;">BOOL UpdateData(BOOL <i>bSaveAndValidate</i> = TRUE);<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <p class="parajust">The <i>bSaveAndValidate</i> argument specifies whether 
+	  the parent window, usually a dialog-based object, must update the values 
+	  of variables at the time this method is called. This member variable works 
+	  in conformance with the <b>CDialog::DoDataExchange()</b> event of the 
+	  dialog that owns the controls. If it is called with no argument or the <b>
+	  TRUE</b> default value, this indicates that the dialog is ready to 
+	  communicate with the variables mapped in <b>DoDataExchange()</b>. After 
+	  such a call, you can let the user do what is necessary on the controls. 
+	  When this method is called a <b>FALSE</b> value for the <i>
+	  bSaveAndValidate</i> argument, it indicates that the dialog box can take 
+	  ownership of operations and the controls have stopped updating their 
+	  information. </p>
+	  <p class="parajust">You can handle this when the user clicks a button such 
+	  as Submit or OK after changing values on controls. Normally, the call with 
+	  a <b>FALSE</b> argument means that the dialog box is being either 
+	  initialized or reinitialized, which is done when its <b>OnInitDialog()</b> 
+	  event fires. </p>
+
+</span>
+
+      </td>
+      <td>
+   
+<table border="0" width="100%">
+  <tbody><tr>
+    <td width="100%">
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-3968514660870014";
+google_ad_width = 300;
+google_ad_height = 250;
+google_ad_format = "300x250_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//--></script>
+<script type="text/javascript" src="./Microsoft Visual C++ MFC_ Managing Windows Controls_files/f.txt">
+</script>
+
+    </td>
+  </tr>
+</tbody></table>
+
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">
+   
+&nbsp;
+        <table border="0" width="100%">
+          <tbody><tr>
+            <td width="100%">
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-3968514660870014";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_type = "text_image";
+google_ad_channel ="";
+google_color_border = "FFFFFF";
+google_color_link = "0000FF";
+google_color_bg = "FFFFFF";
+google_color_text = "000000";
+google_color_url = "008000";
+//--></script>
+<script type="text/javascript" src="./Microsoft Visual C++ MFC_ Managing Windows Controls_files/f.txt">
+</script>
+
+            </td>
+          </tr>
+        </tbody></table>
+        <table border="0" width="100%">
+          <tbody><tr>
+            <td width="100%"></td>
+          </tr>
+        </tbody></table>
+
+&nbsp;
+
+      </td>
+    </tr>
+  </tbody></table></div>
+
+&nbsp;
+
+<div align="center">
+<table border="0" width="900">
+  <tbody><tr>
+    <td width="680" rowspan="2">
+
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="paratitle">The Characteristics of Windows Controls</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #FF0000" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	&nbsp;
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">The Bounding Rectangle of a Control</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">A Windows control that is positioned on a host uses a 
+	rectangular confinement known as its bounding rectangle. To assist you with 
+	knowing what that rectangular area is, the CWnd class is equipped with a 
+	method named <b>GetWindowRect</b>. Its syntax is: </p>
+	<pre style="position: relative;">void GetWindowRect(LPRECT <i>lpRect</i>) const;<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">When calling this method, pass a <b>RECT</b> or or a <b>
+	CRect</b> variable by reference. When this function exits, it returns the 
+	argument that was passed: </p>
+	<pre style="position: relative;">CRect Recto;
+
+m_Panel.GetWindowRect(&amp;Recto);<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">The Screen and Client Coordinates of a Control</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">As mentioned already, the origin of the screen is 
+	positioned on the top-left corner of the monitor. This is referred to as, or 
+	is said that the location uses, screen coordinates. The origin of a client 
+	area is placed on its top-left corner. This is referred to as, or is said 
+	that the location uses, client coordinates. For example, the origin used by 
+	the above <b>GetWindowRect()</b> method is based on the screen. If you want 
+	the rectangle resulting from a call to either the <b>GetClientRect()</b> or 
+	the <b>GetWindowRect()</b> methods to be based on the client area (on client 
+	coordinates) of the control that called it, you can transfer the origin from 
+	the screen to the client. This is conveniently done with a call to the <b>
+	CWnd::ClientToScreen()</b> method. It is overloaded as follows: </p>
+	<pre style="position: relative;">void ClientToScreen(LPPOINT <i>lpPoint</i>) const;
+void ClientToScreen(LPRECT <i>lpRect</i>) const;<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">If the location you had requested is a point, pass its
+	<b>POINT</b> or its <b>CPoint</b> variable to the <b>ClientToScreen()</b> 
+	method. If the value you requested is a rectangle, pass its <b>RECT</b> or 
+	its <b>CRect</b> variable. Here is an example: </p>
+	<pre style="position: relative;">CRect Recto;
+
+m_Panel.GetWindowRect(&amp;Recto);
+
+<i>. . . Some Code</i>
+
+ScreenToClient(Recto);
+dc.Rectangle(Recto);<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">This time, even if the dialog box moves, the <b>
+	GetWindowRect()</b> method returns the same rectangle.<br><br>If the 
+	location and/or dimension are given in client coordinates, to convert them 
+	to screen coordinates, call the <b>ScreenToClient()</b> method. It is 
+	overloaded as follows: </p>
+	<pre style="position: relative;">void ScreenToClient(LPPOINT <i>lpPoint</i>) const;
+void ScreenToClient(LPRECT <i>lpRect</i>) const;<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">This method follows the opposite logic of the <b>
+	ClientToScreen()</b> method. </p>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">The Text of a Control</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">For you the programmer, the control identifier may be 
+	one of the most important properties of a window. For the user, this is not 
+	the case. For a text-based control, the most important part, as far as the 
+	user is concerned, may be its text. Many controls use text. In fact, one of 
+	the most obvious items on most windows such as dialog boxes is the text they 
+	display. This text allows the user to identify a window.</p>
+	<p class="parajust">We saw that some of the controls that use text would 
+	allow you to change the Caption property at design time. On the other hand, 
+	while a using is interacting with your application, depending on various 
+	circumstances, at a certain time you may want to change the text that a 
+	Windows control is displaying or holding. To assist you with this, the <b>
+	CWnd</b> class is equipped with a method named <b>SetWindowText</b>. Its 
+	syntax is: </p>
+	<pre style="position: relative;">void SetWindowText(LPCTSTR <i>lpszString</i>);<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">The <i>lpszString</i> argument is a null-terminated 
+	string that holds the value you want to display. It can be configured using 
+	any of the valid null-terminated string operations. Here is an example that 
+	changes the title of a dialog box when the window displays. The text is 
+	provided as a null-terminated string passed to the method: </p>
+	<pre style="position: relative;">BOOL CDismissDlg::OnInitDialog()
+{
+    CDialog::OnInitDialog();
+
+    <font color="#FF0000">SetWindowText("Windows Fundamentals");</font>
+
+    return TRUE;
+}<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">Another technique you can use consists of first 
+	declaring a null-terminated string variable, assigning it a value, and then 
+	passing it as the <i>lpszString</i> argument to the <b>SetWindowText()</b> 
+	function.<br><br>If you are using resources in your MFC application, you can 
+	also create a global value in the string table to be used as the window 
+	name. You can call the string of such an identifier, store it in a <b>
+	CString</b> variable, and then pass it to the <b>CWnd::SetWindowText()</b> 
+	method. Here is an example: </p>
+	<pre style="position: relative;">    CString Str;
+    Str.LoadString(IDS_CURAPPNAME);
+
+    SetWindowText(Str);<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">To change the name of a window, instead of calling <b>
+	SetWindowText()</b>, you can call the <b>CWnd::SendMessage()</b> method. 
+	Since you want to change the text, the message argument must be <b>
+	WM_SETTEXT</b>. The <i>wParam</i> argument is not used. The <i>lParam</i> 
+	argument holds the string that will be the new value of the window name. You 
+	must cast the string to <b>LPARAM</b>. Here is an example that allows the 
+	user to click a menu item that changes the title of the frame window: </p>
+	<pre style="position: relative;">char NewTitle[] = "Introduction to Windows Programming";
+
+SendMessage(WM_SETTEXT, NULL, reinterpret_cast&lt;LPARAM&gt;(NewTitle));<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">To retrieve the name of a window (always remember that 
+	the name of a window is not the name of a class) or the text stored in a 
+	control, you can call the <b>CWnd::GetWindowText()</b> function. Its syntax 
+	is: </p>
+	<pre style="position: relative;">int GetWindowText(LPTSTR <i>lpszStringBuf</i>, int <i>nMaxCount</i>) const;<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">The <i>lpszStringBuf</i> is the null-terminated string 
+	that will store the window name. The <i>nMaxCount</i> is the minimum number 
+	of characters of the <i>lpszStringBuf</i>. If you specify more characters 
+	than the name is made of, the compiler would reduce this number to the 
+	actual length of the string. Therefore, it is safe to provide a high number.
+	</p>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="exotitle">
+			<img alt="Practical Learning" border="0" height="20" src="./Microsoft Visual C++ MFC_ Managing Windows Controls_files/practical1.gif" width="21">Practical 
+			Learning: Setting Text for a Control</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #CC3300" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<ol>
+		<li>Implement the event as follows:
+<pre style="position: relative;">void CGeometry2Dlg::OnBnClickedSquareBtn()
+{
+	// TODO: Add your control notification handler code here
+	<font color="#FF0000">CString strSide;
+	CString strPerimeter;
+	CString strArea;
+
+	double side;
+	double perimeter;
+	double area;
+
+	this-&gt;m_Side.GetWindowTextW(strSide);
+
+	side = _wtof(strSide);
+	perimeter = side * 4;
+	area = side * side;
+
+	strPerimeter.Format(_T("%.3f"), perimeter);
+	strArea.Format(_T("%.3f"), area);
+
+	this-&gt;m_Perimeter.SetWindowTextW(strPerimeter);
+	this-&gt;m_Area.SetWindowTextW(strArea);</font>
+}<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+		</li>
+		<li>Scroll up in the source file to locate the OnInitDialog() function 
+		and change it as follows:
+<pre style="position: relative;">BOOL CGeometry2Dlg::OnInitDialog()
+{
+	CDialog::OnInitDialog();
+
+	// Set the icon for this dialog.  The framework does this automatically
+	//  when the application's main window is not a dialog
+	SetIcon(m_hIcon, TRUE);			// Set big icon
+	SetIcon(m_hIcon, FALSE);		// Set small icon
+
+	// TODO: Add extra initialization here
+	<font color="#FF0000">this-&gt;m_Side.SetWindowTextW(_T("0.00"));
+	this-&gt;m_Perimeter.SetWindowTextW(_T("0.00"));
+	this-&gt;m_Area.SetWindowTextW(_T("0.00"));</font>
+
+	return TRUE;  // return TRUE  unless you set the focus to a control
+}<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+		</li>
+		<li>Execute the application to see the result</li>
+		<li>In the Side text box, type 42.58 and click Calculate<br>&nbsp;<br>
+		<img alt="Square" border="0" height="140" src="./Microsoft Visual C++ MFC_ Managing Windows Controls_files/square2.gif" width="273">
+		</li>
+		<li>After viewing the result, click OK</li>
+	</ol>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">Moving a Control&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">We saw how to manually specify a control's location and 
+	size during design: </p>
+	<p class="pcenter">
+	<img alt="Location and Dimension" height="231" src="./Microsoft Visual C++ MFC_ Managing Windows Controls_files/location1.gif" width="308"></p>
+	<p class="parajust">Once a window or a control has been positioned on the 
+	screen or in its confined client area, it keeps these attributes until 
+	specified otherwise. When dealing with a main window, such as dialog box, 
+	the user can move it around the screen as necessary and if possible. This is 
+	usually done by dragging the title bar.</p>
+	<p class="parajust">When the user grabs the title bar of a dialog box and 
+	starts dragging to move it, the window sends the <b>WM_MOVING</b> message. 
+	The <b>WM_MOVING</b> event fires the <b>OnMoving()</b> event. This event is 
+	usually left alone as it allows the user to use an application as regularly 
+	as possible. The syntax of the <b>OnMoving()</b> event is:</p>
+	<pre style="position: relative;">afx_msg void OnMoving(UINT nSide, LPRECT lpRect);<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">The <b>OnMoving()</b> event fires while the window is 
+	being moved. The <i>nSide</i> argument specifies the side of window that is 
+	moving. As the window is moving, this event returns its location and size as 
+	the values of the <i>lpRect</i> member variables.</p>
+	<p class="parajust">If you create a certain type of window and you do not 
+	want the user to move it around, you can write code for the <b>WM_MOVING</b> 
+	message. In the following example, the user cannot move the window as its 
+	location and dimensions are restored with a #define WS_TABSTOP 0x00010000L.</p>
+	<p class="parajust">Here is an example that prevents the user from moving a 
+	dialog box: </p>
+	<pre style="position: relative;">void CExerciseDlg::OnMoving(UINT fwSide, LPRECT pRect)
+{
+	CDialog::OnMoving(fwSide, pRect);
+
+	// TODO: Add your message handler code here
+	CRect CurRect;
+	
+	// Find out the location and the dimensions of the window
+	GetWindowRect(&amp;CurRect);
+	
+	// You ain't moving nothin'
+	pRect-&gt;left = CurRect.left;
+	pRect-&gt;top = CurRect.top;
+	pRect-&gt;right = CurRect.right;
+	pRect-&gt;bottom = CurRect.bottom;
+}<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">To programmatically move a window, call the <b>
+	CWnd::SetWindowPos()</b> method. Its syntax is: </p>
+	<pre style="position: relative;">BOOL SetWindowPos(const CWnd* pWndInsertAfter,
+		  int x, int y, int cx, int cy,
+		  UINT nFlags);<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">The <i>pWndInsertAfter</i> argument is used to specify 
+	the window that will positioned in the Z coordinate on top of the window 
+	that called this method. If you have the class name or the <b>CWnd</b> name 
+	of the other window, pass it as the <i>pWndInsertAfter</i> argument. 
+	Otherwise, this argument can have one of the following values:</p>
+	<div align="center">
+		<center>
+		<table border="1" bordercolor="#C0C0C0" width="600">
+			<tbody><tr>
+				<td align="center" width="131"><b>Value</b></td>
+				<td><b>Description</b></td>
+			</tr>
+			<tr>
+				<td align="center" width="131"><b>wndBottom</b></td>
+				<td>This window will be positioned under all the other windows, 
+				unless it is already at the bottom. If this window is a topmost 
+				window, it will not be anymore</td>
+			</tr>
+			<tr>
+				<td align="center" width="131"><b>wndTop</b></td>
+				<td>This window will be positioned on top of all the other 
+				windows, unless it is already on top</td>
+			</tr>
+			<tr>
+				<td align="center" width="131"><b>wndTopMost</b></td>
+				<td>This window becomes positioned on top of all other window as 
+				if it were created with the <b>WS_EX_TOPMOST</b> extended style. 
+				In other words, even if its parent window is sent under other 
+				window, this particular one stays on top.</td>
+			</tr>
+			<tr>
+				<td align="center" width="131"><b>wndNoTopMost</b></td>
+				<td>If this window is not a top most window, it becomes 
+				positioned on top of all other windows, except the window that 
+				is top most.<br>If this window was top most when it called this 
+				method, it is not top most anymore. If there is another top most 
+				window on the screen, that one becomes top most but this one 
+				becomes positioned under that one.</td>
+			</tr>
+		</tbody></table>
+		</center></div>
+	<p class="parajust">If you are not trying to reposition the window in the Z 
+	coordinate, pass this argument as NULL or include the <b>SWP_NOZORDER</b> 
+	value for the <i>nFlags</i> argument. </p>
+	<p class="parajust">The <i>nFlags</i> argument is used to define how the 
+	location arguments (x and y) and the dimensions (cx and cy) will be dealt 
+	with. These other arguments have the following roles: </p>
+	<div align="center">
+		<center>
+		<table border="1" bordercolor="#C0C0C0" width="603">
+			<tbody><tr>
+				<td align="center" width="132"><b>Argument</b></td>
+				<td width="329"><b>Description</b></td>
+				<td width="120">The argument is ignored if <i>nFlags</i> has the 
+				following value</td>
+			</tr>
+			<tr>
+				<td align="center" width="132"><b>x</b></td>
+				<td width="329">This specifies the new distance from the left 
+				border of the parent to the left border of this window. This 
+				depends on the type of window and the type of parent.</td>
+				<td align="center" width="120">SWP_NOMOVE</td>
+			</tr>
+			<tr>
+				<td align="center" width="132"><b>y</b></td>
+				<td width="329">This specifies the new distance from the top 
+				border of the parent to the top border of this window. This 
+				depends on the type of window and the type of parent</td>
+				<td align="center" width="120">SWP_NOMOVE</td>
+			</tr>
+			<tr>
+				<td align="center" width="132"><b>cx</b></td>
+				<td width="329">This is the new width of this window</td>
+				<td align="center" width="120">SWP_NOSIZE</td>
+			</tr>
+			<tr>
+				<td align="center" width="132"><b>cy</b></td>
+				<td width="329">The argument is the new height of this window</td>
+				<td align="center" width="120">SWP_NOSIZE</td>
+			</tr>
+		</tbody></table>
+		</center></div>
+	<p class="parajust">Additionally, the nFlags argument can have one of the 
+	following values or one of the above nFlags values can be combined with the 
+	following values: </p>
+	<div align="center">
+		<center>
+		<table border="1" bordercolor="#C0C0C0" width="602">
+			<tbody><tr>
+				<td align="center" width="163"><b>Value</b></td>
+				<td width="423"><b>Description</b></td>
+			</tr>
+			<tr>
+				<td align="center" width="163"><b>SWP_DRAWFRAME</b></td>
+				<td width="423">Draws a frame around the window</td>
+			</tr>
+			<tr>
+				<td align="center" width="163"><b>SWP_FRAMECHANGED</b></td>
+				<td width="423">This value sends a WM_NCCALCSIZE message to the 
+				window</td>
+			</tr>
+			<tr>
+				<td align="center" width="163"><b>SWP_HIDEWINDOW</b></td>
+				<td width="423">Hides this window</td>
+			</tr>
+			<tr>
+				<td align="center" width="163"><b>SWP_NOACTIVATE</b></td>
+				<td width="423">If the <i>pWndInsertAfter</i> value specified 
+				that the window should be repositioned and activated, which is 
+				done if the window is to be positioned on top of another, this 
+				value lets the <i>pWndInsertAfter</i> be performed but the 
+				window will not be activated</td>
+			</tr>
+			<tr>
+				<td align="center" width="163"><b>SWP_NOCOPYBITS</b></td>
+				<td width="423">Normally, after a window has been repositioned, 
+				its controls are restored to their corresponding relative 
+				locations and dimensions. It you want this validation to be 
+				ignored, pass this value</td>
+			</tr>
+			<tr>
+				<td align="center" width="163"><b>SWP_NOOWNERZORDER 
+				SWP_NOREPOSITION</b></td>
+				<td width="423">If this value is passed, this method will not 
+				reposition the windows in the z coordinate</td>
+			</tr>
+			<tr>
+				<td align="center" width="163"><b>SWP_NOREDRAW</b></td>
+				<td width="423">When this value is set, the client area of the 
+				window will not be redrawn</td>
+			</tr>
+			<tr>
+				<td align="center" width="163"><b>SWP_NOSENDCHANGING</b></td>
+				<td width="423">When this value is set, the window cannot 
+				receive a WM_WINDOWPOSCHANGING message</td>
+			</tr>
+			<tr>
+				<td align="center" width="163"><b>SWP_SHOWWINDOW</b></td>
+				<td width="423">Displays the window</td>
+			</tr>
+		</tbody></table>
+		</center></div>
+	<p class="parajust"><br>In the following example, a window named m_Panel is 
+	repositioned and resized: </p>
+	<pre style="position: relative;">void CTestDialog::OnBtnMovePanel()
+{
+    m_Panel.SetWindowPos(NULL, 40, 72, 100, 86, SWP_NOZORDER);
+}<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">If you specify negative values for the left and top 
+	distances, either the left or the top borders, respectively, will be hidden.</p>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">The Color of a Control</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">After a control has been created, if you need to perform 
+	some type of drawing such as changing its color, you can use the <b>
+	WM_CTLCOLOR</b> message which fires the <b>OnCtlColor()</b> event</p>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">Left Text Alignment</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">Text-based controls (the controls that display text) 
+	align their text to the left by default. This means that when the control 
+	displays, its text starts on the left side of its area (for US English and 
+	other Latin-based versions of Microsoft Windows). To align text to the left 
+	on a control that allows it, at design time, select the Left value in the 
+	Align Text combo box</p>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">Control's Focus</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">A control is said to have focus if it is ready to 
+	receive input from the user. For example, if a text-based control has focus 
+	and the user presses a character key, the corresponding character would be 
+	displayed in the control. </p>
+	<p class="parajust">Controls show different ways of having focus. For 
+	example, when a text box has focus, a caret is blinking in it. When a button 
+	has focus, it displays a thick border or a dotted rectangle around its 
+	caption: </p>
+	<p class="pcenter">
+	<img alt="Button With Focus" border="0" height="25" src="./Microsoft Visual C++ MFC_ Managing Windows Controls_files/focus1.gif" width="77">
+	</p>
+	<p class="parajust">There are two main ways a control receives focus: based 
+	on a user's action or an explicit request from you. To give focus to a 
+	control, the user usually presses Tab, which allows navigating from one 
+	control to another. </p>
+	<p class="parajust">To allow you to programmatically give focus to a 
+	control, the <b>CWnd</b> class is equipped with a method named <b>SetFocus</b>. 
+	Its syntax is: </p>
+	<pre style="position: relative;">CWnd* SetFocus( );<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">This method gives focus to the control that called it. 
+	In the following example, an edit box identified as IDC_EDIT1 will receive 
+	focus when the user clicks the button: </p>
+	<pre style="position: relative;">CButton *btnFirst;
+btnFirst = (CButton *)GetDlgItem(IDC_EDIT1);
+
+<font color="#FF0000">btnFirst-&gt;SetFocus();</font><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">Once a control receives focus, it initiates a <b>
+	WM_SETFOCUS</b> message, which fires an <b>OnSetFocus()</b> event. The 
+	syntax of the <b>CWnd::OnSetFocus()</b> event is: </p>
+	<pre style="position: relative;">afx_msg void OnSetFocus(CWnd* <i>pOldWnd</i>);<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">You can use this event to take action when, or just 
+	before, the control receives focus. At anytime, to find out what control has 
+	focus, call the <b>CWnd::GetFocus()</b> method. Its syntax is: </p>
+	<pre style="position: relative;">static CWnd* PASCAL GetFocus();<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">This method returns a handle to the control that has 
+	focus at the time the method is called. While the user is interacting with 
+	your application, the focus changes constantly. For this reason, you should 
+	avoid using the return type of this method from various events or member 
+	functions. In other words, do not globally declare a <b>CWnd</b> variable or 
+	pointer, find out what control has focus in an event Event1 and use the 
+	returned value in another event Event2 because, by the time you get to 
+	Event2, the control that had focus in Event1 may have lost focus. In fact, 
+	the dialog box that holds the control or the main application may have lost 
+	focus. Therefore, use the <b>GetFocus()</b> method only locally. </p>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">Control's Visibility</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">After a control has been created, for the user to take 
+	advantage of it, it must be made visible. When it comes to their visibility, 
+	there are two types of windows: those the user can see and interact with, 
+	and those invisible controls that work only behind the scenes and cannot be 
+	displayed to the user. </p>
+	<p class="parajust">During control design, a window can be displayed to the 
+	user by setting its Visible property to True in the Properties window or by 
+	adding it the <b>WS_VISIBLE</b> style. </p>
+	<p class="parajust">If you did not set the Visible property to True or did 
+	not add the <b>WS_VISIBLE</b> style, the control would be hidden (but 
+	possibly available). To help you display a hidden control, the <b>CWnd</b> 
+	class is equipped with a method named <b>ShowWindow</b>. Its syntax is: </p>
+	<pre style="position: relative;">BOOL ShowWindow(int nCmdShow);<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">This method is used to display or hide any window that 
+	is a descendent of <b>CWnd</b>. Its argument, <i>nCmdShow</i>, specifies 
+	what to do with the appearance or disappearance of the object. Its possible 
+	values are: </p>
+	<div align="center">
+		<center>
+		<table border="1" bordercolor="#C0C0C0" width="602">
+			<tbody><tr>
+				<td align="center" width="193"><b>Value</b></td>
+				<td width="393"><b>Description</b></td>
+			</tr>
+			<tr>
+				<td align="center" width="193"><b>SW_SHOW</b></td>
+				<td width="393">Displays a window and makes it visible</td>
+			</tr>
+			<tr>
+				<td align="center" width="193"><b>SW_SHOWNORMAL</b></td>
+				<td width="393">Displays the window in its regular size. In most 
+				circumstances, the operating system keeps track of the last 
+				location and size a window such as Internet Explorer or My 
+				Computer had the last time it was displaying. This value allows 
+				the OS to restore it</td>
+			</tr>
+			<tr>
+				<td align="center" width="193"><b>SW_SHOWMINIMIZED</b></td>
+				<td width="393">Opens the window in its minimized state, 
+				representing it as a button on the taskbar</td>
+			</tr>
+			<tr>
+				<td align="center" width="193"><b>SW_SHOWMAXIMIZED</b></td>
+				<td width="393">Opens the window in its maximized state</td>
+			</tr>
+			<tr>
+				<td align="center" width="193"><b>SW_SHOWMINNOACTIVE</b></td>
+				<td width="393">Opens the window but displays only its icon. It 
+				does not make it active</td>
+			</tr>
+			<tr>
+				<td align="center" width="193"><b>SW_SHOWNA</b></td>
+				<td width="393">As previous</td>
+			</tr>
+			<tr>
+				<td align="center" width="193"><b>SW_SHOWNOACTIVATE</b></td>
+				<td width="393">Retrieves the window's previous size and 
+				location and displays it accordingly</td>
+			</tr>
+			<tr>
+				<td align="center" width="193"><b>SW_HIDE</b></td>
+				<td width="393">Used to hide a window</td>
+			</tr>
+			<tr>
+				<td align="center" width="193"><b>SW_MINIMIZE</b></td>
+				<td width="393">Shrinks the window and reduces it to a button on 
+				the taskbar</td>
+			</tr>
+			<tr>
+				<td align="center" width="193"><b>SW_RESTORE</b></td>
+				<td width="393">If the window was minimized or maximized, it 
+				would be restored to its previous location and size</td>
+			</tr>
+		</tbody></table>
+		</center></div>
+	<p class="parajust">To use one of these constants, pass it to the <b>
+	ShowWindow()</b> method. For example, to minimize a window that is 
+	minimizable, you would use code as follows: </p>
+	<pre style="position: relative;">ShowWindow(SW_SHOWMINIMIZED);<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">Remember that this method is used to either hide or to 
+	display a control by passing the appropriate constant, SW_HIDE to hide and 
+	SW_SHOW to display it. Here is an example that displays a control that 
+	missed the <b>WS_VISIBLE</b> property when it was created: </p>
+	<pre style="position: relative;">void CSecondDlg::OnFirstControl()
+{
+    CWnd *First = new CWnd;
+    CString StrClsName = AfxRegisterWndClass(CS_VREDRAW | CS_HREDRAW,
+					     LoadCursor(NULL, IDC_CROSS),
+					     (HBRUSH)GetStockObject(BLACK_BRUSH),
+					     LoadIcon(NULL, IDI_WARNING));
+
+    First-&gt;Create(StrClsName, NULL, WS_CHILD);
+    First-&gt;ShowWindow(SW_SHOW);
+}<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">When the <b>ShowWindow()</b> method is called with the
+	<b>SW_SHOW</b> value, if the control was hidden, it would become visible; if 
+	the control was already visible, nothing would happen. In the same way, when 
+	this method is called with the <b>SW_HIDE</b> argument, the control would be 
+	hidden, whether it was already hidden or not. </p>
+	<p class="parajust">To help you check the visibility of a control before 
+	calling the <b>ShowWindow()</b> method, the <b>CWnd</b> class is equipped 
+	with a method named <b>IsWindowVisible</b>. Its syntax is: </p>
+	<pre style="position: relative;">BOOL IsWindowVisible() const;<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">This method returns <b>TRUE</b> if the control that 
+	called it is already visible. If the control is hidden, the method returns
+	<b>FALSE</b>. </p>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">Control's Availability</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">We saw that when a control has been created, it is 
+	available to the user who can interact with its value. This is because a 
+	control usually has its Disable property set to False in the Properties 
+	window. A control is referred to as disabled if the user can see it but 
+	cannot change its value. </p>
+	<p class="parajust">If for any reason a control is disabled, to let you 
+	enable it, the <b>CWnd</b> class is equipped with the <b>EnableWindow()</b> 
+	method. In fact, the <b>EnableWindow()</b> method is used either to enable 
+	or to disable a window. Its syntax is: </p>
+	<pre style="position: relative;">BOOL EnableWindow(BOOL <i>bEnable</i> = TRUE);<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">Here is an example that disables a control called Memo:
+	</p>
+	<pre style="position: relative;">void CSecondDlg::OnDisableMemo()
+{
+    memo-&gt;EnableWindow(FALSE);
+}<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">When calling the <b>EnableWindow()</b> method, if you 
+	pass the <b>FALSE</b> value, the control is disabled, whether it was already 
+	disabled or not. If you pass the <b>TRUE</b> constant, it gets enabled even 
+	it was already enabled. Sometimes you may want to check first whether the 
+	control is already enabled or disabled. To help you with this, <b>CWnd</b> 
+	class provides the <b>IsWindowEnabled()</b> method. Its syntax is: </p>
+	<pre style="position: relative;">BOOL IsWindowEnabled( ) const;<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">This method checks the control that called it. If the 
+	control is enabled, the member function returns TRUE. If the control is 
+	disabled, this method returns FALSE. Here is an example: </p>
+	<pre style="position: relative;">void CSecondDlg::OnDisableMemo()
+{
+    if( memo-&gt;IsWindowEnabled() == TRUE )
+	memo-&gt;EnableWindow(FALSE);
+    else // if( !memo-&gt;IsWindowEnabled() )
+	memo-&gt;EnableWindow();
+}<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">Here is a simplified version of the above code: </p>
+	<pre style="position: relative;">void CSecondDlg::OnDisableMemo()
+{
+    memo-&gt;EnableWindow(!Memo-&gt;IsWindowEnabled());
+}<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+
+    </td>
+    <td valign="top">
+      <table border="0" width="100%">
+        <tbody><tr>
+          <td width="100%">
+          
+
+
+          </td>
+        </tr>
+      </tbody></table>&nbsp;
+    </td>
+  </tr>
+  <tr>
+    <td style="text-align: center">
+      &nbsp;
+      <table border="0" width="100%">
+        <tbody><tr>
+          <td width="100%" align="center">          </td>
+        </tr>
+      </tbody></table>
+    </td>
+  </tr>
+</tbody></table></div>
+
+&nbsp;
+
+&nbsp;
+
+<div align="center">
+<table border="0" width="900">
+  <tbody><tr>
+    <td width="100%" align="center">
+    
+<script type="text/javascript"><!--
+google_ad_client = "pub-3968514660870014";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_type = "image";
+google_ad_channel ="";
+//--></script>
+<script type="text/javascript" src="./Microsoft Visual C++ MFC_ Managing Windows Controls_files/f.txt">
+</script>
+
+    </td>
+  </tr>
+</tbody></table>
+</div>
+
+&nbsp;
+
+<div align="center">
+<table border="0" width="900">
+  <tbody><tr>
+    <td colspan="3">
+      <hr color="#FF0000">
+    </td>
+  </tr>
+  <tr>
+    <td style="text-align: center"><a href="https://www.functionx.com/visualc/index.htm">Home</a></td>
+    <td style="text-align: center"><a href="https://www.functionx.com/visualc/index.htm">Copyright � 2010-2016, FunctionX</a></td>
+    <td style="text-align: center">&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="3">
+      <hr color="#FF0000">
+    </td>
+  </tr>
+</tbody></table></div>
+
+<!-- DynamiContext AdLinks  -->
+<script language="JavaScript">
+var dc_UnitID = 14;
+var dc_PublisherID = 2409;
+var dc_AdLinkColor = 'blue';
+var  dc_adprod='ADL';
+</script>
+<script language="JavaScript" src="http://kona.kontera.com/javascript/lib/KonaLibInline.js"></script>
+<!-- DynamiContext AdLinks  -->
+
+
+
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>

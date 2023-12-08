@@ -1,0 +1,895 @@
+
+<!-- saved from url=(0046)https://www.functionx.com/visualc/Lesson03.htm -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+<meta name="Keywords" content="">
+<meta name="Description" content=".">
+
+<link rel="stylesheet" type="text/css" href="./Microsoft Visual C++ MFC_ Accessories for Applications and Windows_files/Lessons.css">
+
+<title>Microsoft Visual C++ MFC: Accessories for Applications and Windows</title>
+</head>
+
+<body data-new-gr-c-s-check-loaded="14.1145.0" data-gr-ext-installed="">
+
+<div align="center">
+
+<table border="0" width="900" cellspacing="1" cellpadding="0">
+  <tbody><tr>
+    <td width="738" align="center">
+    
+
+    </td>
+  </tr>
+</tbody></table>
+</div>
+
+&nbsp;
+<div align="center">
+  <table border="0" width="900">
+    <tbody><tr>
+      <td width="680" valign="top" rowspan="2">
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tbody><tr>
+    <td width="10%" valign="middle" align="center"><a href="https://www.functionx.com/visualc/index.htm"><img border="0" src="./Microsoft Visual C++ MFC_ Accessories for Applications and Windows_files/logo1.gif" alt="Home" width="51" height="60"></a></td>
+    <td width="90%">
+      <p class="maintitle">Accessories for Applications and Windows</p></td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2" height="2" bgcolor="#CC3300"></td>
+  </tr>
+</tbody></table>
+
+<span name="KonaBody">
+
+&nbsp;
+
+&nbsp;&nbsp;<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="paratitle">The Location and Size of a Window</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #FF0000" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+	  &nbsp;
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="subtitle">The Location of a Window</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #0000FF" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+&nbsp;<table border="0" width="100%">
+  <tbody><tr>
+    <td>
+          
+<script type="text/javascript"><!--
+google_ad_client = "pub-3968514660870014";
+google_ad_width = 160;
+google_ad_height = 90;
+google_ad_format = "160x90_0ads_al";
+google_ad_type = "text_image";
+google_ad_channel ="";
+google_color_border = "800000";
+google_color_bg = "FFFFFF";
+google_color_link = "0000FF";
+google_color_url = "0000ff";
+google_color_text = "000000";
+//--></script>
+<script type="text/javascript" src="./Microsoft Visual C++ MFC_ Accessories for Applications and Windows_files/f.txt">
+</script>
+
+    </td>
+    <td>
+
+	<p class="parajust">To locate things that display on the monitor screen, the 
+	computer uses a coordinate system similar to the Cartesian's but the origin 
+	is located on the top left corner of the screen. Using this coordinate 
+	system, any point can be located by its distance from the top left corner of 
+	the screen of the horizontal and the vertical axes:</p>
+
+    </td>
+  </tr>
+</tbody></table>
+
+&nbsp;     
+
+&nbsp;<p class="pcenter">
+	  <img alt="Illustration of Window Origin" border="0" height="442" src="./Microsoft Visual C++ MFC_ Accessories for Applications and Windows_files/origin1.jpg" width="553"></p>
+	  <p class="parajust">To manage such distances, the operating system uses a 
+	  point that is represented by the horizontal and the vertical distances. 
+	  The Win32 library provides a structure called <strong>POINT</strong> and 
+	  defines it as follows:</p>
+<pre style="position: relative;">typedef struct tagPOINT
+{
+    LONG x;
+    LONG y;
+} POINT;<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <p class="parajust">The x member variable is the distance from the left 
+	  border of the screen to the point. The y variable represents the distance 
+	  from the top border of the screen to the point.</p>
+	  <p class="parajust">Besides the Win32's <b>POINT</b> structure, the 
+	  Microsoft Foundation Class (MFC) library provides the <b>CPoint</b> class. 
+	  This provides the same functionality as the <b>POINT</b> structure. As a 
+	  C++ class, it adds more functionality needed to locate a point.</p>
+	  <p class="parajust">The <b>CPoint::CPoint()</b> default constructor can be 
+	  used to declare a point variable without specifying its location. If you 
+	  know the x and y coordinates of a point, you can use the following 
+	  constructor to create a point:</p>
+<pre style="position: relative;">CPoint(int X, int Y);&nbsp;<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="subtitle">The Size of a Window</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #0000FF" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+	  <p class="parajust">While a point is used to locate an object on the 
+	  screen, each window has a size. The size provides two measures related to 
+	  an object. The size of an object can be represented as follows:</p>
+	  <p class="pcenter">
+	  <img alt="Illustration of Window Location" border="0" height="390" src="./Microsoft Visual C++ MFC_ Accessories for Applications and Windows_files/size1.jpg" width="467"></p>
+	  <p class="parajust">The width of an object, represented as CX, is the 
+	  distance from its left to its right borders and is provided in pixels. The 
+	  height of an object, represented as CY is the distance from its top to its 
+	  bottom borders and is given in pixels.</p>
+	  <p class="parajust">To represent these measures, the Win32 library uses 
+	  the <strong>SIZE</strong> structure defined as follows:</p>
+<pre style="position: relative;">typedef struct tagSIZE {
+    int cx;
+    int cy;
+} SIZE;<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <p class="parajust">Besides the Win32's <strong>SIZE</strong> structure, 
+	  the MFC provides the <b>CSize</b> class. This class has the same 
+	  functionality as <strong>SIZE</strong> but adds features of a C++ class. 
+	  For example, it provides five constructors that allows you to create a 
+	  size variable in any way of your choice. The constructors are:</p>
+<pre style="position: relative;">CSize();
+CSize(int initCX, int initCY);
+CSize(SIZE initSize);
+CSize(POINT initPt);
+CSize(DWORD dwSize);<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <p class="parajust">The default constructor allows you to declare a <b>
+	  CSize</b> variable whose values are not yet available. The constructor 
+	  that takes two arguments allows you to provide the width and the height to 
+	  create a <b>CSize</b> variable. If you want another <b>CSize</b> or a <b>
+	  SIZE</b> variables, you can use the <b>CSize(SIZE </b><i>initSize</i><b>)</b> 
+	  constructor to assign its values to your variable. You can use the 
+	  coordinates of a POINT or a <b>CPoint</b> variable to create and 
+	  initialize a <b>CSize</b> variable. When we study the effects of the 
+	  mouse, we will know you can use the coordinates of the position of a mouse 
+	  pointer. These coordinates can help you define a <b>CSize</b> variable.</p>
+	  <p class="parajust">Besides the constructors, the <b>CSize</b> class is 
+	  equipped with different member functions that can be used to perform 
+	  various operations on <b>CSize</b> and <b>SIZE</b> objects. For example, 
+	  you can add two sizes to get a new size. You can also compare two sizes to 
+	  find out whether they are the same.&nbsp;</p>
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+		  <tbody><tr>
+			  <td width="100%">
+			  <p class="subtitle">A Combination of Location and Size</p>
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="background-color: #0000FF" height="1" width="100%"></td>
+		  </tr>
+	  </tbody></table>
+	  <p class="parajust">Remember that, to let you create a window, the <strong>
+	  CWnd</strong> class provides a member function named Create and whose 
+	  syntax is:</p>
+<pre style="position: relative;">virtual BOOL Create(
+   LPCTSTR lpszClassName,
+   LPCTSTR lpszWindowName,
+   DWORD dwStyle,
+   const RECT&amp; rect,
+   CWnd* pParentWnd,
+   UINT nID,
+   CCreateContext* pContext = NULL
+);<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <p class="parajust">When a window displays, it can be identified on the 
+	  screen by its location with regards to the borders of the monitor. A 
+	  window can also be identified by its width and height. These 
+	  characteristics are specified or controlled by the <i>rect</i> argument of 
+	  the <strong>Create()</strong> member function of a control's class. This 
+	  argument is a rectangle that can be created through the Win32 <strong>RECT</strong> 
+	  structure. First, you must know how Microsoft Windows represents a 
+	  rectangle.</p>
+	  <p class="parajust">A rectangle is a geometric figure with four sides or 
+	  borders: top, right, bottom, and left. A window is also recognized as a 
+	  rectangle. Therefore, it can be represented as follows:</p>
+	  <p class="pcenter">
+	  <img alt="Illustration of Window Origin and Location" border="0" height="429" src="./Microsoft Visual C++ MFC_ Accessories for Applications and Windows_files/size3.gif" width="537"></p>
+	  <p class="parajust">Microsoft Windows represents items as a coordinate 
+	  system whose origin (0, 0) is located on the top-left corner of the 
+	  screen. Everything else is positioned from that point. Therefore:</p>
+	  <ul>
+		  <li>The distance from the left border of the screen to left border of 
+		  a window represents the left measurement</li>
+		  <li>The distance from the top border of the screen to the top border 
+		  of a window is the top measurement.</li>
+		  <li>The distance from the left border of the screen to the right 
+		  border of a window represents the right measurement</li>
+		  <li>The distance from the top border of the screen to the bottom 
+		  border of a window is the top measurement.</li>
+	  </ul>
+	  <p class="parajust">To represent these distances, the Win32 API provides a 
+	  structure called <b>RECT</b> and defined as follows:</p>
+<pre style="position: relative;">typedef struct _RECT {&nbsp;
+    LONG left;
+    LONG top;
+    LONG right;
+    LONG bottom;
+} RECT, *PRECT;<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <p class="parajust">This structure can be used to control the location of 
+	  a window on a coordinate system. It can also be used to control or specify 
+	  the dimensions of a window. To use it, specify a natural numeric value for 
+	  each of its member variables and pass its variable as the rect argument of 
+	  the <strong>Create()</strong> member function. Here is an example:</p>
+<pre style="position: relative;">RECT Recto;
+
+Recto.left = 100;
+Recto.top = 120;
+Recto.right = 620;
+Recto.bottom = 540;<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <p class="parajust">Besides the Win32 <b>RECT</b> structure, the MFC 
+	  provides an alternative to represent a rectangle on a window. This is done 
+	  as follows:</p>
+	  <p class="pcenter">
+	  <img alt="Illustration of Window Location, Origin, and Size" border="0" height="429" src="./Microsoft Visual C++ MFC_ Accessories for Applications and Windows_files/size3.gif" width="537"></p>
+	  <p class="parajust">Besides the left, top, right, and bottom measures, a 
+	  window is also recognized for its width and its height. The width is the 
+	  distance from the left to the right borders of a rectangle. The height is 
+	  the distance from the top to the bottom borders of a rectangle. To 
+	  recognize all these measures, the Microsoft Foundation Classes library 
+	  provides a class called <b>CRect</b>. This class provides various 
+	  constructors for any way you want to represent a rectangle. The <b>CRect</b> 
+	  class provides the following constructors:</p>
+<pre style="position: relative;">CRect();
+CRect(int <em>l</em>, int <em>t</em>, int <em>r</em>, int <em>b</em>);
+CRect(const RECT&amp; <em>srcRect</em>);
+CRect(LPCRECT <em>lpSrcRect</em>);
+CRect(POINT <em>point</em>, SIZE <em>size</em>);
+CRect(POINT <em>topLeft</em>, POINT <em>bottomRight</em>);<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	  <p class="parajust">The default constructor is used to declare a <b>CRect</b> 
+	  variable whose values are not known. On the other hand, if you know the 
+	  left, the top, the right, and the bottom measures of the rectangle, as 
+	  seen on the <b>RECT</b> structure, you can use them to declare and 
+	  initialize a rectangle. In the same way, you can assign a <b>CRect</b>, a
+	  <b>RECT</b>, a pointer to <b>CRect</b>, or a pointer to a <b>RECT</b> 
+	  variable to create or initialize a <b>CRect</b> instance.</p>
+	  <p class="parajust">If you do not know or would not specify the location 
+	  and dimension of a window, you can specify the value of the <i>rect</i> 
+	  argument as <b>rectDefault</b>. In this case, the compiler would use its 
+	  own internal value for this argument.</p>
+
+</span>
+
+      </td>
+      <td>
+   
+<table border="0" width="100%">
+  <tbody><tr>
+    <td width="100%">
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-3968514660870014";
+google_ad_width = 300;
+google_ad_height = 250;
+google_ad_format = "300x250_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+//--></script>
+<script type="text/javascript" src="./Microsoft Visual C++ MFC_ Accessories for Applications and Windows_files/f.txt">
+</script>
+
+    </td>
+  </tr>
+</tbody></table>
+
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">
+   
+&nbsp;
+        <table border="0" width="100%">
+          <tbody><tr>
+            <td width="100%">
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-3968514660870014";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_type = "text_image";
+google_ad_channel ="";
+google_color_border = "FFFFFF";
+google_color_link = "0000FF";
+google_color_bg = "FFFFFF";
+google_color_text = "000000";
+google_color_url = "008000";
+//--></script>
+<script type="text/javascript" src="./Microsoft Visual C++ MFC_ Accessories for Applications and Windows_files/f.txt">
+</script>
+
+            </td>
+          </tr>
+        </tbody></table>
+        <table border="0" width="100%">
+          <tbody><tr>
+            <td width="100%"></td>
+          </tr>
+        </tbody></table>
+
+&nbsp;
+
+      </td>
+    </tr>
+  </tbody></table></div>
+
+&nbsp;
+
+<div align="center">
+<table border="0" width="900">
+  <tbody><tr>
+    <td width="680" rowspan="2">
+
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="paratitle">Introduction to Colors</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #FF0000" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	&nbsp;
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">Description</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">Microsoft Windows is a graphical operating system. It 
+	uses colors to present the windows, controls, and other objects on the 
+	monitor. The operating system uses a series of colors defined in the Window 
+	Color and Appearance dialog box of the Control Panel:</p>
+	<center>
+	<img alt="Windows Color and Appearance" border="0" height="585" src="./Microsoft Visual C++ MFC_ Accessories for Applications and Windows_files/displaycolors1.gif" width="406"></center>
+	<p class="parajust">&nbsp;</p>
+	<p class="parajust">Microsoft Windows considers a color as a combination of 
+	three numeric values are used to create or specify a color. Each one of 
+	these values is 8 bits. The first number is called red. The second is called 
+	green. The third is called blue:</p>
+	<div align="center">
+		<center>
+		<table border="0" width="266">
+			<tbody><tr>
+				<td width="38"></td>
+				<td align="center" width="214">Bits</td>
+			</tr>
+			<tr>
+				<td width="38">Red&nbsp;</td>
+				<td width="214">
+				<table border="1" bordercolor="#C0C0C0" width="100%">
+					<tbody><tr>
+						<td align="center" width="12%">7</td>
+						<td align="center" width="12%">6</td>
+						<td align="center" width="12%">5</td>
+						<td align="center" width="12%">4</td>
+						<td align="center" width="13%">3</td>
+						<td align="center" width="13%">2</td>
+						<td align="center" width="13%">1</td>
+						<td align="center" width="13%">0</td>
+					</tr>
+				</tbody></table>
+				</td>
+			</tr>
+			<tr>
+				<td width="38">Green&nbsp;</td>
+				<td width="214">
+				<table border="1" bordercolor="#C0C0C0" width="100%">
+					<tbody><tr>
+						<td align="center" width="12%">7</td>
+						<td align="center" width="12%">6</td>
+						<td align="center" width="12%">5</td>
+						<td align="center" width="12%">4</td>
+						<td align="center" width="13%">3</td>
+						<td align="center" width="13%">2</td>
+						<td align="center" width="13%">1</td>
+						<td align="center" width="13%">0</td>
+					</tr>
+				</tbody></table>
+				</td>
+			</tr>
+			<tr>
+				<td width="38">Blue</td>
+				<td width="214">
+				<table border="1" bordercolor="#C0C0C0" width="100%">
+					<tbody><tr>
+						<td align="center" width="12%">7</td>
+						<td align="center" width="12%">6</td>
+						<td align="center" width="12%">5</td>
+						<td align="center" width="12%">4</td>
+						<td align="center" width="13%">3</td>
+						<td align="center" width="13%">2</td>
+						<td align="center" width="13%">1</td>
+						<td align="center" width="13%">0</td>
+					</tr>
+				</tbody></table>
+				</td>
+			</tr>
+		</tbody></table>
+		</center></div>
+	<p class="parajust">Converted to decimal, each one of these numbers would 
+	produce:</p>
+	<p class="parajust">2<sup>7</sup> + 2<sup>6</sup> + 2<sup>5</sup> + 2<sup>4</sup> 
+	+ 2<sup>3</sup> + 2<sup>2</sup> + 2<sup>1</sup> + 2<sup>0</sup>&nbsp;<br>= 128 + 
+	64 + 32 + 16 + 8 + 4 + 2 + 1<br>= 255</p>
+	<p class="parajust">Therefore, each number can have a value that ranges from 
+	0 to 255 in the decimal system. These three numbers are combined to produce 
+	a single value as follows:</p>
+	<table border="1" bordercolor="#C0C0C0" width="100%">
+		<tbody><tr>
+			<td align="center" width="5%">23</td>
+			<td align="center" width="4%">22</td>
+			<td align="center" width="4%">21</td>
+			<td align="center" width="4%">20</td>
+			<td align="center" width="4%">19</td>
+			<td align="center" width="4%">18</td>
+			<td align="center" width="4%">17</td>
+			<td align="center" width="4%">16</td>
+			<td align="center" width="5%">15</td>
+			<td align="center" width="4%">14</td>
+			<td align="center" width="4%">13</td>
+			<td align="center" width="4%">12</td>
+			<td align="center" width="4%">11</td>
+			<td align="center" width="4%">10</td>
+			<td align="center" width="4%">9</td>
+			<td align="center" width="4%">8</td>
+			<td align="center" width="5%">7</td>
+			<td align="center" width="5%">6</td>
+			<td align="center" width="4%">5</td>
+			<td align="center" width="4%">4</td>
+			<td align="center" width="4%">3</td>
+			<td align="center" width="4%">2</td>
+			<td align="center" width="4%">1</td>
+			<td align="center" width="4%">0</td>
+		</tr>
+		<tr>
+			<td align="center" colspan="8" width="33%">Blue</td>
+			<td align="center" colspan="8" width="33%">Green</td>
+			<td align="center" colspan="8" width="34%">Red</td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">Converted to decimal, this number has a value of 255 * 
+	255 * 255 = 16581375. This means that we can have approximately 16 million 
+	colors available.</p>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">Creating a Color</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">Microsoft Windows characterizes a color as a 32-bit long 
+	integer value. Therefore, a color is actually a combination of 32 bits. The 
+	bits of the most significant byte (the left byte) are reserved for the 
+	operating system's internal use and must be set to 0. Based on this, each 
+	color is characterized by its combination of a red, a green, and a blue 
+	values.</p>
+	<p class="parajust">The 32-bit numeric value used by the Win32 library to 
+	characterize a color is defined as the <b>COLORREF</b> data type:</p>
+	<pre style="position: relative;">typedef DWORD COLORREF;
+typedef DWORD* LPCOLORREF;<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">You can use the <strong>COLORREF</strong> type to 
+	declare a color variable. Here is an example:</p>
+	<pre style="position: relative;">COLORREF ClrMine;<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">As you can see, the <strong>COLORREF</strong> is just 
+	a32-bit unsigned integer. When or after declaring such a variable, you can 
+	initialize it with a 32-bit decimal value. Here is an example:</p>
+	<pre style="position: relative;">COLORREF ClrMine = 1637623;<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="paratitle">Characteristics of Colors</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #FF0000" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	&nbsp;
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">The Color as a Combination of Red, Green, and 
+			Blue Values</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">Although the above number (1637623) is a legitimate 
+	color value, it is difficult to identify and predict as its red, green, and 
+	blue values are not known. To create a color value, the Win32 API provides 
+	the <b>RGB</b> macro. Its syntax is:</p>
+	<pre style="position: relative;">COLORREF RGB(BYTE byRed, BYTE byGreen, BYTE byBlue);<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">The <b>RGB</b> macro behaves like a function and 
+	requires three numeric values separated by a comma. Each value must range 
+	between 0 and 255 both included. Using <b>RGB</b>, the above initialization 
+	can be done as follows:</p>
+	<pre style="position: relative;">COLORREF ClrMine = RGB(247, 252, 24);<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">Decoding a Color</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">Whether a color was initialized with a 32-bit long 
+	integer, the <strong>RGB</strong> macro, or a valid color name, if you want 
+	to retrieve the red, green, and blue values of a color, you can use the <b>
+	GetRValue()</b>, the <b>GetGValue()</b>, and/or the <b>GetBValue()</b> 
+	macros to extract the value of each. The syntaxes of these macros are:</p>
+	<pre style="position: relative;">BYTE GetRValue(DWORD <i>rgb</i>);
+BYTE GetGValue(DWORD <i>rgb</i>);
+BYTE GetBValue(DWORD <i>rgb</i>);<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">Each macro takes a 32-bit value as argument, <i>rgb</i>. 
+	The <b>GetRValue()</b> macro returns the red value of the <i>rgb</i> 
+	parameter. The <b>GetGValue()</b> macro returns the green value of the <i>
+	rgb</i> number. The <b>GetBValue()</b> macro returns the blue value of <i>
+	rgb</i>.</p>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">Color Identification </p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">When all three red, green, and blue numbers of a color 
+	have their lowest value, which is 0, the color is referred to as black. When 
+	the numbers are at their highest value, which is 255, the color qualifies as 
+	white.</p>
+	<p class="parajust">Just like you, because users are able and free to change 
+	the colors of their computer, it is almost impossible to predict the 
+	appearance of these colors on someone elseÃ¢â‚¬â„¢s machine. Fortunately, if 
+	you want to use one of the systeme-defined colors, you can ask your 
+	application to check its value on the userÃ¢â‚¬â„¢s computer. To do this, 
+	you can call the <b>GetSysColor()</b> function. Its syntax is:</p>
+	<pre style="position: relative;">DWORD GetSysColor(int nIndex);<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+	<p class="parajust">This function receives a constant value that is defined 
+	in the operating system representing one of the appearanceÃ¢â‚¬â„¢s colors 
+	and returns the 32-bit value of that color. The colors defined in Control 
+	Panel can be passed as the <i>nIndex</i> argument of the <b>GetSysColor()</b> 
+	function are:</p>
+	<div align="center">
+		<center>
+		<table border="1" bordercolor="#FFFFFF" width="600">
+			<tbody><tr>
+				<td style="background-color: #808080" height="36" width="367"><b>
+				<font color="#FFFFFF">System Color Role: Color of</font></b></td>
+				<td style="background-color: #808080" height="36" width="172"><b>
+				<font color="#FFFFFF">System Color - nIndex</font></b></td>
+			</tr>
+			<tr>
+				<td style="background-color: #C0C0C0" height="32" width="367">3D Objects 
+				Background</td>
+				<td style="background-color: #C0C0C0" height="32" width="172">COLOR_3DFACE<br>
+				COLOR_BTNFACE</td>
+			</tr>
+			<tr>
+				<td style="background-color: #EAEAEA" height="64" width="367">3D Objects: Top 
+				and Left Edges</td>
+				<td style="background-color: #EAEAEA" height="64" width="172">COLOR_3DHILIGHT<br>
+				COLOR_3DHIGHLIGHT<br>COLOR_BTNHILIGHT<br>COLOR_BTNHIGHLIGHT</td>
+			</tr>
+			<tr>
+				<td style="background-color: #C0C0C0" height="16" width="367">3D Objects: Right 
+				and Bottom Edges</td>
+				<td style="background-color: #C0C0C0" height="16" width="172">COLOR_3DDKSHADOW</td>
+			</tr>
+			<tr>
+				<td style="background-color: #EAEAEA" height="32" width="367">3D Effect of 
+				Buttons and Dialog Boxes: Top and left edges</td>
+				<td style="background-color: #EAEAEA" height="32" width="172">COLOR_3DLIGHT</td>
+			</tr>
+			<tr>
+				<td style="background-color: #C0C0C0" height="32" width="367">3D Effect of 
+				Buttons and Dialog Boxes: Right and bottom edges</td>
+				<td style="background-color: #C0C0C0" height="32" width="172">COLOR_3DSHADOW<br>
+				COLOR_BTNSHADOW</td>
+			</tr>
+			<tr>
+				<td style="background-color: #EAEAEA" height="32" width="367">Background of 
+				Buttons and Dialog Boxes</td>
+				<td style="background-color: #EAEAEA" height="32" width="172">COLOR_BTNFACE</td>
+			</tr>
+			<tr>
+				<td style="background-color: #C0C0C0" height="16" width="367">Text of Buttons</td>
+				<td style="background-color: #C0C0C0" height="16" width="172">COLOR_BTNTEXT</td>
+			</tr>
+			<tr>
+				<td style="background-color: #EAEAEA" height="16" width="367">General Text on 
+				Windows</td>
+				<td style="background-color: #EAEAEA" height="16" width="172">COLOR_WINDOWTEXT</td>
+			</tr>
+			<tr>
+				<td style="background-color: #C0C0C0" height="16" width="367">Active Title Bar</td>
+				<td style="background-color: #C0C0C0" height="16" width="172">
+				COLOR_ACTIVECAPTION</td>
+			</tr>
+			<tr>
+				<td style="background-color: #EAEAEA" height="16" width="367">Active Window 
+				Border</td>
+				<td style="background-color: #EAEAEA" height="16" width="172">COLOR_ACTIVEBORDER</td>
+			</tr>
+			<tr>
+				<td style="background-color: #C0C0C0" height="16" width="367">Inactive Window 
+				Border</td>
+				<td style="background-color: #C0C0C0" height="16" width="172">
+				COLOR_INACTIVEBORDER</td>
+			</tr>
+			<tr>
+				<td style="background-color: #EAEAEA" height="16" width="367">Application 
+				Background</td>
+				<td style="background-color: #EAEAEA" height="16" width="172">COLOR_BACKGROUND</td>
+			</tr>
+			<tr>
+				<td style="background-color: #C0C0C0" height="16" width="367">Desktop General</td>
+				<td style="background-color: #C0C0C0" height="16" width="172">COLOR_DESKTOP</td>
+			</tr>
+			<tr>
+				<td style="background-color: #EAEAEA" height="16" width="367">Desktop Background</td>
+				<td style="background-color: #EAEAEA" height="16" width="172">COLOR_BACKGROUND</td>
+			</tr>
+			<tr>
+				<td style="background-color: #C0C0C0" height="16" width="367">Inactive Title Bar 
+				Background</td>
+				<td style="background-color: #C0C0C0" height="16" width="172">
+				COLOR_INACTIVECAPTION</td>
+			</tr>
+			<tr>
+				<td style="background-color: #EAEAEA" height="16" width="367">Inactive Title Bar 
+				Text</td>
+				<td style="background-color: #EAEAEA" height="16" width="172">
+				COLOR_INACTIVECAPTIONTEXT</td>
+			</tr>
+			<tr>
+				<td style="background-color: #C0C0C0" height="16" width="367">Background of MDI</td>
+				<td style="background-color: #C0C0C0" height="16" width="172">COLOR_APPWORKSPACE</td>
+			</tr>
+			<tr>
+				<td style="background-color: #EAEAEA" height="16" width="367">Menu Bar</td>
+				<td style="background-color: #EAEAEA" height="16" width="172">&nbsp;</td>
+			</tr>
+			<tr>
+				<td style="background-color: #C0C0C0" height="16" width="367">Menu Background</td>
+				<td style="background-color: #C0C0C0" height="16" width="172">COLOR_MENU</td>
+			</tr>
+			<tr>
+				<td style="background-color: #EAEAEA" height="16" width="367">Menu Text</td>
+				<td style="background-color: #EAEAEA" height="16" width="172">COLOR_MENUTEXT</td>
+			</tr>
+			<tr>
+				<td style="background-color: #C0C0C0" height="16" width="367">Menu Highlight</td>
+				<td style="background-color: #C0C0C0" height="16" width="172">&nbsp;</td>
+			</tr>
+			<tr>
+				<td style="background-color: #EAEAEA" height="16" width="367">Scrollbar</td>
+				<td style="background-color: #EAEAEA" height="16" width="172">COLOR_SCROLLBAR</td>
+			</tr>
+			<tr>
+				<td style="background-color: #C0C0C0" height="16" width="367">Selected Items 
+				Background</td>
+				<td style="background-color: #C0C0C0" height="16" width="172">COLOR_HIGHLIGHT</td>
+			</tr>
+			<tr>
+				<td style="background-color: #EAEAEA" height="16" width="367">Selected Items 
+				Text</td>
+				<td style="background-color: #EAEAEA" height="16" width="172">
+				COLOR_HIGHLIGHTTEXT</td>
+			</tr>
+			<tr>
+				<td style="background-color: #C0C0C0" height="16" width="367">ToolTip Background</td>
+				<td style="background-color: #C0C0C0" height="16" width="172">COLOR_INFOBK</td>
+			</tr>
+			<tr>
+				<td style="background-color: #EAEAEA" height="16" width="367">ToolTip Text</td>
+				<td style="background-color: #EAEAEA" height="16" width="172">COLOR_INFOTEXT</td>
+			</tr>
+			<tr>
+				<td style="background-color: #C0C0C0" height="16" width="367">Window: Text on 
+				Caption</td>
+				<td style="background-color: #C0C0C0" height="16" width="172">COLOR_CAPTIONTEXT</td>
+			</tr>
+			<tr>
+				<td style="background-color: #EAEAEA" height="16" width="367">Window Background</td>
+				<td style="background-color: #EAEAEA" height="16" width="172">COLOR_WINDOW</td>
+			</tr>
+			<tr>
+				<td style="background-color: #C0C0C0" height="16" width="367">Window Frame</td>
+				<td style="background-color: #C0C0C0" height="16" width="172">COLOR_WINDOWFRAME</td>
+			</tr>
+			<tr>
+				<td style="background-color: #EAEAEA" height="16" width="367">Window Text</td>
+				<td style="background-color: #EAEAEA" height="16" width="172">COLOR_WINDOWTEXT</td>
+			</tr>
+			<tr>
+				<td style="background-color: #C0C0C0" height="32" width="367">Right Side of a 
+				Gradient Active Window Title Bar</td>
+				<td style="background-color: #C0C0C0" height="32" width="172">
+				COLOR_GRADIENTACTIVECAPTION</td>
+			</tr>
+			<tr>
+				<td style="background-color: #EAEAEA" height="32" width="367">Right Side of a 
+				Gradient Inactive Window Title Bar</td>
+				<td style="background-color: #EAEAEA" height="32" width="172">
+				COLOR_GRADIENTINACTIVECAPTION</td>
+			</tr>
+			<tr>
+				<td style="background-color: #C0C0C0" height="32" width="367">Color of Hot-Track 
+				Item</td>
+				<td style="background-color: #C0C0C0" height="32" width="172">COLOR_HOTLIGHT</td>
+			</tr>
+		</tbody></table>
+		</center></div>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="100%">
+			<p class="subtitle">Color Palettes </p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #0000FF" height="1" width="100%"></td>
+		</tr>
+	</tbody></table>
+	<p class="parajust">Device independence is the ability for an application to 
+	draw its intended figures, text, shapes, and display colors regardless of 
+	the device on which the drawing is performed. One way to take care of this 
+	is to manage colors at the operating system level so that Microsoft Windows 
+	can select the right color to render an object or portion of it. In some 
+	cases, a device, such as a monitor or a printer, may need to take care of 
+	the coloring details of the job(s) it is asked to perform. </p>
+	<p class="parajust">A color palette is a list of colors that a device can 
+	display. For example, one device may be able to handle only two colors. Such 
+	is the case for a black and white printer. Another device could be able to 
+	use more colors than that. To control this situation, Microsoft Windows 
+	keeps track of the color palette of each device installed on the computer.
+	</p>
+	<p class="parajust">There are two types of color palettes. The default color 
+	palette is a list of colors that the operating system would use on a device 
+	unless notified otherwise. There are typically 20 reserved colors as 
+	default. A logical palette is a palette that an application creates for a 
+	specific device context.</p>
+
+    </td>
+    <td valign="top">
+      <table border="0" width="100%">
+        <tbody><tr>
+          <td width="100%">
+          
+
+
+          </td>
+        </tr>
+      </tbody></table>&nbsp;
+    </td>
+  </tr>
+  <tr>
+    <td style="text-align: center">
+      &nbsp;
+      <table border="0" width="100%">
+        <tbody><tr>
+          <td width="100%" align="center">          </td>
+        </tr>
+      </tbody></table>
+    </td>
+  </tr>
+</tbody></table></div>
+
+&nbsp;
+
+&nbsp;
+
+<div align="center">
+<table border="0" width="900">
+  <tbody><tr>
+    <td width="100%" align="center">
+    
+<script type="text/javascript"><!--
+google_ad_client = "pub-3968514660870014";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_type = "image";
+google_ad_channel ="";
+//--></script>
+<script type="text/javascript" src="./Microsoft Visual C++ MFC_ Accessories for Applications and Windows_files/f.txt">
+</script>
+
+    </td>
+  </tr>
+</tbody></table>
+</div>
+
+&nbsp;
+
+<div align="center">
+<table border="0" width="900">
+  <tbody><tr>
+    <td colspan="3">
+      <hr color="#FF0000">
+    </td>
+  </tr>
+  <tr>
+    <td style="text-align: center"><a href="https://www.functionx.com/visualc/Lesson02.htm">Previous</a></td>
+    <td style="text-align: center"><a href="https://www.functionx.com/visualc/index.htm">Copyright � 2010-2016, FunctionX</a></td>
+    <td style="text-align: center"><a href="https://www.functionx.com/visualc/Lesson04.htm">Next</a></td>
+  </tr>
+  <tr>
+    <td colspan="3">
+      <hr color="#FF0000">
+    </td>
+  </tr>
+</tbody></table></div>
+
+<!-- DynamiContext AdLinks  -->
+<script language="JavaScript">
+var dc_UnitID = 14;
+var dc_PublisherID = 2409;
+var dc_AdLinkColor = 'blue';
+var  dc_adprod='ADL';
+</script>
+<script language="JavaScript" src="http://kona.kontera.com/javascript/lib/KonaLibInline.js"></script>
+<!-- DynamiContext AdLinks  -->
+
+
+
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>
